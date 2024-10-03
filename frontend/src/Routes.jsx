@@ -23,10 +23,10 @@ const ProjectRoutes = ()=>{
             setCurrentUser(userIdFromStorage);
         }
 
-        // if(!userIdFromStorage && ["/auth", "/signup"].includes(window.location.pathname))
-        //     {
-        //    navigate("/auth");
-        // }
+        if(!userIdFromStorage && ["/auth", "/signup"].includes(window.location.pathname))
+            {
+           navigate("/auth");
+        }
 
         if(userIdFromStorage && window.location.pathname=="/auth"){
             navigate("/");
