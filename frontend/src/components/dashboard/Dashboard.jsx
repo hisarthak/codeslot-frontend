@@ -18,7 +18,7 @@ const userId = localStorage.getItem("userId");
 
 const fetchRepositories = async()=>{
     try{
-        const response = await fetch(`http://localhost:3002/repo/user/${userId}`);
+        const response = await fetch(`13.235.77.168:3002/repo/user/${userId}`);
 
         const data = await response.json();
        setRepositories(data.repositories);
@@ -30,7 +30,7 @@ const fetchRepositories = async()=>{
 
 const fetchSuggestedRepositories = async()=>{
     try{
-        const response = await fetch(`http://localhost:3002/repo/all`);
+        const response = await fetch(`13.235.77.168:3002/repo/all`);
         const data = await response.json();
        const meta = setSuggestedRepositories(data);
       
