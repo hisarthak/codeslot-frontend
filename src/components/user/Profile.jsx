@@ -20,7 +20,7 @@ const Profile = () => {
       if (userId) {
         try {
           const response = await axios.get(
-            `https://13.200.235.108:3002/userProfile/${userId}`
+            `https://gitspace.duckdns.org:3002/userProfile/${userId}`
           );
 
           setUserDetails(response.data);

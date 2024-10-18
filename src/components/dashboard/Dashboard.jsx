@@ -18,7 +18,7 @@ const userId = localStorage.getItem("userId");
 
 const fetchRepositories = async()=>{
     try{
-        const response = await fetch(`https://13.200.235.108:3002/repo/user/${userId}`);
+        const response = await fetch(`http://gitspace.duckdns.org:3002/repo/user/${userId}`);
 
         const data = await response.json();
        setRepositories(data.repositories);
@@ -30,7 +30,7 @@ const fetchRepositories = async()=>{
 
 const fetchSuggestedRepositories = async()=>{
     try{
-        const response = await fetch(`https://13.200.235.108:3002/repo/all`);
+        const response = await fetch(`http://gitspace.duckdns.org:3002/repo/all`);
         const data = await response.json();
        const meta = setSuggestedRepositories(data);
       
