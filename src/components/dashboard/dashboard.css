@@ -1,5 +1,252 @@
 #dashboard {
     display: flex;
-    width: 1080px;
+    width: 100%;
     justify-content: space-between;
+    color: white;
   }
+
+  .slot-instructions {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+    align-items: center;
+    border: 1px solid #b7bdc8;
+    background-color: #010409;
+    border-radius: 5px;
+    margin-bottom: 0.5rem !important;
+    padding: 5px !important;
+    height: 85vh;
+    overflow-y: scroll;
+ margin-top: 1rem;
+ width: 50vw;
+ margin-right: none;
+ margin-left: none;
+  }
+  
+  .pre-box{
+  
+    width: 270px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border-radius: 5px; */
+    padding: 5px;
+    background-color: #151b23;
+  }
+
+  /* Width of the scrollbar */
+.slot-instructions::-webkit-scrollbar {
+  width: 10px; /* Width of the vertical scrollbar */
+}
+
+/* Track (background) of the scrollbar */
+.slot-instructions::-webkit-scrollbar-track {
+  background:  #b7bdc8; /* Light gray background for the scrollbar track */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+/* Handle (the draggable part of the scrollbar) */
+.slot-instructions::-webkit-scrollbar-thumb {
+  background: grey; /* Color of the scrollbar handle */
+  border-radius: 10px; /* Rounded corners for the handle */
+}
+
+/* Handle on hover */
+.slot-instructions::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker color when hovering over the scrollbar handle */
+}
+
+.search-repo{
+  display: flex;
+  flex-direction: column;
+ padding-left: 2.2rem;
+  background-color:  #010409;
+  padding-right: 2rem;
+  border:none;
+  margin-top: 0rem;
+  margin-bottom: 0;
+  border-right: 1px solid  #b7bdc8;
+  height: 110vh;
+  overflow-y: hidden;
+ width: 18rem;
+margin-right: 0.5rem;
+}
+
+.your-repo{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding-left: 1rem; 
+  border:none;
+  margin-top: 0.5rem;
+  margin-bottom:0;
+  overflow-y: hidden;
+margin-right: 0.5rem;
+}
+
+.your-repo-name{
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 500 !important;
+  font-size: 14px;
+}
+
+.search{
+  width: 16rem;
+  padding: 5px;
+  background-color: #151b23;
+  color: white;
+  border: 1.1px solid  #b7bdc8;
+  border-radius: 4px;
+  font-weight: 500 !important;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.2s ease, background-color 0.1s ease;
+}
+
+.search:focus{
+  border: 1.1px solid #409eff;
+  background-color: #010409;
+}
+
+
+
+.right-box{
+  display: flex;
+  flex-direction: column;
+align-items: center;
+ padding-right: 2.2rem;
+  background-color:  #010409;
+  /* background-color: yellow; */
+  padding-left: 1.5rem;
+  border:none;
+  margin-top: 0rem;
+  margin-bottom: 0;
+  /* border-left: 1px solid  #b7bdc8; */
+  height: 110vh;
+  overflow-x: hidden;
+  max-width: 18rem;
+margin-right: 2rem;
+/* margin-right: 10rem; */
+/* padding-right: 10rem; */
+}
+
+@media(max-width:1240px){
+  .right-box{
+    display: none;
+  }
+  .slot-instructions{
+    width: 96.2%;
+  }
+}
+
+@media(max-width: 992px){
+.search{
+  width: 12rem !important;
+}
+}
+
+@media(max-width: 862px){
+  .search{
+    width: 10rem !important;
+  }
+}
+
+@media(max-width: 768px){
+  #dashboard{
+flex-direction: column;
+align-items: center;
+  }
+
+  .search-repo{
+    position: relative;
+    background-color:  #010409;
+    margin-top: 0.7rem;
+    border-radius: 5px;
+    border: 1.1px solid  #b7bdc8;
+    padding: 1rem;
+    overflow-y: hidden;
+    height: 50vh;
+    width: 89vw;
+    margin-right: 0.3rem !important;
+    margin-left: 0.3rem !important;
+  
+  }
+
+  .slot-instructions{
+    width: 92vw;
+    margin-right: 0.3rem;
+    margin-left: 0.3rem;
+    height: 100%;
+    overflow-y: visible;
+    text-wrap: wrap;
+  }
+
+  .search{
+    width: 30rem !important;
+  }
+}
+
+@media(max-width:600px){
+
+  #dashboard{
+    align-items: center;
+  }
+  .search-repo{
+  width: 85vw;
+  }
+  .search{
+width: auto !important;
+  }
+}
+
+@media(max-width: 468px) {
+  .slot-instructions{
+    font-size: smaller;
+    width: 80vw;
+  }
+
+  .search-repo{
+    width: 75vw;
+  }
+
+  .pre-box{
+    padding: 0.2rem;
+    width: auto;
+  }
+  
+}
+
+.event-box{
+  background-color:  #010409;
+  margin-top: 1.3rem;
+  border-radius: 5px;
+  border: 1.1px solid  #b7bdc8;
+  padding: 1rem;
+  width: 100%;
+}
+
+.search-repo::-webkit-scrollbar {
+  width: 10px; /* Width of the vertical scrollbar */
+}
+
+/* Track (background) of the scrollbar */
+.search-repo::-webkit-scrollbar-track {
+  background:  #b7bdc8; /* Light gray background for the scrollbar track */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+/* Handle (the draggable part of the scrollbar) */
+.search-repo::-webkit-scrollbar-thumb {
+  background: grey; /* Color of the scrollbar handle */
+  border-radius: 10px; /* Rounded corners for the handle */
+}
+
+/* Handle on hover */
+.search-repo::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker color when hovering over the scrollbar handle */
+}
+

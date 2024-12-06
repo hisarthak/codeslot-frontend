@@ -6,12 +6,12 @@ import { PageHeader } from "@primer/react/drafts";
 import { Box, Button } from "@primer/react";
 import "./auth.css";
 
-import logo from "../../assets/github-mark-white.svg";
+import logo from "../../assets/sloth.png";
 import { Link } from "react-router-dom";
 
 const Login = () => {
 //   useEffect(() => {
-//     localStorage.removeItem("token");
+//     localStorage.removeItem("token");k
 //     localStorage.removeItem("userId");
 //     setCurrentUser(null);
 //   });

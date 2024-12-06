@@ -1,21 +1,153 @@
 nav {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 10px;
-  border-bottom: 2px solid white;  
+  padding-bottom: 0;
+  border-bottom: 1px solid #b7bdc8; 
+  padding-top: 0;
+  margin: 0;
+  height: 63px;
 }
 
 nav img {
-  height: 50px;
-  border-radius: 100%;
+  height: 40px;
+  width: 40px;
+padding-left: 3.9rem;
+padding-top: 0.8rem;
+
 }
+
+.toggle{
+  position: absolute;
+  top: 1rem;
+  left: 0.9rem;
+  background-color: transparent;
+  padding: 0.5rem;
+  border-radius: 7px;
+  border: 0.1px solid #b7bdc8;
+}
+
+.fa-solid{
+  color: #b7bdc8;
+}
+
+.repo-link {
+  text-decoration: none !important;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  /* margin-right: -2.8rem; */
+
+}
+
+@media(max-width: 427px){
+
+  .repo-link{
+    display: none;
+  }
+
+  .repo-link:hover{
+    background-color: transparent !important;
+  }
+
+  .dash{
+    font-size: small !important;
+    /* display: none; */
+  }
+
+  .profile-link{
+ display: none !important;
+  }
+  nav img {
+    height: 30px;
+    width: 30px;
+  /* padding-left: 3.9rem;
+  padding-top: 0.8rem; */
+  margin-top: 0.3rem;
+  
+  }
+
+.tooltip-text{
+ display: none !important;
+}
+
+.tooltip{
+  height: 29px !important;
+  width: 29px !important;
+  margin-top: 1rem !important;
+}
+
+}
+
+.repo-link:hover {
+  background-color: #2f3742;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer; /* Show pointer cursor on hover */
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  min-width: 120x; /* Width of tooltip */
+  background-color:rgb(255, 255, 239); /* Dark background */
+  color: black; /* White text */
+  min-height: 15px;
+font-size: small;
+font-weight: 400;
+  text-align: center; /* Center text */
+  border-radius: 5px; /* Rounded corners */
+ margin:0;
+ padding:0.1rem;
+  position: absolute; /* Position it */
+  z-index: 5; /* Make sure it appears above other content */
+  top: 125%; /* Position below the text */
+  right: 0%;
+  margin-left: 0; /* Adjust left margin */
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0s; /* Fade effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  text-wrap: nowrap;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible; /* Show tooltip */
+  opacity: 1; /* Fade in effect */
+}
+
+
+
+.btn{
+  background-color: #dcdcdc;
+  color: black;
+  margin-right: 0.9rem;
+  margin-top: 0.8rem;
+  height: 37px;
+  width: 37px;
+  border-radius: 50%;
+  display: flex;
+ justify-content: center;
+ align-items: center;
+ border: 2px solid white;
+ text-decoration: none !important;
+ margin-left: 0.6rem;
+}
+
+
 nav div {
   display: flex;
 }
 
-nav h3 {
-  margin-left: 15px;
+nav h4 {
+  margin-left: 1rem;
   color: white;
+  font-weight: 550;
+  margin-top: 1.3rem;
 }
 
 nav p {

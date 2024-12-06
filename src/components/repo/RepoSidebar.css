@@ -1,0 +1,22 @@
+.repo-side {
+    width: 25%;
+    background-color: #2d333b;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .repo-sidebar .tags {
+    margin-top: 10px;
+  }
+  
+  .repo-sidebar .tag {
+    display: inline-block;
+    background-color: #444c56;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin: 5px 5px 0 0;
+    font-size: 14px;
+  }
+  

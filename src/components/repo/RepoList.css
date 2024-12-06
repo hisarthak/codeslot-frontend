@@ -1,0 +1,91 @@
+.repo-list {
+  width: 892px;
+  background-color: #010409;
+  color: white;
+  padding: 1px;
+  border-radius: 5px;
+  border: 1px solid  #b7bdc8;
+  border-top: 1px solid #b7bdc8;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.repo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+  margin-bottom: 0;
+  border-bottom: 1px solid  #b7bdc8;
+  height: 20px;
+  background-color: #151b23;
+}
+
+.repo-files ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(446px, 1fr)); /* Adjust grid items */
+  gap: 5px; 
+  padding: 0;
+  list-style: none;
+}
+
+
+.repo-item {
+  display: flex;
+  flex-direction: row; /* Align elements in a row */
+  justify-content: space-between; /* Spread elements across the available space */
+  align-items: center; /* Vertically center elements */
+  padding: 10px 15px;
+  border-bottom: 1px solid  #b7bdc8;
+  gap: 0px; /* Adjust spacing between internal elements */
+  min-width: 0; /* Prevent items from growing too large */
+  max-width: 100%; /* Keep items within their grid cell */
+}
+
+.repo-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.repo-item:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.repo-file-name{
+  text-align: left;
+  flex: 0 0 auto; /* Prevents shrinking */
+  margin-right: auto; /* Pushes other elements away */
+}
+
+.repo-file-name:hover{
+    color: #74b9ff;
+    cursor: pointer;
+}
+
+.repo-message {
+  text-align: start;
+  flex: 0 0 auto; /* Prevents shrinking */
+width: 50px;
+color: #b1b7c2;
+  
+}
+
+.repo-time {
+  text-align: right;
+  flex: 0 0 auto; /* Prevents shrinking */
+  margin-left: auto; /* Pushes it to the extreme right */
+  color: #b1b7c2;
+}
+
+.repo--file-name,
+.repo-message,
+.repo-time {
+  font-size: 0.9em;
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
+.fa-file{
+    color:#b7bdc8;
+}
