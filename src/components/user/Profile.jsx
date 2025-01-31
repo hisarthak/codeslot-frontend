@@ -135,7 +135,7 @@ const [followingList, setFollowingList] = useState([]);
     const fetchUserDetails = async () => {
       setIsLoading(true);
       const userId = localStorage.getItem("userId");
-      const username = window.location.pathname.split("/").pop();
+      const username = window.location.pathname.replace(/\/$/, '').split('/').pop();
       const token = localStorage.getItem("token");
 
       if (userId) {
