@@ -181,9 +181,9 @@ useEffect(() => {
                 <div    onClick={() => {
 
 
-
+// navigate(0);
 navigate(`/${theUsername}`);  
-window.location.reload();
+navigate(0);
     }}
     className="profile-link">
                     <p className="btn tooltip"><b>{localStorage.getItem("username").toString().charAt(0).toUpperCase()}</b> <span className="tooltip-text">Profile</span></p>
