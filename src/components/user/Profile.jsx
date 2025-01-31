@@ -172,7 +172,14 @@ const [followingList, setFollowingList] = useState([]);
     setRepositories([]);
     const userId = localStorage.getItem("userId");
     const username = localStorage.getItem("username"); // Get the logged-in username
-    const pageUsername = window.location.pathname.split("/").pop(); // Get username from URL
+   
+  
+// Get the current URL (href), remove hash part, and clean the pathname
+const cleanPathname = window.location.href.replace(/#.*$/, '').replace(/\/$/, '');
+
+// Now get the last part of the pathname
+const pageUsername = cleanPathname.split('/').pop();
+    // Get username from URL
     setLoadingRepositories(true);
     setActiveSection("repositories");
 
@@ -203,7 +210,8 @@ const [followingList, setFollowingList] = useState([]);
     setStarredRepos([]);
     const userId = localStorage.getItem("userId");
     const token = localStorage.getItem("token");
-    const username = window.location.pathname.split("/").pop();
+    const username =  window.location.pathname.replace(/\/$/, '').split('/').pop();
+
     setLoadingStarredRepos(true);
     setActiveSection("stars");
     if (userId) {
@@ -230,7 +238,7 @@ const [followingList, setFollowingList] = useState([]);
   const followUser = async () => {
     const userId = localStorage.getItem("userId");
     const username = localStorage.getItem("username");
-    const followUsername = window.location.pathname.split("/").pop();
+    const followUsername =  window.location.pathname.replace(/\/$/, '').split('/').pop();
     const apiUrl = import.meta.env.VITE_API_URL;
   
     if (!userId || !followUsername) {

@@ -8,7 +8,7 @@ const RepoSidebar = () => {
 
   // Extract and decode repoName and username from the URL
   const getRepoDetails = () => {
-    const pathParts = window.location.pathname.split("/");
+    const pathParts = window.location.pathname.split("/").filter(Boolean);
     const username = pathParts[pathParts.length - 2]; // Get the second last part
     const repoName = pathParts.slice(-2).join("/"); // Get last two parts
     return { username: decodeURIComponent(username), repoName: decodeURIComponent(repoName) };
