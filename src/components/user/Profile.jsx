@@ -54,21 +54,22 @@ const [followingList, setFollowingList] = useState([]);
           : [...prevRepos, repoName] // Add name
   );
 
+  if(isOwner){
   setStarredRepos((prevRepos) =>
       isCurrentlyStarred
           ? prevRepos.filter((repo) => repo.name !== repoName) // Remove object
           : [...prevRepos, { name: repoName }] // Add placeholder
-  );
+  );}
 
   try {
       const url = `https://gitspace.duckdns.org:3002/starProfile/${username}/${encodeURIComponent(repoName)}?token=${encodeURIComponent(token)}&type=star`;
 
       const response = await axios.get(url);
       console.log(`Repository ${isCurrentlyStarred ? 'unstarred' : 'starred'}:`, response.data);
-
+if(isOwner){
       if (!isCurrentlyStarred) {
           setStarredRepos((prevRepos) => [...prevRepos, response.data]); // Replace placeholder with real data
-      }
+      }}
   } catch (error) {
       console.error("Error starring/un-starring repository:", error);
 
