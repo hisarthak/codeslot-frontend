@@ -221,10 +221,11 @@ const pageUsername = cleanPathname.split('/').pop();
           `https://${apiUrl}/userProfile/${username}?type=star&userId=${userId}`
         );
         setStarredRepos(response.data)
+        if(isOwner){
         setTheStarredRepos((prevRepos) => [
           ...prevRepos,
           ...response.data.map((repo) => repo.name)
-        ]);
+        ]);}
         
         // console.log(theStarredRepos)
         setLoadingStarredRepos(false);
