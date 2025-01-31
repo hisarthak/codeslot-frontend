@@ -36,6 +36,7 @@ padding-top: 0.8rem;
   border-radius: 0.5rem;
   padding-left: 0.6rem;
   padding-right: 0.6rem;
+  margin-left: 0.5rem;
   /* margin-right: -2.8rem; */
 
 }
@@ -160,3 +161,145 @@ nav h3:hover,
 nav p:hover {
   text-decoration: underline;
 }
+.nav-search-box{
+margin-right: 0;
+}
+
+
+.nav-search-box-btn{
+ 
+ 
+  padding: 10px 15px; /* Padding for the button */
+
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Font size */
+  transition: background-color 0.1s; /* Smooth transition for hover effect */
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+
+
+
+
+
+
+.nav-search-box-btn{
+  background-color: transparent;
+  color: #b7bdc8;
+  /* padding: 3px; */
+  height: 2rem;
+  margin-top: 1.1rem;
+  margin-right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 0.9rem;
+border: 1px solid #b7bdc8;
+}
+
+.nav-search-box-btn:hover{
+  border-color: #b7bdc8;
+ }
+
+ 
+
+ 
+  .nav-search-box-btn:focus{
+    outline: none;
+    border: 1px solid #b7bdc8;
+  }
+
+  
+  .nav-search-box-inp{
+    background-color: #010409;
+  color: white;
+    /* padding: 3px; */
+    height: 90%;
+   margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight:100;
+    font-size: 0.9rem;
+  width: 100%;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  }
+  .nav-search-box-inp-div{
+    background-color: #010409;
+  color: white;
+    padding: 0;
+    height: 2.2rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-weight: 400; */
+    /* font-size: 0.9rem; */
+  width: 60rem;
+  border-radius: 7px;
+  border: 2px solid #409eff;
+   /* Shadow to give the appearance of being above and casting a shadow */
+   box-shadow: 6px 14px 10px rgba(0, 0, 0, 0.6); /* Right & bottom shadow */
+  }
+  .nav-search-box-inp-div:focus{
+    outline: none;
+    border: 2px solid #409eff;
+  }
+  .nav-search-box-inp:focus{
+    outline: none;
+    border: none;
+  }
+
+  .nav-search-box-form{
+    position: fixed;
+    top: 0;
+    left: 20%;
+    margin-top: -0.2rem;
+    z-index: 200;
+  }
+
+  .fullpage-box{
+display: flex;
+flex-direction: column;
+position: fixed;
+top: 0;
+/* background-color: transparent; */
+min-height: 110vh;
+width:100%;
+left: 0;
+z-index: 100;
+background-color: rgba(128, 128, 128, 0.5);
+overflow: hidden;
+  }
+
+  .search-glass{
+    /* font-weight: 500; */
+    color: #b7bdc8;
+  }
+
+  .cross-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+background-color: #d1d7e0;
+margin-right: 10px;
+cursor: pointer;
+  }
+  .fa-times{
+    font-size: x-small;
+    color: #010409;
+    padding-left: 1px;
+    padding-top: 2px;
+    /* background-color: yellow; */
+
+   
+  }
+ 

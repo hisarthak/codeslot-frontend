@@ -8,12 +8,14 @@
   border-top: 1px solid #b7bdc8;
   display: flex;
   flex-direction: column;
+  position: relative !important;
 
 }
 
 .repo-header {
     display: flex;
     align-items: center;
+    position: relative !important;
     justify-content: space-between;
     padding: 15px;
   margin-bottom: 0;
@@ -22,12 +24,15 @@
   background-color: #151b23;
 }
 
+
+
 .repo-files ul {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(446px, 1fr)); /* Adjust grid items */
   gap: 5px; 
   padding: 0;
   list-style: none;
+  margin-top: 0 !important;
 }
 
 
@@ -36,21 +41,34 @@
   flex-direction: row; /* Align elements in a row */
   justify-content: space-between; /* Spread elements across the available space */
   align-items: center; /* Vertically center elements */
-  padding: 10px 15px;
+  padding: 8px 15px;
+  margin-top: -5px;
   border-bottom: 1px solid  #b7bdc8;
   gap: 0px; /* Adjust spacing between internal elements */
   min-width: 0; /* Prevent items from growing too large */
   max-width: 100%; /* Keep items within their grid cell */
+
+}
+
+.repo-item:hover{
+  background-color: #151b23;
 }
 
 .repo-item:last-child {
   border-bottom: none;
-  padding-bottom: 0;
+  /* padding-bottom: 0; */
+  /* margin-bottom: 0; */
 }
 
 .repo-item:first-child {
-  margin-top: 0;
-  padding-top: 0;
+  margin-top: 1px !important; 
+   padding-top: 9px !important;
+}
+
+.repo-ul{
+  /* padding-bottom: 0; */
+  margin-bottom: 0;
+ 
 }
 
 .repo-file-name{
@@ -63,6 +81,8 @@
     color: #74b9ff;
     cursor: pointer;
 }
+
+
 
 .repo-message {
   text-align: start;
@@ -86,6 +106,334 @@ color: #b1b7c2;
   white-space: nowrap; /* Prevents text from wrapping */
 }
 
+.textValue:hover{
+  color: #74b8fe;
+  text-decoration: underline;
+  
+}
+.center-elements {
+  display: flex; 
+  justify-content: center;
+   align-items: center;  
+  align-self: center;   
+  /* padding-left: 100px; */
+  /* padding-right: 0px; */
+  /* width: 100%;               */
+  /* height: 100%;            */
+  text-align: center;    
+  color: #b7bdc8; 
+  font-size: 14px;
+}
+
+.center-elements:hover{
+  color: #74b8fe;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.center-elements2{
+  color: #b7bdc8;
+  font-size: 14px;
+}
+
+
+
 .fa-file{
     color:#b7bdc8;
 }
+
+.test{
+  display: flex;
+  flex-direction: row;
+  width: 66%;
+  justify-content: space-between;
+}
+
+.folder-btn{
+    margin: 0 !important;
+    color:  #b7bdc8 ;
+    margin-top: 0px !important;
+    padding-bottom: 8px !important;
+    align-items: center;
+  /* padding-bottom: 5px; */
+  padding: 5px;
+    outline : none;
+    background: none; 
+    border: none;
+    /* padding: 0; */
+    cursor: "pointer";
+    /* color: white; */
+    display: flex;
+    font-size: 14px;
+    font-weight: 400;
+    /* align-items: baseline; */
+}
+
+
+.path-baseline{
+ align-items: center; 
+ justify-content: center;
+ margin-bottom: -4px;
+}
+
+
+
+.folder-btn:focus{
+outline: none;
+}
+
+.latest-commit{
+  color:#b7bdc8;
+  font-size: smaller;
+}
+
+.latest-commit:hover{
+  color: #74b8fe;
+  text-decoration: underline;
+}
+
+.path{
+  margin: 0;
+  padding: 0;
+}
+
+.file-content {
+ background-color: black;
+ padding: 0 !important;
+ margin: 0 !important;
+ padding-top: 0 !important;
+ padding-bottom: 0 !important;
+  
+}
+
+/* CSS for CodeMirror scroll containment */
+
+
+/* Optionally, prevent body scroll when CodeMirror is focused or clicked */
+
+.CodeMirror {
+  width: 100% !important; /* Make sure it takes up full width */
+  height: 600px !important; /* Set desired height */
+  padding: 0 !important;
+ 
+  margin: 0 !important;
+}
+
+/* .react-codemirror2 .CodeMirror-scroll{
+   overflow: hidden !important; 
+} */
+
+
+.CodeMirror-lines {
+  padding-left: 0 !important; /* Remove any default padding */
+  text-align: left !important; /* Align code to the left */
+}
+.CodeMirror {
+  background-color:#010409!important; /* Set the editor's background color */
+  /* color: white !important; */
+}
+
+/* Change background of the line numbers */
+.CodeMirror-gutters {
+  background-color: #010409 !important; /* Set the gutter (line number area) background color */
+  
+}
+
+/* Change background color of the code text area */
+.CodeMirror-code {
+  background-color: #010409 !important; /* Set the code area background color */
+}
+
+/* Set background color for the editor's code area */
+.CodeMirror {
+  background-color:#010409!important; /* Editor background */
+}
+
+/* Set background color for the line number area (gutter) */
+.CodeMirror-gutters {
+  background-color:#010409!important; /* Gutter background */
+  
+}
+
+.CodeMirror-linenumber{
+  /* background-color: white; */
+  color: #b7bdc8 !important;
+}
+
+.CodeMirror-linenumber:hover{
+  color: white !important;
+}
+
+/* Set background color for the code area */
+.CodeMirror-lines {
+  background-color:#010409 !important; /* Code lines background */
+}
+
+.pres{
+  background-color:#010409 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.CodeMirror-vscrollbar{
+  display: none !important;
+}
+
+.CodeMirror-hscrollbar{
+  display: none !important;}
+ 
+
+.CodeMirror-scrollbar-filler{
+  background-color: #010409!important;
+}
+
+.ptr-cursor{
+cursor: pointer;
+}
+
+.code-btn{
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  cursor: pointer !important;
+  font-size: 14px !important;
+}
+
+.inverted-triangle{
+  font-size:xx-small;
+}
+
+.code-link-box{
+  border-radius: 5px;
+  max-width: 21rem;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+ background-color: #151b23 !important;
+  position: absolute; /* This allows the box to overlap the content */
+  right: 5px;
+  margin-top: 9rem;
+  border: 1px solid #70767f;
+  padding: 5px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.code-link-box::-webkit-scrollbar {
+  width: 2px;
+  height: 7px;
+}
+
+/* Scrollbar track (background) */
+.code-link-box::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+/* Scrollbar handle (the draggable part) */
+.code-link-box::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+/* Scrollbar handle on hover */
+.code-link-box::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+.code-link-box-para p{
+  font-size: x-small;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.code-link-box-btn-content{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+.code-link-box-btn{
+  background-color: #151b23 !important;
+border: 1px solid #b7bdc8;
+color: white;
+}
+
+.code-link-box-btn:hover{
+  border: 1px solid #b7bdc8;
+}
+
+.code-link-box-btn:focus{
+outline: none; 
+border: 1px soild #b7bdc8;
+}
+
+
+.code-link-box-btn{
+ 
+ 
+  padding: 10px 15px; /* Padding for the button */
+
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Font size */
+  transition: background-color 0.1s; /* Smooth transition for hover effect */
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+
+
+
+
+
+
+
+.logs-btn{
+  background-color: #010409;
+  color: white;
+}
+
+.logs-btn:hover{
+  border: none;
+  outline: none;
+}
+
+.logs-btn:focus{
+  outline: none;
+  border: none;
+}
+
+.logs-btn:active{
+outline: none;
+border: none;
+}
+
+.go-to-repo-btn:hover{
+  color: #74b9ff !important;
+  cursor: pointer;
+}
+
+.go-to-repo-btn:hover i{
+  color: inherit;
+}
+
+.center-the-div{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.the-center-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+flex-grow: 1;
+}
+
+

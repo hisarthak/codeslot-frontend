@@ -1,56 +1,52 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../authContext";
-
 import { PageHeader } from "@primer/react/drafts";
 import { Box, Button } from "@primer/react";
 import "./auth.css";
-
 import logo from "../../assets/sloth.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+const apiUrl = import.meta.env.VITE_API_URL;
+// const apiUrl = "127.0.0.1:3002";
 
 const Login = () => {
-//   useEffect(() => {
-//     localStorage.removeItem("token");k
-//     localStorage.removeItem("userId");
-//     setCurrentUser(null);
-//   });
-
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState(""); // Replace email with username
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const { setCurrentUser } = useAuth();
+  const navigate = useNavigate(); // Use navigate instead of window.location.href
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      setLoading(true);
-      const res = await axios.post("https://gitspace.duckdns.org:3002/login", {
-        email: email,
-        password: password,
-      });
+        setLoading(true);
+        const res = await axios.post(`https://${apiUrl}/login`, {
+            username: username.trim(), // Trim the username before sending
+            password: password,
+        });
 
-      localStorage.setItem("token", res.data.token);
-      localStorage.setItem("userId", res.data.userId);
+        // Store token and userId in localStorage
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("userId", res.data.userId);
+        localStorage.setItem("username", username.trim());
 
-      setCurrentUser(res.data.userId);
-      setLoading(false);
-
-      window.location.href = "/";
+        // Update current user and navigate
+        setCurrentUser(res.data.userId);
+        navigate("/"); // Navigate instead of reloading the page
     } catch (err) {
-      console.error(err);
-      alert("Login Failed!");
-      setLoading(false);
+        console.error(err);
+        alert("Login Failed!");
+    } finally {
+        setLoading(false);
     }
-  };
+};
 
   return (
     <div className="login-wrapper">
       <div className="login-logo-container">
         <img className="logo-login" src={logo} alt="Logo" />
       </div>
-
       <div className="login-box-wrapper">
         <div className="login-heading">
           <Box sx={{ padding: 1 }}>
@@ -63,19 +59,19 @@ const Login = () => {
         </div>
         <div className="login-box">
           <div>
-            <label className="label">Email address</label>
+            <label className="label" htmlFor="Username">Username</label> {/* Updated Label */}
             <input
               autoComplete="off"
-              name="Email"
-              id="Email"
+              name="Username"
+              id="Username"
               className="input"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="text" // Username is text, not email
+              value={username}
+              onChange={(e) => setUsername(e.target.value)} // Updated state setter
             />
           </div>
           <div className="div">
-            <label className="label">Password</label>
+            <label className="label" htmlFor="Password">Password</label>
             <input
               autoComplete="off"
               name="Password"

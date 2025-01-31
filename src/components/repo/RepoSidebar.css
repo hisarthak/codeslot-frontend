@@ -1,5 +1,12 @@
 .repo-side {
-    width: 25%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+ top: 208px;
+ width: 15%;
+ /* right : -450px; */
+  right: 90px;
     background-color: #2d333b;
     color: white;
     padding: 20px;
@@ -19,4 +26,33 @@
     margin: 5px 5px 0 0;
     font-size: 14px;
   }
+
+  .about-para {
+    min-width: 200px; /* Set a minimum width */
+    min-height: 50px; /* Set a minimum height */
+    max-width: 100%; /* Optional: Limit max width to prevent overflow */
+    padding: 0 !important;
+    box-sizing: border-box; /* Include padding in the width/height */
+    word-wrap: break-word; /* Prevent content from overflowing */
+    margin: 0;
+    padding-top: 5px !important;
+  }
   
+  .repo-side-about{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    /* justify-content: center; */
+  }
+
+  .repo-side-pencil{
+   margin: 0;
+   padding: 0;
+   font-size: small;
+   cursor: pointer;
+  }
+
+ .fa-pencil:hover{
+  color: #74b9ff;
+ }

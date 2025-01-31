@@ -3,6 +3,9 @@ import "./dashboard.css";
 import Navbar from "../Navbar";
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+const apiUrl = import.meta.env.VITE_API_URL;
+// const apiUrl = "127.0.0.1:3002";
+
 
 
 
@@ -10,7 +13,6 @@ import axios from 'axios';
 const Dashboard = () => {
   const [repositories, setRepositories] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [suggestedRepositories, setSuggestedRepositories] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [repoName, setRepoName] = useState("");
   const [isPublic, setIsPublic] = useState(true);  // Default is public
@@ -19,10 +21,11 @@ const Dashboard = () => {
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
+    const username = localStorage.getItem("username")
 
     const fetchRepositories = async () => {
       try {
-        const response = await fetch(`https://gitspace.duckdns.org:3002/repo/user/${userId}`);
+        const response = await fetch(`https://${apiUrl}/repo/user/${username}?userId=${userId}`);
         const data = await response.json();
         setRepositories(data.repositories);
         setSearchResults(data.repositories);  // Display repositories initially
@@ -31,48 +34,13 @@ const Dashboard = () => {
       }
     };
 
-    const fetchSuggestedRepositories = async () => {
-      try {
-        const response = await fetch(`https://gitspace.duckdns.org:3002/repo/all`);
-        const data = await response.json();
     
-        // Shuffle the data to ensure randomness
-        const shuffled = data.sort(() => 0.5 - Math.random());
-    
-        // Take the first 4 items
-        const randomRepositories = shuffled.slice(0, 6);
-    
-        // Update the state with the selected repositories
-        setSuggestedRepositories(randomRepositories);
-      } catch (err) {
-        console.error("Error while fetching suggested repositories: ", err);
-      }
-    };
-
     fetchRepositories();
-    fetchSuggestedRepositories();
   }, []);
 
-  
-  useEffect(() => {
-    const fetchUserDetails = async () => {
-        const userId = localStorage.getItem("userId");
 
-        if (userId) {
-            try {
-                const response = await axios.get(
-                    `https://gitspace.duckdns.org:3002/userProfile/${userId}`
-                );
-                // Set the owner to the fetched username
-                setOwner(response.data.username);
-            } catch (err) {
-                console.error("Cannot fetch user details: ", err);
-            }
-        }
-    };
+   
 
-    fetchUserDetails();
-}, []); // Empty dependency array to run once on mount
 
 
   useEffect(() => {
@@ -86,45 +54,7 @@ const Dashboard = () => {
     }
   }, [searchQuery, repositories]);
 
-  // Function to handle repository creation
-  const handleCreateRepository = async () => {
-    const userId = localStorage.getItem("userId");
-    
-    // Input validation
-    if (!repoName) {
-      setCreateError("Repository name is required.");
-      return;
-    }
-
-    const newRepo = {
-      name: repoName,
-      visibility: isPublic ? 'public' : 'private',
-      userId: userId,
-    };
-
-    try {
-      const response = await fetch('https://gitspace.duckdns.org:3002/repo/create', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newRepo),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setRepositories((prev) => [...prev, data.repository]);  // Add new repo to the list
-        setRepoName("");  // Clear the input field after creation
-        setCreateError("");  // Clear any previous errors
-      } else {
-        throw new Error('Failed to create repository');
-      }
-    } catch (err) {
-      console.error('Error while creating repository:', err);
-      setCreateError("Failed to create repository.");
-    }
-  };
-
+  
   document.addEventListener('DOMContentLoaded', () => {
     const instructionsDiv = document.querySelector('.slot-instructions');
     instructionsDiv.scrollTop = 0; // Ensure it starts at the top
@@ -148,8 +78,10 @@ const Dashboard = () => {
             />
           </div>
           {searchResults.map((repo) => (
-            <div key={repo._id} class="your-repo">
-              <p class="your-repo-name">{owner ? owner : "Loading..."}/{repo.name}</p>
+            <div key={repo._id} className="your-repo">
+               <Link to={`/${repo.name}`} className="your-repo-name">
+      <span className='underline'>{repo.name}</span>
+    </Link>
             </div>
           ))}
           </div>
@@ -208,23 +140,54 @@ const Dashboard = () => {
           <div className='right-box'>
             <div className='event-box'>
           <h3>Upcoming Events</h3>
-          <ul>
-             <li> <Link to="/blog">
+          <ul className="event-box-list">
+             <li classsName="event-list-item"> <Link to="/blog?id=XTR-92A4-MK7" className='event-list-item'>
             <p>Tech Conference - Dec 20</p>
             </Link></li>
-            <li><p><a>Developer Meetup - Dec 25</a></p></li>
-            <li><p><a>React Summit - Jan 10</a></p></li>
+            <li  classsName="event-list-item" >
+              <Link to="/blog?id=JQ-57ZP-TX84" className='event-list-item'><p>Developer Meetup - Dec 25</p>
+              </Link>
+              </li>
+            <li  classsName="event-list-item">
+              <Link to="/blog?id=BLAZ-21XK-9TY" className='event-list-item'>
+              <p>React Summit - Jan 10</p>
+              </Link>
+              </li>
             
           </ul>
           </div>
           <div className='event-box'>
           <h3>Suggested Repositories</h3>
-          {suggestedRepositories.map((repo) => (
-            <div key={repo._id}>
-              <h4>{repo.name}</h4>
-            </div>
-            
-          ))}
+          
+               <div  className='the-suggested-repo'>
+                                            <div className="repo-name-link">
+                                           <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
+                                            <div className="the-suggested-repo-user">C</div><div  className='repo-main-info'><div  className='suggested-repo-name'>codeslot/codeslot</div>
+                                            <p className="suggested-repo-desc" >This is a repo...</p>
+                                           </div>
+                        </p>
+</div>                          
+         </div>
+           <div className='the-suggested-repo'>
+           <div className="repo-name-link">
+          <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
+           <div className="the-suggested-repo-user">S</div><div  className='repo-main-info'><div  className='suggested-repo-name'>codeslot/hi</div>
+           <p className="suggested-repo-desc" >This is a repo...</p>
+                     
+          </div>
+</p>
+</div>                          
+</div>
+  <div className='the-suggested-repo' style={{border: "none"}}>
+  <div className="repo-name-link">
+ <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
+  <div className="the-suggested-repo-user">E</div><div  className='repo-main-info'><div className='suggested-repo-name'>codeslot/badshah</div>
+  <p className="suggested-repo-desc" >This is a repo...</p>
+ </div>
+</p>
+</div>                          
+</div>
+          
           </div>
           </div>
         </aside>

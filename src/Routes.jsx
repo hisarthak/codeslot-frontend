@@ -10,6 +10,9 @@ import Signup from "./components/auth/Signup";
 import Repo from "./components/repo/Repo";
 import Blog from "./components/Blog";
 import UserRepo from "./components/repo/UserRepo"
+import RepoFile from "./components/repo/RepoFile"
+import Search from "./components/search/Search"
+import NotFound from "./components/NotFound"
 
 // Auth Context
 import { useAuth } from "./authContext";
@@ -49,23 +52,41 @@ const ProjectRoutes = ()=>{
     path:"/signup",
     element:<Signup/>
    },
+  
    {
-    path:"/profile",
-    element:<Profile/>
-   },
-   {
-    path:"/repo",
+    path:"/new",
     element: <Repo/>
    },
 
    {
-    path: "/repo/:id",
+    path: "/:username/:repo",
     element: <UserRepo/>
+   },
+   {
+    path: "/repo/:filePath",
+    element: <RepoFile/>
    },
    {
     path:"/blog",
     element: <Blog/>
-   }
+   },
+   {
+    path: "/search",
+    element: <Search/>
+   },
+   {
+    path: "/not-found",
+    element: <NotFound />
+  },
+  {
+    path:"/:username",
+    element:<Profile/>
+   },
+  // Catch-all route for unmatched paths (optional)
+  {
+    path: "*",
+    element: <NotFound /> // This renders as a fallback route if no other routes match
+  }
 
     ]);
 

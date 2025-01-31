@@ -1,8 +1,7 @@
 .profile-page-wrapper {
     display: flex;
     color: whitesmoke;
-    width: 100%;
-    /* flex-wrap: wrap; */
+    margin-left: 5rem;
   }
   
   .user-profile-section {
@@ -10,8 +9,13 @@
     /* min-height: 100vh; */
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: baseline !important;
     padding: 40px 10px;
+    margin-right: 5rem;
   }
+
+  
   
   .user-repo-section {
     margin: 0px auto;
@@ -24,28 +28,63 @@
     margin: 10px 20px 10px 10px;
     /* margin: 10px auto; */
   }
+
+  .profile-user-name{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 200;
+  }
   
   .profile-image {
-    margin: 10px auto;
-    width: 100px;
-    height: 100px;
+    /* margin: 10px auto; */
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
-    background-color: grey;
+    background-color: #dcdcdc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    font-size: 100px;
+    font-weight: 600;
+    color: #000000;
   }
   
   .follow-btn {
-    background-color: #20272d;
+    background-color: #262c36;
     width: 250px;
     margin: 10px auto;
     height: 40px;
     border-radius: 10px;
     color: whitesmoke;
+    box-sizing: border-box;
+    border: 1px solid #828891;
+    cursor: pointer;
+    /* border: 5px solid red; */
   }
-  
-  .follower {
+
+  .follow-btn:hover{
+    background-color: #2a313c !important;
+  }
+
+  .follow-btn:active{
+    /* background-color: red; */
+    border: 1px solid #262c36;
+    color: #656c76;
+    box-sizing: border-box;
+    
+  }
+
+ 
+
+  .follow{
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    width: 250px;
+     width: 250px;
     height: 30px;
     gap: 10px;
     margin: 10px auto;
@@ -102,3 +141,119 @@
   #logout:hover {
     border: 1px solid white;
   }
+
+  .hr-line-box{
+    /* background-color: yellow; */
+    position: relative;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    height: 55px;
+    width: 45vw;
+    display: flex;
+    padding: 10px;
+    padding-left: 0;
+    margin-left: 0;
+    padding-top: 7px !important;
+    
+    /* border-bottom: 5px soild brown; */
+  }
+
+  .profile-repo-desc{
+    /* font-weight: 400; */
+    color: #b7bdc8;
+    font-size: 15px;
+    margin: 0;
+  }
+
+.profile-repo-name-underline{
+  padding: 0;
+}
+.profile-repo-name-underline:hover{
+  text-decoration: underline;
+  color: #74b9ff;
+  cursor: pointer;
+}
+
+.the-logout-btn{
+
+ 
+ 
+    padding: 10px 15px; /* Padding for the button */
+  
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.1s; /* Smooth transition for hover effect */
+    transition: border-color 0.3s ease;
+    outline: none;
+  
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  background-color: #010409;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px; /* Add padding to create space inside the modal */
+  z-index: 9999; /* Ensure it appears on top of other elements */
+  height: 300px;
+  width: 300px;
+  border-radius: 10px;
+  border: 2px solid #b7bdc8;
+  overflow-y: scroll;
+}
+
+.modal-content ul {
+  list-style-type: none;
+  padding: 0; /* Optional: removes extra space around the list */
+  margin: 0;  /* Optional: removes default margin */
+}
+
+.modal-content{
+  padding: 2px;
+}
+
+.modal-content ul li {
+  margin-bottom: 10px; /* Adjust the value to control the gap */
+  width: 100%;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+}
+
+.modal-content ul li:hover {
+  background-color: #2f3742;
+  border-radius: 5px;
+  border: 1px solid #b7bdc8;
+  cursor: pointer;
+}
+
+
+  /* Width of the scrollbar */
+.modal::-webkit-scrollbar {
+ display: none;
+    
+   /* Width of the vertical scrollbar */
+  }
+
+  .follower:hover, .following:hover{
+    color: #74b8fe;;
+    cursor: pointer;
+  }
+
+  .following:hover span {
+    color: white; /* Change the text color to white on hover */
+  }
+
+  .fa-book{
+    color: inherit;
+    font-size: 15px;
+    margin-right: 0.3rem;
+  }
+  

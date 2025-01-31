@@ -10,6 +10,9 @@ import logo from "../../assets/sloth.png";
 // import logo from "../../assets/panda.jpeg";
 
 import { Link } from "react-router-dom";
+const apiUrl = import.meta.env.VITE_API_URL;
+// const apiUrl = "127.0.0.1:3002";
+
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -24,7 +27,7 @@ const Signup = () => {
 
     try {
       setLoading(true);
-      const res = await axios.post("https://gitspace.duckdns.org:3002/signup", {
+      const res = await axios.post(`https://${apiUrl}/signup`, {
         email: email,
         password: password,
         username: username,
@@ -32,6 +35,7 @@ const Signup = () => {
 
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("userId", res.data.userId);
+      localStorage.setItem("username", username.trim());
 
       setCurrentUser(res.data.userId);
       setLoading(false);
