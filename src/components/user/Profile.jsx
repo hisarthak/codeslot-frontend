@@ -158,10 +158,9 @@ const [followingList, setFollowingList] = useState([]);
           setFollowingCount(response.data.followedUsers.length);
           setFollowersCount(response.data.followers.length);
           setIsLoading(false);
-          if (response.data?._id?.toString() === userId) {
-            setIsOwner(true);
-        }
-        
+      if(response.data._id.toString()=== userId){
+        setIsOwner(true);
+      }
           setUserDetails(response.data);
       
       }
