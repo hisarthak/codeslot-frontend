@@ -21,6 +21,7 @@ const ProjectRoutes = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+      const normalizedPath = window.location.pathname.replace(/\/$/, '').split('#')[0];
         const userIdFromStorage = localStorage.getItem("userId");
 
         // If user is logged in but not set in context, update it
