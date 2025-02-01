@@ -212,6 +212,7 @@ const pageUsername = cleanPathname.split('/').pop();
     const userId = localStorage.getItem("userId");
     const token = localStorage.getItem("token");
     const username =  window.location.pathname.replace(/\/$/, '').split('/').pop();
+    const loggedInUsername = localStorage.getItem("username");
 
     setLoadingStarredRepos(true);
     setActiveSection("stars");
@@ -220,14 +221,20 @@ const pageUsername = cleanPathname.split('/').pop();
         const response = await axios.get(
           `https://${apiUrl}/userProfile/${username}?type=star&userId=${userId}`
         );
+       
         setStarredRepos(response.data)
         if(isOwner){
         setTheStarredRepos((prevRepos) => [
           ...prevRepos,
           ...response.data.map((repo) => repo.name)
-        ]);}
-        
-        // console.log(theStarredRepos)
+        ]);}else{
+console.log(response.data.starredBy);
+console.log(response.data)
+        setTheStarredRepos(response.data.filter(repo => 
+          repo.starredBy.includes(loggedInUsername)
+      ));}
+  
+       
         setLoadingStarredRepos(false);
       
       } catch (err) {
@@ -421,7 +428,13 @@ const pageUsername = cleanPathname.split('/').pop();
                       <div className="repo-main-info">
                         <div
                           className="profile-repo-name-underline"
-                          onClick={() => navigate(`/${repo.name}`)}
+                          onClick={() => {
+                            window.scrollTo({
+                              top: 0,
+                              behavior: 'instant' // Ensure instant scrolling
+                            });
+                            navigate(`/${repo.name}`);
+                          }}
                         >
                           <p
                             style={{
@@ -430,7 +443,7 @@ const pageUsername = cleanPathname.split('/').pop();
                               fontWeight: "500",
                               fontSize: "18px",
                               margin: "0",
-                              display: "flex",
+            
                               justifyContent: "baseline",
                               alignItems: "baseline"
                             }}
@@ -472,7 +485,13 @@ const pageUsername = cleanPathname.split('/').pop();
                     <div className="repo-main-info">
                     <div
       className="profile-repo-name-underline"
-      onClick={() => navigate(`/${repo.name}`)}
+      onClick={() => 
+        {
+          window.scrollTo({
+            top: 0,
+            behavior: 'instant' // Ensure instant scrolling
+          });
+        navigate(`/${repo.name}`)}}
     >
                       <p
                        style={{
@@ -481,7 +500,7 @@ const pageUsername = cleanPathname.split('/').pop();
                         fontWeight: "500",
                         fontSize: "18px",
                         margin: "0",
-                        display: "flex",
+                     
                         justifyContent: "baseline",
                         alignItems: "baseline"
                       }}><i class="fa-solid fa-book"></i>{repo.name}
@@ -525,7 +544,10 @@ const pageUsername = cleanPathname.split('/').pop();
                     setShowFollowersModal(false);
                     setShowFollowingModal(false);
                     setIsBoxVisible(false);
-                  
+                      window.scrollTo({
+                        top: 0,
+                        behavior: 'instant' // Ensure instant scrolling
+                      })
                     navigate(`/${follower.username}`);
                     window.location.reload(); // Reload the page after navigation
                   }}
@@ -554,7 +576,11 @@ const pageUsername = cleanPathname.split('/').pop();
                     setShowFollowersModal(false);
                     setShowFollowingModal(false);
                     setIsBoxVisible(false);
-                  
+                    
+                      window.scrollTo({
+                        top: 0,
+                        behavior: 'instant' // Ensure instant scrolling
+                      });
                     navigate(`/${following.username}`);
                     window.location.reload(); // Reload the page after navigation
                   }}><i class="fa-regular fa-user"style={{color: "#b7bdc8"}}></i>&nbsp;&nbsp;{following.username}</li>

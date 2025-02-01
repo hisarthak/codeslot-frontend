@@ -149,7 +149,7 @@ useEffect(() => {
             <Link to="/">
                 <div>
                     <img
-                        src="../sloth.png"
+                        src="/sloth.png"
                         alt="SlotCode Logo"
                     />
                     <h4 title="Go to Dashboard" className="dash">SlotCode</h4>

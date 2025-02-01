@@ -40,9 +40,6 @@ const ProjectRoutes = () => {
             navigate("/");
         }
 
-        if (normalizedPath.includes("/profile")) {
-          navigate(0);  // This forces a page reload by calling navigate(0)
-      }
     }, [currentUser, navigate, setCurrentUser]);
 
     let element = useRoutes([
