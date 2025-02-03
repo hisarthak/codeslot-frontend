@@ -243,7 +243,7 @@
   }
 
   .follower:hover, .following:hover{
-    color: #74b8fe;;
+    color: #74b8fe;
     cursor: pointer;
   }
 
@@ -256,4 +256,36 @@
     font-size: 15px;
     margin-right: 0.3rem;
   }
+
+  .text-follow-ing-ers{
+    color: #b7bdc8;
+    font-size: 14px;
+  }
+
+  .following:hover .text-follow-ing-ers{
+    color: #74b8fe;
+  }
+
+  .follower:hover .text-follow-ing-ers{
+    color: #74b8fe;
+  }
+
+  
+  .font-followers{
+    color: #b7bdc8;
+    font-size: 14px;
+  }
+
+  .following:hover .font-followers{
+    color: #74b8fe;
+  }
+
+  .follower:hover .font-followers{
+    color: #74b8fe;
+  }
+
+
+
+
+
   

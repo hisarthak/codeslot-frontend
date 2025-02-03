@@ -408,10 +408,10 @@ const pageUsername = cleanPathname.split('/').pop();
 {isBoxVisible &&    <div className="fullpage-box"></div>}
 <div className="follow">
 <div className="follower" onClick={handleFollowersClick}>
-            <p>{followersCount} followers</p>
+            <p><i class="fas fa-users font-followers"></i>&nbsp;{followersCount} <span className="text-follow-ing-ers">followers</span></p>
           </div>
           <div className="following" onClick={handleFollowingClick}>
-            <p><span>&bull;&nbsp;&nbsp;</span>{followingCount} following</p>
+            <p><span>&bull;&nbsp;&nbsp;</span>{followingCount} <span className="text-follow-ing-ers">following</span></p>
           </div>
           </div>
         </div>

@@ -182,6 +182,7 @@ const RepoNavbar = () => {
         <li className="the-user-link " onClick={() =>navigate(`/${window.location.reload()}`)}><b>{repoName.split("/")[1]}</b></li>
           <li><div
           className="repo-visibility"
+          title={isOwner? "Toggle visibility": "Visibility"}
           onClick={isOwner ? handleVisibilityClick : null}
           >&nbsp;{visibility? "Public": "Private"}</div></li>
           <li>
