@@ -10,9 +10,13 @@ const RepoSidebar = () => {
   const getRepoDetails = () => {
     const pathParts = window.location.pathname.split("/").filter(Boolean);
     const username = pathParts[pathParts.length - 2]; // Get the second last part
-    const repoName = pathParts.slice(-2).join("/"); // Get last two parts
+    const repoName = pathParts.slice(-2).join("/") // Get last two parts
+    console.log(repoName);
+    console.log(username);
     return { username: decodeURIComponent(username), repoName: decodeURIComponent(repoName) };
   };
+
+
 
   // Fetch the description from the backend and check username on component mount
   useEffect(() => {
@@ -25,13 +29,14 @@ const RepoSidebar = () => {
         if (localUsername && localUsername === username) {
           setCanEdit(true); // Allow editing if usernames match
         }
-
+console.log("hi");
         const encodedRepoName = encodeURIComponent(repoName);
 
         // Make the GET request to fetch the description
         const response = await axios.put(
           `https://gitspace.duckdns.org:3002/repo/update/${encodedRepoName}`
         );
+        console.log(response.data);
 
         setDescription(response.data.description || "No description provided");
       } catch (error) {

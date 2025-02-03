@@ -221,18 +221,21 @@ const pageUsername = cleanPathname.split('/').pop();
         const response = await axios.get(
           `https://${apiUrl}/userProfile/${username}?type=star&userId=${userId}`
         );
-       
+       console.log(response.data);
         setStarredRepos(response.data)
         if(isOwner){
         setTheStarredRepos((prevRepos) => [
           ...prevRepos,
           ...response.data.map((repo) => repo.name)
         ]);}else{
-console.log(response.data.starredBy);
-console.log(response.data)
-        setTheStarredRepos(response.data.filter(repo => 
-          repo.starredBy.includes(loggedInUsername)
-      ));}
+
+          const filteredRepos = response.data
+          .filter(repo => Array.isArray(repo.starredBy) && repo.starredBy.includes(loggedInUsername))
+          .map(repo => repo.name); // Store only the repo name (or username)
+      
+        // Update the state with just the repository names
+        setTheStarredRepos(filteredRepos);
+      }
   
        
         setLoadingStarredRepos(false);
@@ -423,48 +426,35 @@ console.log(response.data)
               ) : 
               repositories.length > 0 ? (
                 repositories.map((repo) => (
-                  <div className="hr-line-box" key={repo._id}>
-                    <div className="repo-name-link">
-                      <div className="repo-main-info">
-                        <div
-                          className="profile-repo-name-underline"
-                          onClick={() => {
-                            window.scrollTo({
-                              top: 0,
-                              behavior: 'instant' // Ensure instant scrolling
-                            });
-                            navigate(`/${repo.name}`);
-                          }}
-                        >
-                          <p
-                            style={{
-                              color: "#74b9ff",
-                              display: "flex",
-                              fontWeight: "500",
-                              fontSize: "18px",
-                              margin: "0",
-            
-                              justifyContent: "baseline",
-                              alignItems: "baseline"
-                            }}
-                          >
-                            <i class="fa-solid fa-book"></i>{repo.name}
-                          </p>
-                        </div>
-                        <p className="profile-repo-desc">
-                          {repo.description &&
-                          repo.description.length > 50
-                            ? repo.description.substring(0, 100) + "..."
-                            : repo.description}
-                        </p>
+                  <div key={repo._id} className='the-srch-box'>
+                    
+                  <div className="repo-name-link">
+                 <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
+                  <div className="the-user">
+                      {repo.owner.username.charAt(0).toUpperCase()}
+                  </div>
+                  <div  className='repo-main-info'>
+                      <div className='repo-name-underline'  onClick={() =>{
+                          window.scrollTo({
+                            top: 0,
+                            behavior: 'instant' // Ensure instant scrolling
+                          });
+                        navigate(`/${repo.name}`)}}>
+                          {repo.name}
                       </div>
-                    </div>
+                  <p className="repo-desc" >{repo.description && repo.description.length > 50
+? repo.description.substring(0, 100) + "..."
+: repo.description}
+</p>
+</div>
+</p>
                     <div className={`the-star-repo search-star ${theStarredRepos.includes(repo.name) ? "starred" : ""}`}
                         onClick={() => handleStarClick(repo.name)}>
                          <i className={`fa-${theStarredRepos.includes(repo.name) ? "solid" : "regular"} fa-star the-star ${
-                         theStarredRepos.includes(repo.name) ? "the-search-starred" : ""}`}></i>
+                         theStarredRepos.includes(repo.name) ? "the-starred" : ""}`}></i>
                             &nbsp;{theStarredRepos.includes(repo.name) ? "Starred" : "Star"}
                                             </div>
+                  </div>
                   </div>
                 ))
               ) : (
@@ -480,48 +470,35 @@ console.log(response.data)
               ) :
               starredRepos.length > 0 ? (
                 starredRepos.map((repo) => (
-                  <div className="hr-line-box" key={repo._id}>
-                    <div className="repo-name-link">
-                    <div className="repo-main-info">
-                    <div
-      className="profile-repo-name-underline"
-      onClick={() => 
-        {
-          window.scrollTo({
-            top: 0,
-            behavior: 'instant' // Ensure instant scrolling
-          });
-        navigate(`/${repo.name}`)}}
-    >
-                      <p
-                       style={{
-                        color: "#74b9ff",
-                        display: "flex",
-                        fontWeight: "500",
-                        fontSize: "18px",
-                        margin: "0",
-                     
-                        justifyContent: "baseline",
-                        alignItems: "baseline"
-                      }}><i class="fa-solid fa-book"></i>{repo.name}
-                      </p>
-                     
-                      </div>
-                      
-                      <p className="profile-repo-desc">
-      {repo.description &&
-      repo.description.length > 50
-        ? repo.description.substring(0, 100) + "..."
-        : repo.description}
-    </p>
-                    </div>
+                  <div key={repo._id} className='the-srch-box'>
+                    
+                  <div className="repo-name-link">
+                 <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
+                  <div className="the-user">
+                      {repo.name.charAt(0).toUpperCase()}
                   </div>
+                  <div  className='repo-main-info'>
+                      <div className='repo-name-underline'  onClick={() =>{
+                          window.scrollTo({
+                            top: 0,
+                            behavior: 'instant' // Ensure instant scrolling
+                          });
+                        navigate(`/${repo.name}`)}}>
+                          {repo.name}
+                      </div>
+                  <p className="repo-desc" >{repo.description && repo.description.length > 50
+? repo.description.substring(0, 100) + "..."
+: repo.description}
+</p>
+</div>
+</p>
                   <div className={`the-star-repo search-star ${theStarredRepos.includes(repo.name) ? "starred" : ""}`}
                         onClick={() => handleStarClick(repo.name)}>
                          <i className={`fa-${theStarredRepos.includes(repo.name) ? "solid" : "regular"} fa-star the-star ${
-                         theStarredRepos.includes(repo.name) ? "the-search-starred" : ""}`}></i>
+                         theStarredRepos.includes(repo.name) ? "the-starred" : ""}`}></i>
                             &nbsp;{theStarredRepos.includes(repo.name) ? "Starred" : "Star"}
                                             </div>
+                  </div>
                   </div>
                 ))
               ) : (

@@ -141,14 +141,14 @@ const Dashboard = () => {
             <div className='event-box'>
           <h3>Upcoming Events</h3>
           <ul className="event-box-list">
-             <li classsName="event-list-item"> <Link to="/blog?id=XTR-92A4-MK7" className='event-list-item'>
+             <li className="event-list-item"> <Link to="/blog?id=XTR-92A4-MK7" className='event-list-item'>
             <p>Tech Conference - Dec 20</p>
             </Link></li>
-            <li  classsName="event-list-item" >
+            <li  className="event-list-item" >
               <Link to="/blog?id=JQ-57ZP-TX84" className='event-list-item'><p>Developer Meetup - Dec 25</p>
               </Link>
               </li>
-            <li  classsName="event-list-item">
+            <li  className="event-list-item">
               <Link to="/blog?id=BLAZ-21XK-9TY" className='event-list-item'>
               <p>React Summit - Jan 10</p>
               </Link>
@@ -162,28 +162,28 @@ const Dashboard = () => {
                <div  className='the-suggested-repo'>
                                             <div className="repo-name-link">
                                            <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
-                                            <div className="the-suggested-repo-user">C</div><div  className='repo-main-info'><div  className='suggested-repo-name'>codeslot/codeslot</div>
+                                            <span className="the-suggested-repo-user">C</span><span  className='repo-main-info'><span className='suggested-repo-name'>codeslot/codeslot</span>
                                             <p className="suggested-repo-desc" >This is a repo...</p>
-                                           </div>
+                                           </span>
                         </p>
 </div>                          
          </div>
            <div className='the-suggested-repo'>
            <div className="repo-name-link">
           <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
-           <div className="the-suggested-repo-user">S</div><div  className='repo-main-info'><div  className='suggested-repo-name'>codeslot/hi</div>
+           <span className="the-suggested-repo-user">S</span><span  className='repo-main-info'><span  className='suggested-repo-name'>codeslot/hi</span>
            <p className="suggested-repo-desc" >This is a repo...</p>
                      
-          </div>
+          </span>
 </p>
 </div>                          
 </div>
   <div className='the-suggested-repo' style={{border: "none"}}>
   <div className="repo-name-link">
  <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
-  <div className="the-suggested-repo-user">E</div><div  className='repo-main-info'><div className='suggested-repo-name'>codeslot/badshah</div>
+  <span className="the-suggested-repo-user">E</span><span className='repo-main-info'><span className='suggested-repo-name'>codeslot/badshah</span>
   <p className="suggested-repo-desc" >This is a repo...</p>
- </div>
+ </span>
 </p>
 </div>                          
 </div>

@@ -146,7 +146,7 @@ const [pendingFollowRequest, setPendingFollowRequest] = useState(false); // Trac
                                 
                               <div className='the-repo-filter' onClick={() => setActiveFilter('repositories')} style={{display: "flex", flexDirection: "row", alignItems: "center", marginBottom: "0.7rem"}}>
                                 <div className={`${activeFilter === 'repositories' ? 'filter-blue-line ' : 'filter-invisible-line'}`}></div>
-                                <div className={`filter-options  ${activeFilter === 'repositories' ? 'filter-active' : ''}`}>&nbsp;&nbsp;<p><i class="fa-solid fa-book"></i>&nbsp;&nbsp;Repositories&nbsp;&nbsp; </p><p className='filter-options-length'>{repositories.length}</p>
+                                <div className={`filter-options  ${activeFilter === 'repositories' ? 'filter-active' : ''}`}>&nbsp;&nbsp;<p><i class="fa-solid fa-book" style={{color: "#b7bdc8"}}></i>&nbsp;&nbsp;Repositories&nbsp;&nbsp; </p><p className='filter-options-length'>{repositories.length}</p>
                                 </div>
                                 </div>
                               
@@ -178,30 +178,25 @@ const [pendingFollowRequest, setPendingFollowRequest] = useState(false); // Trac
                                         <div key={repo._id} className='the-srch-box'>
                                             <div className="repo-name-link">
                                            <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
-                                            <div className="the-user">
+                                            <span className="the-user">
                                                 {repo.owner.username.charAt(0).toUpperCase()}
-                                            </div>
-                                            <div  className='repo-main-info'>
-                                                <div className='repo-name-underline'  onClick={() => navigate(`/${repo.name}`)}>
+                                            </span>
+                                            <span className='repo-main-info'>
+                                                <span className='repo-name-underline'  onClick={() => navigate(`/${repo.name}`)}>
                                                     {repo.name}
-                                                </div>
+                                                </span>
                                             <p className="repo-desc" >{repo.description && repo.description.length > 50
                         ? repo.description.substring(0, 100) + "..."
                         : repo.description}
                         </p>
-                        </div>
+                        </span>
                         </p>
 
-                        <div
-                                                className={`the-star-repo search-star ${starredRepos.includes(repo.name) ? "starred" : ""}`}
-                                                onClick={() => handleStarClick(repo.name)}
-                                            >
-                                                <i
-                                                    className={`fa-${starredRepos.includes(repo.name) ? "solid" : "regular"} fa-star the-star ${
-                                                        starredRepos.includes(repo.name) ? "the-search-starred" : ""
-                                                    }`}
-                                                ></i>
-                                                &nbsp;{starredRepos.includes(repo.name) ? "Starred" : "Star"}
+                        <div className={`the-star-repo search-star ${starredRepos.includes(repo.name) ? "starred" : ""}`}
+                        onClick={() => handleStarClick(repo.name)}>
+                         <i className={`fa-${starredRepos.includes(repo.name) ? "solid" : "regular"} fa-star the-star ${
+                         starredRepos.includes(repo.name) ? "the-search-starred" : ""}`}></i>
+                            &nbsp;{starredRepos.includes(repo.name) ? "Starred" : "Star"}
                                             </div>
 </div>  
                    
@@ -217,9 +212,9 @@ const [pendingFollowRequest, setPendingFollowRequest] = useState(false); // Trac
             <div key={user._id} className="the-srch-box">
                   <div className="repo-name-link">
                                            <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
-                                            <div className="the-user">{user.username.charAt(0).toUpperCase()}</div><div  className='repo-main-info'><div className='repo-name-underline'  onClick={() => navigate(`/${user.username}`)}>{user.username}</div>
+                                            <span className="the-user">{user.username.charAt(0).toUpperCase()}</span><span  className='repo-main-info'><span className='repo-name-underline'  onClick={() => navigate(`/${user.username}`)}>{user.username}</span>
              
-                </div>
+                </span>
                 </p>
                 </div>
                 <div
@@ -250,14 +245,14 @@ const [pendingFollowRequest, setPendingFollowRequest] = useState(false); // Trac
                                     <div className='event-box'>
                                   <h3>Upcoming Events</h3>
                                   <ul className="event-box-list">
-                                     <li classsName="event-list-item"> <Link to="/blog?id=XTR-92A4-MK7" className='event-list-item'>
+                                     <li className="event-list-item"> <Link to="/blog?id=XTR-92A4-MK7" className='event-list-item'>
                                     <p>Tech Conference - Dec 20</p>
                                     </Link></li>
-                                    <li  classsName="event-list-item" >
+                                    <li  className="event-list-item" >
                                       <Link to="/blog?id=JQ-57ZP-TX84" className='event-list-item'><p>Developer Meetup - Dec 25</p>
                                       </Link>
                                       </li>
-                                    <li  classsName="event-list-item">
+                                    <li  className="event-list-item">
                                       <Link to="/blog?id=BLAZ-21XK-9TY" className='event-list-item'>
                                       <p>React Summit - Jan 10</p>
                                       </Link>

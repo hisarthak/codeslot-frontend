@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useRoutes } from "react-router-dom";
+import { useAuth } from "./authContext";
 
 // Pages List
 import Dashboard from "./components/dashboard/Dashboard";
@@ -13,38 +14,33 @@ import RepoFile from "./components/repo/RepoFile";
 import Search from "./components/search/Search";
 import NotFound from "./components/NotFound";
 
-// Auth Context
-import { useAuth } from "./authContext";
-
 const ProjectRoutes = () => {
     const { currentUser, setCurrentUser } = useAuth();
     const navigate = useNavigate();
+    const [authChecked, setAuthChecked] = useState(false);
 
     useEffect(() => {
-      const normalizedPath = window.location.pathname.replace(/\/$/, '').split('#')[0];
         const userIdFromStorage = localStorage.getItem("userId");
 
-        // If user is logged in but not set in context, update it
-        if (userIdFromStorage && !currentUser) {
-            setCurrentUser(userIdFromStorage);
+        if (userIdFromStorage) {
+            if (!currentUser) setCurrentUser(userIdFromStorage);
+
+            // If logged in, prevent access to auth/signup pages
+            if (["/auth", "/signup"].includes(window.location.pathname)) {
+                navigate("/", { replace: true });
+            }
+        } else {
+            // Redirect immediately if not logged in
+            navigate("/auth", { replace: true });
         }
 
-        // Redirect to login if not authenticated and trying to access a protected route
-        const protectedRoutes = ["/", "/new", "/blog", "/search"];
-        if (!userIdFromStorage && protectedRoutes.includes(window.location.pathname)) {
-            navigate("/auth");
-        }
-
-        // If already logged in, prevent access to login/signup
-        if (userIdFromStorage && ["/auth", "/signup"].includes(window.location.pathname)) {
-            navigate("/");
-        }
-
+        setAuthChecked(true); // Authentication check is complete
     }, [currentUser, navigate, setCurrentUser]);
 
+    // **Always call hooks in the same order, and use conditional rendering in JSX**
     let element = useRoutes([
-        { path: "/", element: <Dashboard /> },
         { path: "/auth", element: <Login /> },
+        { path: "/", element: <Dashboard /> },
         { path: "/signup", element: <Signup /> },
         { path: "/new", element: <Repo /> },
         { path: "/:username/:repo", element: <UserRepo /> },
@@ -56,7 +52,7 @@ const ProjectRoutes = () => {
         { path: "*", element: <NotFound /> }, // Catch-all route
     ]);
 
-    return element;
+    return authChecked ? element : <></>; // Use conditional JSX rendering
 };
 
 export default ProjectRoutes;

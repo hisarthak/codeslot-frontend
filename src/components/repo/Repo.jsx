@@ -29,7 +29,7 @@ const Repo = () => {
         return;
     }
 
-    if (/\s/.test(repoName)) {
+    if (/\s/.test(repoName.trim())) {
         setError("No spaces allowed in repository name.");
         setIsLoading(false);
         return;

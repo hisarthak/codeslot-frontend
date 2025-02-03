@@ -186,7 +186,7 @@ navigate(`/${theUsername}`);
 navigate(0);
     }}
     className="profile-link">
-                    <p className="btn tooltip"><b>{localStorage.getItem("username").toString().charAt(0).toUpperCase()}</b> <span className="tooltip-text">Profile</span></p>
+                    <p className="btn tooltip"><b>{(localStorage.getItem("username") || "Guest").charAt(0).toUpperCase()}</b> <span className="tooltip-text">Profile</span></p>
                 </div>
             </div>
         </nav>
