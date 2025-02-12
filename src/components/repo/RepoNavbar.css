@@ -322,7 +322,13 @@ margin-left: -1.5rem;
   border: 1px solid #b6bcc7;
 
 }
+.the-delete-btn:hover i{
+ 
+  
+  color: #ffb1af;
 
+
+}
 }
 
 
