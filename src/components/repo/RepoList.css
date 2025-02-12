@@ -567,6 +567,10 @@ flex-grow: 1;
     color: white;
     text-decoration: none;
     }
+    .textValue:hover{
+      color: white;
+    text-decoration: none;
+    }
 
 .center-elements {
 text-decoration: none; 
