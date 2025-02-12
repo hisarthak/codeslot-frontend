@@ -400,7 +400,7 @@ console.log("Not Owner");
 
 
       <div className="profile-page-wrapper">
-        <div className="user-profile-section">
+      <div className={`user-profile-section ${activeSection === "repositories" || activeSection === "stars" ? "the-hidden" : ""}`}>
           <div className="profile-image">{userDetails.username.split("/").pop()[0].toUpperCase()}</div>
 
           <div className="profile-user-name">

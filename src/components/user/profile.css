@@ -442,7 +442,7 @@
   /* margin: 10px auto; */
   width: 250px;
   height: 250px;
-  margin-left: 1rem;
+  margin-left: 0.1rem;
   border-radius: 50%;
   background-color: #dcdcdc;
   display: flex;
@@ -519,6 +519,10 @@
   .heat-map-section{
 width: 100%;
   }
+}
+
+.the-hidden{
+display: none;
 }
 
 
