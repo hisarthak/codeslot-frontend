@@ -105,7 +105,7 @@ const Signup = () => {
             <label className="label">Email address</label>
             <input
               autoComplete="off"
-              className="input search"
+              className="input"
               type="email"
               value={email}
               onKeyDown={handleKeyDown}
@@ -118,7 +118,7 @@ const Signup = () => {
             <label className="label">Password</label>
             <input
               autoComplete="off"
-              className="input search"
+              className="inpup"
               type="password"
               value={password}
               onKeyDown={handleKeyDown}

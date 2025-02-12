@@ -45,6 +45,8 @@
     flex-direction: column;
     gap: 30px;
   }
+
+ 
   
   .input {
     width: 250px;
@@ -58,6 +60,11 @@
     transition: border-color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s,
       color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s,
       background 0.2s cubic-bezier(0.25, 0.01, 0.25, 1) 0s;
+  }
+  .input:focus{
+    
+      background-color: #010409;
+  
   }
   
   .label {

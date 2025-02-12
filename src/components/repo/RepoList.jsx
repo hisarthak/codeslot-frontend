@@ -727,6 +727,7 @@ if (isLogsView) {
           <>
           <div className="center-the-div">
           <img
+          className="img-sleepy-sloth"
                         src="/sleepysloth.png"
                         alt="Sleepy Sloth"
                     />

@@ -87,7 +87,7 @@ const Login = () => {
               autoComplete="off"
               name="Username"
               id="Username"
-              className="input search"
+              className="input"
               type="text" // Username is text, not email
               value={username}
               onKeyDown={handleKeyDown}
@@ -101,7 +101,7 @@ const Login = () => {
               autoComplete="off"
               name="Password"
               id="Password"
-              className="input search"
+              className="input"
               type="password"
               onKeyDown={handleKeyDown}
               value={password}

@@ -321,6 +321,9 @@ cursor: pointer;
 }
 
 @media(max-width: 500px){
+  .img-sleepy-sloth{
+    display: none !important;
+  }
   .code-btn{
     height: 20px;
     width: 20%;
@@ -550,5 +553,7 @@ flex-grow: 1;
   width: 100%;
   }
   }
+
+  
 
 

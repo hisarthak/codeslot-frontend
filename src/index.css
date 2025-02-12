@@ -8,6 +8,11 @@ input, textarea {
   -webkit-user-select: text;
   user-select: text;
 }
+@media (hover: none) {
+  *:hover {
+    all: unset !important;
+  }
+}
 body{
   min-height: 100%;
   width: 100%;
