@@ -8,8 +8,7 @@
   .slot-instructions {
     display: flex;
     flex-direction: column;
-    /* justify-content: center;
-    align-items: center; */
+   
     align-items: center;
     border: 1px solid #b7bdc8;
     background-color: #010409;
@@ -83,7 +82,7 @@ margin-right: 0.5rem;
   border:none;
   margin-top: 0.5rem;
   margin-bottom:0;
-  overflow-y: hidden;
+  overflow-y: visible;
 margin-right: 0.5rem;
 }
 
@@ -176,7 +175,7 @@ align-items: center;
     border-radius: 5px;
     border: 1.1px solid  #b7bdc8;
     padding: 1rem;
-    overflow-y: hidden;
+    overflow-y: scroll;
     height: 50vh;
     width: 89vw;
     margin-right: 0.3rem !important;

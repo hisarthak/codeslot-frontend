@@ -30,8 +30,10 @@ const ProjectRoutes = () => {
                 navigate("/", { replace: true });
             }
         } else {
-            // Redirect immediately if not logged in
-            navigate("/auth", { replace: true });
+            // Allow access to Signup but redirect others to Login
+            if (window.location.pathname !== "/signup") {
+                navigate("/auth", { replace: true });
+            }
         }
 
         setAuthChecked(true); // Authentication check is complete
@@ -40,8 +42,8 @@ const ProjectRoutes = () => {
     // **Always call hooks in the same order, and use conditional rendering in JSX**
     let element = useRoutes([
         { path: "/auth", element: <Login /> },
+        { path: "/signup", element: <Signup /> }, // Now accessible without login
         { path: "/", element: <Dashboard /> },
-        { path: "/signup", element: <Signup /> },
         { path: "/new", element: <Repo /> },
         { path: "/:username/:repo", element: <UserRepo /> },
         { path: "/repo/:filePath", element: <RepoFile /> },

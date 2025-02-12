@@ -56,3 +56,9 @@
  .fa-pencil:hover{
   color: #74b9ff;
  }
+
+ @media(max-width: 1350px){
+  .repo-side{
+    display: none;
+  }
+ }

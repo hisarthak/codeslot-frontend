@@ -7,52 +7,57 @@ import { useSearch } from '../searchContext';
 
 const Navbar = () => {
     const [isBoxVisible, setIsBoxVisible] = useState(false); // State to control visibility of the box
+    const [isSidebarVisible, setIsSidebarVisible] = useState(false);
     const searchBoxRef = useRef(null); // Ref for the nav-search-box
+    const sidebarRef = useRef(null);
     const [inputValue, setInputValue] = useState(""); // State to track input value
     const inputRef = useRef(null); // Ref for the input element
     const navigate = useNavigate(); // For programmatic navigation
     const location = useLocation();
-
     const { setSearchQuery, searchQuery } = useSearch();  // Destructure setSearchQuery from useSearch hook
  
 const theUsername = localStorage.getItem("username");
    
-    // Update body overflow when `isBoxVisible` changes
-    useEffect(() => {
-      if (isBoxVisible) {
-          document.body.style.overflow = "hidden"; // Disable scrolling
-          
-      } else {
-          document.body.style.overflow = ""; // Reset scrolling
-      }
+useEffect(() => {
+    if (isBoxVisible || isSidebarVisible) {
+        document.body.style.overflow = "hidden";
+    } else {
+        document.body.style.overflow = "";
+    }
+    return () => {
+        document.body.style.overflow = "";
+    };
+}, [isBoxVisible, isSidebarVisible]);
 
-      // Cleanup to avoid side effects
-      return () => {
-          document.body.style.overflow = ""; // Reset scrolling on unmount
-      };
-  }, [isBoxVisible]);
+useEffect(() => {
+    const handleClickOutside = (event) => {
+        if (
+            (searchBoxRef.current && searchBoxRef.current.contains(event.target)) ||
+            (sidebarRef.current && sidebarRef.current.contains(event.target))
+        ) {
+            return; // Do nothing if clicking inside the search box or sidebar
+        }
 
-    // Detect clicks outside the nav-search-box
-    useEffect(() => {
-      const handleClickOutside = (event) => {
-          if (
-              searchBoxRef.current &&
-              !searchBoxRef.current.contains(event.target)
-          ) {
-              setIsBoxVisible(false); // Hide the box if clicked outside
-          }
-      };
+        // Close when clicking on fullpage-box or any outside area
+        setIsBoxVisible(false);
+        setIsSidebarVisible(false);
+    };
 
-      document.addEventListener("mousedown", handleClickOutside);
-
-      return () => {
-          document.removeEventListener("mousedown", handleClickOutside);
-      };
-  }, []);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+    };
+}, []);
 
     // Function to toggle the visibility of the box
     const toggleBoxVisibility = () => {
       setIsBoxVisible((prevState) => !prevState);
+      setIsSidebarVisible(false); 
+    };
+
+    const toggleSidebarVisibility = () => {
+        setIsSidebarVisible((prev) => !prev);
+        setIsBoxVisible(false); // Close search box if sidebar opens
     };
 
     // Detect "/" key press
@@ -66,10 +71,11 @@ const theUsername = localStorage.getItem("username");
               activeElement.isContentEditable;
 
           if (isTyping) {
-              return; // Do nothing if typing in an input or textarea
+              return;
           }
 
           if (event.key === "/") {
+            setIsSidebarVisible(false); 
               event.preventDefault(); // Prevent the default browser behavior
               setIsBoxVisible(true); // Show the box
           }
@@ -143,25 +149,30 @@ useEffect(() => {
     return (
         <>
         <nav>
-            <div className="toggle">
+            <div className="toggle"onClick={toggleSidebarVisibility} >
                 <i className="fa-solid fa-bars"></i>
             </div>
-            <Link to="/">
+           
                 <div>
+             
                     <img
                         src="/sloth.png"
                         alt="SlotCode Logo"
-                    />
-                    <h4 title="Go to Dashboard" className="dash">SlotCode</h4>
+                        onClick={() => {navigate(`/`)}}
+                        style={{cursor: "pointer"}}
+                    />  
+                     <Link to="/">
+                    <h4 title="Go to Dashboard" className="dash" style={{color: "white"}}>SlotCode</h4>
+                    </Link>
                 </div>
-            </Link>
+       
             <div>
-              {isBoxVisible &&    <div className="fullpage-box"></div>}
+            {(isBoxVisible || isSidebarVisible) && <div className="fullpage-box"></div>}
            
               <div className='nav-search-box' ref={searchBoxRef}>
                 {!isBoxVisible &&
-                <button onClick={toggleBoxVisibility} className="nav-search-box-btn"><i className="fa-solid fa-magnifying-glass"></i>&nbsp;Type "/" to search&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>}
-                {isBoxVisible && (
+                <button onClick={toggleBoxVisibility} className="nav-search-box-btn"><i className="fa-solid fa-magnifying-glass"></i>&nbsp;<span className='invisible-search-btn-text'>Type "/" to search&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></button>}
+                  {isBoxVisible && !isSidebarVisible &&  (
                     <div className="nav-search-box-form">
                       <form>
                         <div  className='nav-search-box-inp-div'>&nbsp;&nbsp;<i className="fa fa-search search-glass"></i> &nbsp;
@@ -190,6 +201,58 @@ navigate(0);
                 </div>
             </div>
         </nav>
+        {isSidebarVisible && (
+                <div className={`theSidebar ${isSidebarVisible ? "active": ""}`} ref={sidebarRef}>
+                    <div className="sidebar-header">
+                     <div>
+                    <img className='logo-sidebar'
+                        src="/sloth.png"
+                        alt="SlotCode Logo"
+                    />
+                </div>
+                    <div className="close-sidebar" onClick={() => setIsSidebarVisible(false)}><i class="fa-solid fa-x"></i></div>
+                    </div>
+                    <div className="sidebar-content">
+                    <ul>
+                        <li  onClick={() =>{
+                          window.scrollTo({
+                            top: 0,
+                            behavior: 'instant' // Ensure instant scrolling
+                          });
+                        navigate(`/`)}}><i class="fa-solid fa-house"></i>&nbsp;&nbsp;Home</li>
+                        <li
+                        onClick={() =>{
+                        window.scrollTo({
+                          top: 0,
+                          behavior: 'instant' // Ensure instant scrolling
+                        });
+                      navigate(`/${theUsername}`)}} 
+                        ><i className="fa-solid fa-user-circle"></i>&nbsp;&nbsp;Profile</li>
+                          <li  onClick={() =>{
+                          window.scrollTo({
+                            top: 0,
+                            behavior: 'instant' // Ensure instant scrolling
+                          });
+                        navigate(`/new`)}}><i class="fa-solid fa-book" style={{color: "#b7bdc8"}}></i>&nbsp;Create Repo</li>
+                          <li onClick={toggleBoxVisibility} ><i class="fa-solid fa-magnifying-glass"></i>&nbsp;&nbsp;Search</li>
+                        <li
+        onClick={() => {
+       const confirmLogout = window.confirm("Are you sure you want to log out?");
+    if (confirmLogout) {
+      localStorage.removeItem("username");
+      localStorage.removeItem("token");
+      localStorage.removeItem("userId");
+      window.location.href = "/auth";
+      setCurrentUser(null);
+    }
+
+       
+        }}
+      ><i className="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;Logout</li>
+                    </ul>
+                    </div>
+                </div>
+            )}
         </>
     );
 };

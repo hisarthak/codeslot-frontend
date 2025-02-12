@@ -33,6 +33,22 @@ const RepoList = () => {
   const [isFileListNotLoading, setIsFileListNotLoading] = useState(true);
   const [isCommitFolderView, setIsCommitFolderView] = useState(false);
   const [myRepoName, setMyRepoName] = useState("");
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    
+    window.addEventListener("resize", handleResize);
+    
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const getMessageLength = () => {
+
+    if (windowWidth < 750) return 35;
+    if (windowWidth < 1010) return 40;
+    return 50;
+  };
 
 
     // Function to handle the "Code" button click
@@ -552,18 +568,18 @@ if (isLogsView) {
   </>
 ) : (
   <>
-    <p>
+    <p className="the-repo-header-title">
       <span style={{ fontSize: "14px", fontWeight: "bold" }}>
         {repoInfo.realRepoName || "Repository"}
       </span>
-      -&nbsp;
+      <span className="the-repo-header-slash">-&nbsp;</span>
       <i
         className="latest-commit ptr-cursor"
         onClick={() => fetchFilesByCommit(repoInfo.commitID)}
         title={repoInfo.message}
       >
-        {repoInfo.message.length > 50
-          ? `${repoInfo.message.substring(0, 50)}...`
+        {repoInfo.message.length > getMessageLength()
+          ? `${repoInfo.message.substring(0, getMessageLength())}...`
           : repoInfo.message || "Waiting for the first commit!"}
       </i>
     </p>
@@ -581,7 +597,7 @@ if (isLogsView) {
         onClick={handleCodeClick}
         ref={codeRef}
       >
-        Code &nbsp; <span className="inverted-triangle">&#9660;</span>
+        <span className="dNone-repo-nav">Code &nbsp;</span> <span className="inverted-triangle">&#9660;</span>
       </button>
       &nbsp;&nbsp;
       <p
@@ -691,8 +707,8 @@ if (isLogsView) {
                 </div>
                 <div className="test">
                   <div className="center-elements" title={value.message}  onClick={() => fetchFilesByCommit(value.commit_id)}>
-                    {value.message.length > 50
-                      ? value.message.substring(0, 50) + "..."
+                    {value.message.length > getMessageLength()
+                      ? value.message.substring(0, getMessageLength()) + "..."
                       : value.message}
                   </div>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

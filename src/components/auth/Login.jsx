@@ -15,9 +15,32 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const { setCurrentUser } = useAuth();
   const navigate = useNavigate(); // Use navigate instead of window.location.href
+  const [errors, setErrors] = useState({}); // Store validation errors
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleLogin(e);
+    }
+  };
+  const validateInputs = () => {
+    let newErrors = {}; // Object to store errors
+
+    // **Username validation**
+    if (!username.trim()) newErrors.username = "Required";
+
+
+
+    // **Password validation**
+    if (!password.trim()) newErrors.password = "Required";
+  
+
+    setErrors(newErrors); // Update error state
+    return Object.keys(newErrors).length === 0; // Return true if no errors
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    if (!validateInputs()) return;
 
     try {
         setLoading(true);
@@ -36,7 +59,7 @@ const Login = () => {
         navigate("/"); // Navigate instead of reloading the page
     } catch (err) {
         console.error(err);
-        alert("Login Failed!");
+        setErrors({ general: "Login Failed!" });
     } finally {
         setLoading(false);
     }
@@ -64,11 +87,13 @@ const Login = () => {
               autoComplete="off"
               name="Username"
               id="Username"
-              className="input"
+              className="input search"
               type="text" // Username is text, not email
               value={username}
+              onKeyDown={handleKeyDown}
               onChange={(e) => setUsername(e.target.value)} // Updated state setter
             />
+              {errors.username && <p className="error-message">&nbsp;&nbsp;&#9888;&nbsp;{errors.username}</p>}
           </div>
           <div className="div">
             <label className="label" htmlFor="Password">Password</label>
@@ -76,25 +101,28 @@ const Login = () => {
               autoComplete="off"
               name="Password"
               id="Password"
-              className="input"
+              className="input search"
               type="password"
+              onKeyDown={handleKeyDown}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+               {errors.password && <p className="error-message">&nbsp;&nbsp;&#9888;&nbsp;{errors.password}</p>}
           </div>
-
-          <Button
+          {errors.general && <p className="error-message">&nbsp;&nbsp;&#9888;&nbsp;{errors.general}</p>}
+          <div className='the-auth-btn-container'>
+          <button
             variant="primary"
-            className="login-btn"
-            disabled={loading}
+            className={loading ? 'disabled create-repo-btn the-auth-btn' : 'create-repo-btn the-auth-btn'}            disabled={loading}
             onClick={handleLogin}
           >
-            {loading ? "Loading..." : "Login"}
-          </Button>
+            {loading ? "Wait..." : "Login"}
+          </button>
+          </div>
         </div>
         <div className="pass-box">
           <p>
-            New to GitHub? <Link to="/signup">Create an account</Link>
+            New to CodeSlot? <Link to="/signup" className="the-auth-link"style={{color: "#74b9ff"}}>Create an account</Link>
           </p>
         </div>
       </div>

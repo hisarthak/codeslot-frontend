@@ -20,3 +20,9 @@
    right : -450px;
   }
   
+  @media(max-width: 950px){
+    .repo-contain{
+      margin: 40px 10px;
+      
+    }
+  }

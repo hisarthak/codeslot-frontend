@@ -115,3 +115,194 @@ border-radius: 5px;
   border: 1px solid #ffb1af;
 }
 
+@media(max-width: 500px){
+  .link-left{
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-right: -0.5rem !important;
+    }
+    .link-right{
+      padding-left: 1px;
+      padding-right: 1px;
+      margin-left: -0.5rem !important;
+      }
+  .repo-nav-star-width{
+    width: 2rem !important;
+    height: 1.8rem;
+    display: flex;
+    align-items: center;
+
+  }
+  .d-none-repo-nav{
+    display: block !important;
+  }
+  .dNone-repo-nav{
+    display: none;
+
+  }
+  .fa-trash{
+    color: #ffb1af;
+  }
+  .the-delete-btn{
+    /* position: absolute; */
+    /* right: 1rem; */
+    background-color: #262c36;
+    color: #ffb1af;
+    width: 2rem;
+    border-radius: 5px;
+    height: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #b6bcc7;
+    font-size: 13px;
+    font-weight: 500;
+    box-sizing: border-box;
+  }
+  
+  .the-delete-btn:hover{
+    color: white;
+    background-color: #ad0116;
+    border: 1px solid #ffb1af;
+  }
+  .the-delete-btn:hover i{
+    color: white;
+  }
+  
+}
+@media(max-width: 450px){
+  .repo-nav-star-width{
+    width: 2rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 0.1rem;
+    padding-top: 0.2rem;
+
+  }
+  
+  .dNone-repo-nav{
+    display: none;
+
+  }
+}
+
+.d-none-repo-nav{
+  display: none;
+}
+
+.d-none-repo-nav-400{
+  display: none;
+}
+
+@media(max-width: 400px){
+  .the-delete-btn{
+    /* position: absolute; */
+    /* right: 1rem; */
+    background-color: #262c36;
+    color: #ffb1af;
+    width: 2rem;
+    border-radius: 5px;
+    height: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #b6bcc7;
+    font-size: 13px;
+    font-weight: 500;
+    box-sizing: border-box;
+    margin-left: -0.8rem;
+  }
+  .repo-nav-star-width{
+    width: 2rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 0.1rem;
+    padding-top: 0.2rem;
+margin-left: -1.2rem;
+  }
+  .d-none-repo-nav-400{
+    display: flex;
+  }
+  .dNone-repo-nav-400{
+    display: none;
+  }
+  .repo-visibility{
+    background-color: transparent;
+    border: none;
+    border-radius: 15px;
+    color: #b7bdc8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: small;
+    padding-left: 7px;
+    padding-right: 8px;
+   margin-left: -1rem;
+    font-weight: 600;
+    padding-top: 4px;
+    padding-bottom: 3px;
+  }
+  .repo-visibility:hover{
+    background-color: transparent;
+  
+  }
+}
+
+@media(max-width: 320px){
+  .the-delete-btn{
+    /* position: absolute; */
+    /* right: 1rem; */
+    background-color: #262c36;
+    color: #ffb1af;
+    width: 2rem;
+    border-radius: 5px;
+    height: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #b6bcc7;
+    font-size: 13px;
+    font-weight: 500;
+    box-sizing: border-box;
+    margin-left: -1rem;
+  }
+  .repo-nav-star-width{
+    width: 2rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 0.1rem;
+    padding-top: 0.2rem;
+margin-left: -1.5rem;
+  }
+  .d-none-repo-nav-400{
+    display: flex;
+  }
+  .dNone-repo-nav-400{
+    display: none;
+  }
+  .repo-visibility{
+    background-color: transparent;
+    border: none;
+    border-radius: 15px;
+    color: #b7bdc8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: small;
+    padding-left: 7px;
+    padding-right: 8px;
+   margin-left: -1.5rem;
+    font-weight: 600;
+    padding-top: 4px;
+    padding-bottom: 3px;
+  }
+  .repo-visibility:hover{
+    background-color: transparent;
+  
+  }
+}
+
+

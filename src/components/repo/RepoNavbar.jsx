@@ -177,17 +177,17 @@ const RepoNavbar = () => {
     <nav className="navbar">
       <div className="nav-right">
         <ul>
-        <li className="the-user-link " onClick={() =>navigate(`/${repoName.split("/")[0]}`)}>{repoName.split("/")[0]}</li>
+        <li className="the-user-link link-left " onClick={() =>navigate(`/${repoName.split("/")[0]}`)}>{repoName.split("/")[0]}</li>
         <li  style={{color: "#b7bdc8"}}>/</li>
-        <li className="the-user-link " onClick={() =>navigate(`/${window.location.reload()}`)}><b>{repoName.split("/")[1]}</b></li>
+        <li className="the-user-link link-right" onClick={() =>navigate(`/${window.location.reload()}`)}><b>{repoName.split("/")[1]}</b></li>
           <li><div
           className="repo-visibility"
           title={isOwner? "Toggle visibility": "Visibility"}
           onClick={isOwner ? handleVisibilityClick : null}
-          >&nbsp;{visibility? "Public": "Private"}</div></li>
+          >&nbsp;<span className="dNone-repo-nav-400">{visibility? "Public": "Private"}</span><span className="d-none-repo-nav-400">{visibility?<i className="fa-solid fa-eye"></i>:<i className="fa-solid fa-lock"></i>}</span></div></li>
           <li>
             <div
-              className={`the-star-repo ${isStarred ? "starred" : ""}`}
+              className={`the-star-repo repo-nav-star-width ${isStarred ? "starred" : ""}`}
               onClick={handleStarClick}
             >
               <i
@@ -195,12 +195,12 @@ const RepoNavbar = () => {
                   isStarred ? "the-starred" : ""
                 }`}
               ></i>
-              &nbsp;{isStarred ? "Starred" : "Star"}
+              <span className='dNone-repo-nav'>&nbsp;{isStarred ? "Starred" : "Star"}</span>
             </div>
           </li>
           { isOwner &&
           <li><div className='the-delete-btn' onClick={handleDeleteClick}>
-            Delete
+           <span className="dNone-repo-nav">Delete</span><span className="d-none-repo-nav"><i className="fa-solid fa-trash"></i></span>
             </div>
             </li>}
         </ul>

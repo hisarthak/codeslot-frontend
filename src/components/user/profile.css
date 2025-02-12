@@ -284,6 +284,243 @@
     color: #74b8fe;
   }
 
+  .the-heat-map{
+    margin-top: 5rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .the-heat-map-box{
+  
+    direction: rtl;
+    margin-right: 0rem;
+    margin-left: -1rem;
+    /* background-color: yellow; */
+  
+    border: 1px solid white;
+    border-radius: 7px;
+  }
+  .HeatMapProfile{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: -1.5rem;
+    margin-top: 1rem;
+      /* overflow: scroll; */
+    }
+   
+  @media(max-width: 950px){
+    .the-heat-map{
+      
+       
+      
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .the-heat-map p{
+     
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .the-heat-map-box{
+      width: 80%;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      direction: rtl;
+      margin-right: 0rem;
+      margin-bottom: 2rem;
+      /* background-color: yellow; */
+    
+      border: 1px solid white;
+      border-radius: 7px;
+    }
+    .heat-map-section{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .HeatMapProfile{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: -1.5rem;
+    margin-top: 1rem;
+      /* overflow: scroll; */
+    }
+    .profile-page-wrapper {
+      display: flex;
+      flex-direction:column;
+     justify-content: center;
+     align-items: center;
+      /* margin-left: 0rem; */
+    }
+  }
+
+  @media(max-width: 700px){
+    .the-heat-map-box{
+      width: 80%;
+    
+    }
+    .the-heat-map{
+      margin-left: 1rem;
+      /* margin-top: 5rem; */
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+   
+  }
+
+  @media(max-width: 600px){
+  
+    .the-heat-map-box{
+      width: 80%;
+
+    }
+
+  }
+
+   /* Width of the scrollbar */
+.the-heat-map-box::-webkit-scrollbar {
+  width: 1px; 
+  height: 7px;
+  /* Width of the vertical scrollbar */
+}
+
+/* Track (background) of the scrollbar */
+.the-heat-map-box::-webkit-scrollbar-track {
+  background:  #b7bdc8; /* Light gray background for the scrollbar track */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+/* Handle (the draggable part of the scrollbar) */
+.the-heat-map-box::-webkit-scrollbar-thumb {
+  background: grey; /* Color of the scrollbar handle */
+  border-radius: 10px; /* Rounded corners for the handle */
+}
+
+/* Handle on hover */
+.the-heat-map-box::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker color when hovering over the scrollbar handle */
+}
+
+@media(max-width: 570px){
+  .user-profile-section {
+    /* height: 12px; */
+    display: flex;
+    width: 250px;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 10px;
+    /* margin-left: 9rem; */
+    /* margin-right: 5rem; */
+  }
+  .the-heat-map{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .heat-map-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .profile-page-wrapper {
+    display: flex;
+    flex-direction:column;
+    color: whitesmoke;
+    
+   margin-left: 1rem;
+
+  }
+ 
+}
+
+
+@media(max-width: 450px){
+.profile-image {
+  /* margin: 10px auto; */
+  width: 250px;
+  height: 250px;
+  margin-left: 1rem;
+  border-radius: 50%;
+  background-color: #dcdcdc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  font-size: 100px;
+  font-weight: 600;
+  color: #000000;
+}
+.profile-page-wrapper {
+  display: flex;
+  flex-direction:column;
+  color: whitesmoke;
+  
+ margin-left: 0rem;
+
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  background-color: #010409;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px; /* Add padding to create space inside the modal */
+  z-index: 9999; /* Ensure it appears on top of other elements */
+  height: 300px;
+  width: 200px;
+  border-radius: 10px;
+  border: 2px solid #b7bdc8;
+  overflow-y: scroll;
+}
+
+.follow-btn {
+  background-color: #262c36;
+  width: 200px;
+  margin: 10px 5px;
+
+  height: 40px;
+  border-radius: 10px;
+  color: whitesmoke;
+  box-sizing: border-box;
+  border: 1px solid #828891;
+  cursor: pointer;
+  /* border: 5px solid red; */
+}
+}
+
+@media(max-width: 350px){
+  .profile-image {
+    /* margin: 10px auto; */
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #dcdcdc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    font-size: 100px;
+    font-weight: 600;
+    color: #000000;
+  }
+  .the-heat-map{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .heat-map-section{
+width: 100%;
+  }
+}
+
 
 
 

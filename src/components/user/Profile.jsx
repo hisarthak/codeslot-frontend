@@ -213,6 +213,7 @@ const pageUsername = cleanPathname.split('/').pop();
     const token = localStorage.getItem("token");
     const username =  window.location.pathname.replace(/\/$/, '').split('/').pop();
     const loggedInUsername = localStorage.getItem("username");
+    console.log(loggedInUsername);
 
     setLoadingStarredRepos(true);
     setActiveSection("stars");
@@ -222,13 +223,33 @@ const pageUsername = cleanPathname.split('/').pop();
           `https://${apiUrl}/userProfile/${username}?type=star&userId=${userId}`
         );
        console.log(response.data);
-        setStarredRepos(response.data)
+
+       const filteredStarredRepos = response.data.filter(repo => {
+        if (isOwner) {
+            // Exclude only if BOTH conditions are met
+            const isDifferentUser = repo.name.split('/')[0] !== loggedInUsername;
+            const isHidden = repo.visibility === false;
+    
+            if (isDifferentUser && isHidden) {
+                return false; // Exclude
+            }
+            return true; // Include everything else
+        } else {
+            // Non-owners only see repos with visibility === true
+            return repo.visibility === true;
+        }
+    });
+    
+    setStarredRepos(filteredStarredRepos);
+    
+    
         if(isOwner){
+          console.log("Owner");
         setTheStarredRepos((prevRepos) => [
           ...prevRepos,
           ...response.data.map((repo) => repo.name)
         ]);}else{
-
+console.log("Not Owner");
           const filteredRepos = response.data
           .filter(repo => Array.isArray(repo.starredBy) && repo.starredBy.includes(loggedInUsername))
           .map(repo => repo.name); // Store only the repo name (or username)
@@ -371,23 +392,6 @@ const pageUsername = cleanPathname.split('/').pop();
         </UnderlineNav.Item>
       </UnderlineNav>
 
-      <button
-
-      className="the-logout-btn"
-        onClick={() => {
-          localStorage.removeItem("username");
-          localStorage.removeItem("token");
-          localStorage.removeItem("userId");
-
-          setCurrentUser(null);
-
-          window.location.href = "/auth";
-        }}
-        style={{ position: "fixed", bottom: "50px", right: "50px" }}
-        id="logout"
-      >
-        Logout
-      </button>
 
       <div className="profile-page-wrapper">
         <div className="user-profile-section">
@@ -417,7 +421,14 @@ const pageUsername = cleanPathname.split('/').pop();
         </div>
 
         <div className="heat-map-section">
-          {activeSection === "overview" && <HeatMapProfile />}
+
+    
+          {activeSection === "overview" && 
+        <div className="the-heat-map">
+        <p>Contributions</p>
+          <div className="the-heat-map-box"><HeatMapProfile />
+          </div>
+          </div>}
           {activeSection === "repositories" && (
             <div className="repositories-list">
               <h3>Repositories</h3>
@@ -430,7 +441,7 @@ const pageUsername = cleanPathname.split('/').pop();
                     
                   <div className="repo-name-link">
                  <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
-                  <div className="the-user">
+                  <div className="the-user  dNone-600">
                       {repo.owner.username.charAt(0).toUpperCase()}
                   </div>
                   <div  className='repo-main-info'>
@@ -452,7 +463,7 @@ const pageUsername = cleanPathname.split('/').pop();
                         onClick={() => handleStarClick(repo.name)}>
                          <i className={`fa-${theStarredRepos.includes(repo.name) ? "solid" : "regular"} fa-star the-star ${
                          theStarredRepos.includes(repo.name) ? "the-starred" : ""}`}></i>
-                            &nbsp;{theStarredRepos.includes(repo.name) ? "Starred" : "Star"}
+                              <span className='dNone'>&nbsp;{theStarredRepos.includes(repo.name) ? "Starred" : "Star"}</span>
                                             </div>
                   </div>
                   </div>
@@ -474,7 +485,7 @@ const pageUsername = cleanPathname.split('/').pop();
                     
                   <div className="repo-name-link">
                  <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
-                  <div className="the-user">
+                  <div className="the-user  dNone-600">
                       {repo.name.charAt(0).toUpperCase()}
                   </div>
                   <div  className='repo-main-info'>
@@ -496,7 +507,7 @@ const pageUsername = cleanPathname.split('/').pop();
                         onClick={() => handleStarClick(repo.name)}>
                          <i className={`fa-${theStarredRepos.includes(repo.name) ? "solid" : "regular"} fa-star the-star ${
                          theStarredRepos.includes(repo.name) ? "the-starred" : ""}`}></i>
-                            &nbsp;{theStarredRepos.includes(repo.name) ? "Starred" : "Star"}
+                              <span className='dNone'>&nbsp;{theStarredRepos.includes(repo.name) ? "Starred" : "Star"}</span>
                                             </div>
                   </div>
                   </div>

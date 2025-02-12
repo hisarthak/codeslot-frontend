@@ -139,27 +139,25 @@ const userId = localStorage.getItem("userId");
         <>
         <Navbar/>
         <div className="repo-container">
-            <h2 style={{
-                display: "flex",
-                flexDirection: "column",
-                alignSelf: "flex-start",
-                marginBottom: "-0.8rem"
-            }}>Create a New Repository</h2>
-            <p>A repository contains all project files, including the revision history.</p>
-            <p style={{
+            <span className='create-repo-heading-container'>
+            <h2 className="create-repo-heading">Create a New Repository</h2>
+            </span>
+            <p className='what-is-a-repo'>A repository contains all project files, including the revision history.</p>
+            <p className="bottom-line" style={{
                 marginTop: "-1.5rem",
                 color: "#b7bdc8"
             }}>________________________________________________________________________</p>
-            <form onSubmit={(e) => { handleSubmit(e); }} noValidate>
-                <div style={{
+            <form  onSubmit={(e) => { handleSubmit(e); }} noValidate>
+                <div  style={{
                     marginBottom: "1rem",
-                    marginLeft: "8.5rem"
+                    marginLeft: "8.5rem",
+                    // position: "fixed"
                 }}>
-                    <label htmlFor="owner"><b>Repository owner : </b><i>&nbsp;{localStorage.getItem("username")}</i></label>
+                    <label htmlFor="owner" className='the-repository-owner'><b>Repository owner : </b><i>&nbsp;{localStorage.getItem("username")}</i></label>
                    <input hidden value={localStorage.getItem("username")}/>
                 </div>
 
-                <div className="inp">
+                <div className="inp the-repository-name-inp">
                     <label htmlFor="repo-name"><b>Repository name</b></label>
                     <input 
                     className={`repo-input ${error ? 'invalid' : ''}`} // Add 'invalid' class for error styling
@@ -203,7 +201,7 @@ const userId = localStorage.getItem("userId");
                             checked={visibility === 'public'}
                             onChange={(e) => setVisibility(e.target.value)}
                         /> <span className="radio-btn"></span>
-                        <label htmlFor="public" className='custom-radio'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><i className="fa-solid fa-eye"></i> Public</b></label>
+                        <label htmlFor="public" className='custom-radio'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><i className="fa-solid fa-eye"></i><span className='invisible-media'>Public</span></b></label>
                    
                     &nbsp; &nbsp;
                         <input
@@ -215,15 +213,15 @@ const userId = localStorage.getItem("userId");
                             checked={visibility === 'private'}
                             onChange={(e) => setVisibility(e.target.value)}
                         /> <span className="radio-btn"></span>
-                         <label htmlFor="private" className='custom-radio'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><i className="fa-solid fa-lock"></i> Private</b></label>
+                         <label htmlFor="private" className='custom-radio'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><i className="fa-solid fa-lock"></i><span  className='invisible-media'>Private</span></b></label>
                 </div>
-
+<div className='create-repo-btn-container'>
                 <button
                type="submit"
                className={isLoading ? 'disabled create-repo-btn ' : 'create-repo-btn '}
                disabled={isLoading}
                  >{isLoading ? 'Creating the repo...' : 'Create Repository '}</button>
-                
+                </div>
             </form>
         </div>
         </>

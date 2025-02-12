@@ -141,7 +141,7 @@ const [pendingFollowRequest, setPendingFollowRequest] = useState(false); // Trac
                     <Navbar />
                     <section id="dashboard">
                     <aside>
-                            <div className=" search-repo">
+                            <div className="the-search-filter-repo">
                                 <div><h4>Filter by</h4></div>
                                 
                               <div className='the-repo-filter' onClick={() => setActiveFilter('repositories')} style={{display: "flex", flexDirection: "row", alignItems: "center", marginBottom: "0.7rem"}}>
@@ -174,11 +174,25 @@ const [pendingFollowRequest, setPendingFollowRequest] = useState(false); // Trac
                             {activeFilter === 'repositories' && repositories.length > 0 && (
                                 <div>
                                     <h4 className='heading4'>Repositories:</h4>
+                                    <div
+                                    className='media-search-filter d-none'
+        >
+        <div className='the-repo-filter d-none' onClick={() => setActiveFilter('repositories')} style={{display: "flex", flexDirection: "row", alignItems: "center", marginBottom: "0.7rem", width: "100%"}}>
+            
+                                <div className={`filter-options d-none ${activeFilter === 'repositories' ? 'filter-active' : ''}`} style={{ display: "flex", justifyContent: "flex-start", fontSize: "14px"}}>&nbsp;&nbsp;<p className='dNonei-600'><i class="fa-solid fa-book dNone dVis-600" style={{color: "#b7bdc8"}}></i><span className='dNone-600'>&nbsp;&nbsp;Repositories&nbsp;&nbsp;</span></p><p className='filter-options-length'>{repositories.length}</p>
+                                </div>
+                                </div>
+                                <div className="the-repo-filter d-none"    onClick={() => setActiveFilter('users')} style={{display: "flex", flexDirection: "row", alignItems: "flex-end", marginBottom: "0.7rem", width: "100%", justifyContent: "flex-end"}}>
+                
+                                <div className={`filter-options  d-none ${activeFilter === 'users' ? 'filter-active' : ''}`} style={{ display: "flex", justifyContent: "flex-start", fontSize: "14px"}}>&nbsp;&nbsp;<p className='dNonei-600'><i class="fa-solid fa-user dNone dVis-600"></i><span className='dNone-600'>&nbsp;&nbsp;Users&nbsp;&nbsp;</span></p><p className='filter-options-length'>{users.length}</p>
+                                 </div>
+                                 </div>
+                                 </div>
                                     {repositories.map((repo) => (
                                         <div key={repo._id} className='the-srch-box'>
                                             <div className="repo-name-link">
                                            <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
-                                            <span className="the-user">
+                                            <span className="the-user dNone-600">
                                                 {repo.owner.username.charAt(0).toUpperCase()}
                                             </span>
                                             <span className='repo-main-info'>
@@ -196,7 +210,7 @@ const [pendingFollowRequest, setPendingFollowRequest] = useState(false); // Trac
                         onClick={() => handleStarClick(repo.name)}>
                          <i className={`fa-${starredRepos.includes(repo.name) ? "solid" : "regular"} fa-star the-star ${
                          starredRepos.includes(repo.name) ? "the-search-starred" : ""}`}></i>
-                            &nbsp;{starredRepos.includes(repo.name) ? "Starred" : "Star"}
+                            <span className='dNone'>&nbsp;{starredRepos.includes(repo.name) ? "Starred" : "Star"}</span>
                                             </div>
 </div>  
                    
@@ -206,13 +220,28 @@ const [pendingFollowRequest, setPendingFollowRequest] = useState(false); // Trac
                             )}
 
 {activeFilter === 'users' && users.length > 0 && (
+    
     <div>
         <h4 className='heading4'>Users:</h4>
+        <div
+          className="media-search-filter d-none"
+        >
+         <div className='the-repo-filter d-none' onClick={() => setActiveFilter('repositories')} style={{display: "flex", flexDirection: "row", alignItems: "center", marginBottom: "0.7rem", width: "100%"}}>
+            
+            <div className={`filter-options d-none ${activeFilter === 'repositories' ? 'filter-active' : ''}`} style={{ display: "flex", justifyContent: "flex-start", fontSize: "14px"}}>&nbsp;&nbsp;<p className='dNonei-600'><i class="fa-solid fa-book dNone dVis-600" style={{color: "#b7bdc8"}}></i><span className='dNone-600'>&nbsp;&nbsp;Repositories&nbsp;&nbsp;</span></p><p className='filter-options-length'>{repositories.length}</p>
+            </div>
+            </div>
+            <div className="the-repo-filter d-none"    onClick={() => setActiveFilter('users')} style={{display: "flex", flexDirection: "row", alignItems: "flex-end", marginBottom: "0.7rem", width: "100%", justifyContent: "flex-end"}}>
+
+            <div className={`filter-options  d-none ${activeFilter === 'users' ? 'filter-active' : ''}`} style={{ display: "flex", justifyContent: "flex-start", fontSize: "14px"}}>&nbsp;&nbsp;<p className='dNonei-600'><i class="fa-solid fa-user dNone dVis-600"></i><span className='dNone-600'>&nbsp;&nbsp;Users&nbsp;&nbsp;</span></p><p className='filter-options-length'>{users.length}</p>
+             </div>
+             </div>
+             </div>
         {users.map((user) => (
             <div key={user._id} className="the-srch-box">
                   <div className="repo-name-link">
                                            <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
-                                            <span className="the-user">{user.username.charAt(0).toUpperCase()}</span><span  className='repo-main-info'><span className='repo-name-underline'  onClick={() => navigate(`/${user.username}`)}>{user.username}</span>
+                                            <span className="the-user dNone-600">{user.username.charAt(0).toUpperCase()}</span><span  className='repo-main-info'><span className='repo-name-underline'  onClick={() => navigate(`/${user.username}`)}>{user.username}</span>
              
                 </span>
                 </p>
@@ -220,7 +249,7 @@ const [pendingFollowRequest, setPendingFollowRequest] = useState(false); // Trac
                 <div
     className={`the-search-star-user search-star ${followedUsers.includes(user.username) ? "followed" : ""}`}
     onClick={() => handleFollowClick(user.username)}
->{followedUsers.includes(user.username) ? "Unfollow" : "Follow"}
+><span className='d-none'>{followedUsers.includes(user.username) ?<i class="fa-solid fa-user-plus"></i>:<i class="fa-solid fa-user-minus"></i>}</span><span className='dNone'>{followedUsers.includes(user.username) ? "Unfollow" : "Follow"}</span>
 </div>
             </div>
         ))}
@@ -230,12 +259,43 @@ const [pendingFollowRequest, setPendingFollowRequest] = useState(false); // Trac
                               {/* If no results found after fetching */}
                         {activeFilter === 'repositories' && repositories.length === 0 && !isSearchLoading && (
                             <>
+                               <div
+                              className="media-search-filter d-none"
+                            >
+                             <div className='the-repo-filter d-none' onClick={() => setActiveFilter('repositories')} style={{display: "flex", flexDirection: "row", alignItems: "center", marginBottom: "0.7rem", width: "100%"}}>
+                                
+                                <div className={`filter-options d-none ${activeFilter === 'repositories' ? 'filter-active' : ''}`} style={{ display: "flex", justifyContent: "flex-start", fontSize: "14px"}}>&nbsp;&nbsp;<p className='dNonei-600'><i class="fa-solid fa-book dNone dVis-600" style={{color: "#b7bdc8"}}></i><span className='dNone-600'>&nbsp;&nbsp;Repositories&nbsp;&nbsp;</span></p><p className='filter-options-length'>{repositories.length}</p>
+                                </div>
+                                </div>
+                                <div className="the-repo-filter d-none"    onClick={() => setActiveFilter('users')} style={{display: "flex", flexDirection: "row", alignItems: "flex-end", marginBottom: "0.7rem", width: "100%", justifyContent: "flex-end"}}>
+                    
+                                <div className={`filter-options  d-none ${activeFilter === 'users' ? 'filter-active' : ''}`} style={{ display: "flex", justifyContent: "flex-start", fontSize: "14px"}}>&nbsp;&nbsp;<p className='dNonei-600'><i class="fa-solid fa-user dNone dVis-600"></i><span className='dNone-600'>&nbsp;&nbsp;Users&nbsp;&nbsp;</span></p><p className='filter-options-length'>{users.length}</p>
+                                 </div>
+                               </div>
+                        
+                            </div>
                             <p>No repositories found</p>
-                           
                             </>
                         )}
                         {activeFilter === 'users' && users.length === 0 && !isSearchLoading && (
+                            <>
+                              <div
+                              className="media-search-filter d-none"
+                            >
+                             <div className='the-repo-filter d-none' onClick={() => setActiveFilter('repositories')} style={{display: "flex", flexDirection: "row", alignItems: "center", marginBottom: "0.7rem", width: "100%"}}>
+                                
+                                <div className={`filter-options d-none ${activeFilter === 'repositories' ? 'filter-active' : ''}`} style={{ display: "flex", justifyContent: "flex-start", fontSize: "14px"}}>&nbsp;&nbsp;<p className='dNonei-600'><i class="fa-solid fa-book dNone dVis-600" style={{color: "#b7bdc8"}}></i><span className='dNone-600'>&nbsp;&nbsp;Repositories&nbsp;&nbsp;</span></p><p className='filter-options-length'>{repositories.length}</p>
+                                </div>
+                                </div>
+                                <div className="the-repo-filter d-none"    onClick={() => setActiveFilter('users')} style={{display: "flex", flexDirection: "row", alignItems: "flex-end", marginBottom: "0.7rem", width: "100%", justifyContent: "flex-end"}}>
+                    
+                                <div className={`filter-options  d-none ${activeFilter === 'users' ? 'filter-active' : ''}`} style={{ display: "flex", justifyContent: "flex-start", fontSize: "14px"}}>&nbsp;&nbsp;<p className='dNonei-600'><i class="fa-solid fa-user dNone dVis-600"></i><span className='dNone-600'>&nbsp;&nbsp;Users&nbsp;&nbsp;</span></p><p className='filter-options-length'>{users.length}</p>
+                                 </div>
+                                 </div>
+                                
+                            </div>
                             <p>No users found</p>
+                            </>
                         )}
                         </main>
         

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../authContext";
 
@@ -7,30 +7,52 @@ import { Box, Button } from "@primer/react";
 import "./auth.css";
 
 import logo from "../../assets/sloth.png";
-// import logo from "../../assets/panda.jpeg";
-
 import { Link } from "react-router-dom";
-const apiUrl = import.meta.env.VITE_API_URL;
-// const apiUrl = "127.0.0.1:3002";
 
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({}); // Store validation errors
 
   const { setCurrentUser } = useAuth();
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSignup(e);
+    }
+  };
+  const validateInputs = () => {
+    let newErrors = {}; // Object to store errors
+
+    // **Username validation**
+    if (!username.trim()) newErrors.username = "Required";
+    else if (username.includes(" ")) newErrors.username = "No spaces allowed";
+
+    // **Email validation**
+    if (!email.trim()) newErrors.email = "Required";
+
+    // **Password validation**
+    if (!password.trim()) newErrors.password = "Required";
+    else if (password.includes(" ")) newErrors.password = "No spaces allowed";
+
+    setErrors(newErrors); // Update error state
+    return Object.keys(newErrors).length === 0; // Return true if no errors
+  };
 
   const handleSignup = async (e) => {
     e.preventDefault();
 
+    if (!validateInputs()) return; // Stop if validation fails
+
     try {
       setLoading(true);
       const res = await axios.post(`https://${apiUrl}/signup`, {
-        email: email,
-        password: password,
-        username: username,
+        email: email.trim(),
+        password: password.trim(),
+        username: username.trim(),
       });
 
       localStorage.setItem("token", res.data.token);
@@ -43,7 +65,7 @@ const Signup = () => {
       window.location.href = "/";
     } catch (err) {
       console.error(err);
-      alert("Signup Failed!");
+      setErrors({ general: "Signup Failed! Please try again." });
       setLoading(false);
     }
   };
@@ -70,54 +92,57 @@ const Signup = () => {
             <label className="label">Username</label>
             <input
               autoComplete="off"
-              name="Username"
-              id="Username"
-              className="input"
+              className="input search"
               type="text"
               value={username}
+              onKeyDown={handleKeyDown}
               onChange={(e) => setUsername(e.target.value)}
             />
+            {errors.username && <p className="error-message">&nbsp;&nbsp;&#9888;&nbsp;{errors.username}</p>}
           </div>
 
           <div>
             <label className="label">Email address</label>
             <input
               autoComplete="off"
-              name="Email"
-              id="Email"
-              className="input"
+              className="input search"
               type="email"
               value={email}
+              onKeyDown={handleKeyDown}
               onChange={(e) => setEmail(e.target.value)}
             />
+            {errors.email && <p className="error-message">&nbsp;&nbsp;&#9888;&nbsp;{errors.email}</p>}
           </div>
 
-          <div className="div">
+          <div>
             <label className="label">Password</label>
             <input
               autoComplete="off"
-              name="Password"
-              id="Password"
-              className="input"
+              className="input search"
               type="password"
               value={password}
+              onKeyDown={handleKeyDown}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {errors.password && <p className="error-message">&nbsp;&nbsp;&#9888;&nbsp;{errors.password}</p>}
           </div>
 
-          <Button
+          {errors.general && <p className="error-message">&nbsp;&nbsp;&#9888;&nbsp;{errors.general}</p>}
+          <div className='the-auth-btn-container'>
+          <button
             variant="primary"
-            className="login-btn"
+            className={loading ? 'disabled create-repo-btn the-auth-btn' : 'create-repo-btn the-auth-btn'}
             disabled={loading}
             onClick={handleSignup}
           >
-            {loading ? "Loading..." : "Signup"}
-          </Button>
+            {loading ? "Wait..." : "Sign Up"}
+          </button>
+          </div>
         </div>
 
         <div className="pass-box">
           <p>
-            Already have an account? <Link to="/auth">Login</Link>
+            Already have an account? <Link to="/auth" className="the-auth-link"style={{color: "#74b9ff"}}>Login</Link>
           </p>
         </div>
       </div>

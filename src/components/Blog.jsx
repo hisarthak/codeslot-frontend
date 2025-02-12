@@ -12,7 +12,7 @@ const Blog = () => {
         <>
         <Navbar></Navbar>
         <div className="blog-container">
-            <h1>Upcoming Tech Conference: A Sneak Peek into the Future of Innovation</h1>
+            <h1 className='blog-heading'>Upcoming Tech Conference: A Sneak Peek into the Future of Innovation</h1>
 
             <p>As another exciting season for technology approaches, innovators, industry leaders, and tech enthusiasts worldwide are gearing up for one of the most anticipated conferences. This event promises to be an extraordinary gathering for anyone interested in cutting-edge advancements, featuring insightful presentations, hands-on workshops, and unparalleled networking opportunities. Here’s what attendees can look forward to.</p>
 
@@ -60,7 +60,7 @@ return (
     <>
     <Navbar></Navbar>
     <div className="blog-container">
-        <h1>Upcoming Developer Meetup: Connect, Collaborate, and Innovate</h1>
+        <h1 className='blog-heading'>Upcoming Developer Meetup: Connect, Collaborate, and Innovate</h1>
 
         <p>Developers, tech enthusiasts, and industry experts are gearing up for an exciting meetup designed to foster collaboration and knowledge sharing. This event will bring together coding professionals and beginners alike to explore the latest trends, exchange insights, and build meaningful connections within the developer community.</p>
 
@@ -99,7 +99,7 @@ return (
     <>
     <Navbar></Navbar>
     <div className="blog-container">
-        <h1>Upcoming React Summit: The Future of Frontend Development</h1>
+        <h1 className='blog-heading'>Upcoming React Summit: The Future of Frontend Development</h1>
 
         <p>React developers, UI/UX designers, and tech enthusiasts are preparing for an exciting React Summit that will dive deep into the latest advancements in the React ecosystem. This event promises to bring together experts and beginners alike to explore cutting-edge innovations, share best practices, and network with the global React community.</p>
 
