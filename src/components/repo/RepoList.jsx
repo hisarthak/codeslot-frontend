@@ -614,7 +614,7 @@ if (isLogsView) {
           <button
             className="code-link-box-btn"
             onClick={() => {
-              const textToCopy = `https://slotcode.in${window.location.pathname}`;
+              const textToCopy = `https://codeslot.in${window.location.pathname}`;
               navigator.clipboard
                 .writeText(textToCopy)
                 .then(() => {
@@ -624,7 +624,7 @@ if (isLogsView) {
                 .catch((err) => console.error("Failed to copy text: ", err));
             }}
           >
-            {`https://slotcode.in${window.location.pathname}`}&nbsp;
+            {`https://codeslot.in${window.location.pathname}`}&nbsp;
             {isCopied ? (
               <i
                 className="fa-solid fa-check"
