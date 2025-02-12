@@ -1,5 +1,13 @@
 
-
+* {
+  -webkit-tap-highlight-color: transparent; /* Removes blue highlight */
+  -webkit-user-select: none; /* Prevents text selection */
+  user-select: none; /* Standard property for other browsers */
+}
+input, textarea {
+  -webkit-user-select: text;
+  user-select: text;
+}
 body{
   min-height: 100%;
   width: 100%;
