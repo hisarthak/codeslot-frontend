@@ -9,10 +9,15 @@ input, textarea {
   user-select: text;
 }
 @media (hover: none) {
+  * {
+    touch-action: manipulation; /* Prevents weird touch behaviors */
+  }
+
   *:hover {
-    all: unset !important;
+    pointer-events: none !important; /* Disables hover effects */
   }
 }
+
 body{
   min-height: 100%;
   width: 100%;

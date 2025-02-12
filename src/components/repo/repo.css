@@ -98,6 +98,18 @@ input[type="text"]:-webkit-autofill{
     -webkit-box-shadow: 0 0 0px 1000px #1d2637 inset !important; /* Workaround for autofill background */
     -webkit-text-fill-color: #fff !important; /* Ensure text color remains white */
 }
+input[type="email"]:-webkit-autofill{
+    background-color: white !important;    /* Force background color */
+    -webkit-box-shadow: 0 0 0px 1000px #1d2637 inset !important; /* Workaround for autofill background */
+    -webkit-text-fill-color: #fff !important; /* Ensure text color remains white */
+}
+input[type="password"]:-webkit-autofill{
+    background-color: white !important;    /* Force background color */
+    -webkit-box-shadow: 0 0 0px 1000px #1d2637 inset !important; /* Workaround for autofill background */
+    -webkit-text-fill-color: #fff !important; /* Ensure text color remains white */
+}
+
+
 
 
 /* Change border color on focus */

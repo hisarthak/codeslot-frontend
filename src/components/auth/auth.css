@@ -61,6 +61,17 @@
       color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s,
       background 0.2s cubic-bezier(0.25, 0.01, 0.25, 1) 0s;
   }
+  input[type="email"]:-webkit-autofill{
+    background-color: white !important;    /* Force background color */
+    -webkit-box-shadow: 0 0 0px 1000px #1d2637 inset !important; /* Workaround for autofill background */
+    -webkit-text-fill-color: #fff !important; /* Ensure text color remains white */
+}
+input[type="password"]:-webkit-autofill{
+    background-color: white !important;    /* Force background color */
+    -webkit-box-shadow: 0 0 0px 1000px #1d2637 inset !important; /* Workaround for autofill background */
+    -webkit-text-fill-color: #fff !important; /* Ensure text color remains white */
+}
+
   .input:focus{
     
       background-color: #010409;

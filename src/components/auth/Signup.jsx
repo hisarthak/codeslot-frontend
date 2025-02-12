@@ -92,7 +92,7 @@ const Signup = () => {
             <label className="label">Username</label>
             <input
               autoComplete="off"
-              className="input search"
+              className="input"
               type="text"
               value={username}
               onKeyDown={handleKeyDown}
@@ -118,7 +118,7 @@ const Signup = () => {
             <label className="label">Password</label>
             <input
               autoComplete="off"
-              className="inpup"
+              className="input"
               type="password"
               value={password}
               onKeyDown={handleKeyDown}
