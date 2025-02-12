@@ -447,7 +447,7 @@ console.log("Not Owner");
                     
                   <div className="repo-name-link">
                  <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
-                  <div className="the-user  dNone-600">
+                  <div className="the-user  dNone-600-user">
                       {repo.owner.username.charAt(0).toUpperCase()}
                   </div>
                   <div  className='repo-main-info'>
@@ -491,7 +491,7 @@ console.log("Not Owner");
                     
                   <div className="repo-name-link">
                  <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
-                  <div className="the-user  dNone-600">
+                  <div className="the-user  dNone-600-user">
                       {repo.name.charAt(0).toUpperCase()}
                   </div>
                   <div  className='repo-main-info'>

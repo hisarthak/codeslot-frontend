@@ -192,7 +192,7 @@ const [pendingFollowRequest, setPendingFollowRequest] = useState(false); // Trac
                                         <div key={repo._id} className='the-srch-box'>
                                             <div className="repo-name-link">
                                            <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
-                                            <span className="the-user dNone-600">
+                                            <span className="the-user dNone-600-user">
                                                 {repo.owner.username.charAt(0).toUpperCase()}
                                             </span>
                                             <span className='repo-main-info'>
@@ -241,7 +241,7 @@ const [pendingFollowRequest, setPendingFollowRequest] = useState(false); // Trac
             <div key={user._id} className="the-srch-box">
                   <div className="repo-name-link">
                                            <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
-                                            <span className="the-user dNone-600">{user.username.charAt(0).toUpperCase()}</span><span  className='repo-main-info'><span className='repo-name-underline'  onClick={() => navigate(`/${user.username}`)}>{user.username}</span>
+                                            <span className="the-user dNone-600-user">{user.username.charAt(0).toUpperCase()}</span><span  className='repo-main-info'><span className='repo-name-underline'  onClick={() => navigate(`/${user.username}`)}>{user.username}</span>
              
                 </span>
                 </p>
@@ -249,7 +249,7 @@ const [pendingFollowRequest, setPendingFollowRequest] = useState(false); // Trac
                 <div
     className={`the-search-star-user search-star ${followedUsers.includes(user.username) ? "followed" : ""}`}
     onClick={() => handleFollowClick(user.username)}
-><span className='d-none'>{followedUsers.includes(user.username) ?<i class="fa-solid fa-user-plus"></i>:<i class="fa-solid fa-user-minus"></i>}</span><span className='dNone'>{followedUsers.includes(user.username) ? "Unfollow" : "Follow"}</span>
+><span className='d-none-user'>{followedUsers.includes(user.username) ?<i class="fa-solid fa-user-plus"></i>:<i class="fa-solid fa-user-minus"></i>}</span><span className='dNone'>{followedUsers.includes(user.username) ? "Unfollow" : "Follow"}</span>
 </div>
             </div>
         ))}
