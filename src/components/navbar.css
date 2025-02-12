@@ -384,6 +384,16 @@ cursor: pointer;
   color: white;
 }
 
+@media(max-width: 768px){
+.cross-btn{
+ 
+background-color: transparent;
+
+}
+.cross-btn i{
+ color: white;
+}}
+
 @media(max-width: 700px){
 
 .invisible-search-btn-text{
@@ -392,6 +402,7 @@ cursor: pointer;
 .theSidebar{
   width: 54%;
 }
+
 }
 
 @media(max-width: 350px){

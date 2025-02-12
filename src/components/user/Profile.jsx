@@ -32,7 +32,12 @@ const [followingList, setFollowingList] = useState([]);
   const searchBoxRef = useRef(null); 
  const [pendingRequest, setPendingRequest] = useState(false); // Track ongoing backend requests
  const [theStarredRepos, setTheStarredRepos] = useState([]); 
+ const [error, setError] = useState(false);
 
+
+ const handleGoHome = () => {
+  navigate("/"); // Navigate back to the home page
+};
  const handleStarClick = async (repoName) => {
   if (pendingRequest) return; // Prevent multiple clicks
 
@@ -148,7 +153,8 @@ if(isOwner){
             `https://${apiUrl}/userProfile/${username}?type=normal&userId=${userId}`
           )} catch(err){
             console.error("Cannot fetch user details: ", err);
-            navigate(`/not-found`)
+            setIsLoading(false);
+          setError(true);
             return;
           }
           if (response.data.followers.some(follower => follower.username === localStorage.getItem("username"))) {
@@ -343,6 +349,21 @@ console.log("Not Owner");
       </>
     )
   }
+  if(error) return (
+    <>
+     <Navbar />
+      <section id="not-found-section">
+        <div className="not-found-content">
+          <h1 className="not-found-title">404</h1>
+          <p className="not-found-message">Oops! The page you're looking for doesn't exist.</p>
+          
+          <div className="go-home-button" onClick={handleGoHome}>
+            <button className="go-home-btn">Go Back Home</button>
+          </div>
+        </div>
+      </section>
+    </>
+  )
   return (
     <>
       <Navbar />
