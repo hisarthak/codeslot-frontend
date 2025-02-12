@@ -249,7 +249,7 @@ const [pendingFollowRequest, setPendingFollowRequest] = useState(false); // Trac
                 <div
     className={`the-search-star-user search-star ${followedUsers.includes(user.username) ? "followed" : ""}`}
     onClick={() => handleFollowClick(user.username)}
-><span className='d-none-user'>{followedUsers.includes(user.username) ?<i class="fa-solid fa-user-plus"></i>:<i class="fa-solid fa-user-minus"></i>}</span><span className='dNone'>{followedUsers.includes(user.username) ? "Unfollow" : "Follow"}</span>
+><span className='d-none-user'>{followedUsers.includes(user.username) ?<i class="fa-solid fa-user-minus"></i>:<i class="fa-solid fa-user-plus"></i>}</span><span className='dNone'>{followedUsers.includes(user.username) ? "Unfollow" : "Follow"}</span>
 </div>
             </div>
         ))}

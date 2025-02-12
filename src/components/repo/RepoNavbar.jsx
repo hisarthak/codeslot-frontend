@@ -191,7 +191,7 @@ const RepoNavbar = () => {
               onClick={handleStarClick}
             >
               <i
-                className={`fa-${isStarred ? "solid" : "regular"} fa-star the-star ${
+                className={`fa-${isStarred ? "solid" : "regular"} fa-star the-star  ${
                   isStarred ? "the-starred" : ""
                 }`}
               ></i>

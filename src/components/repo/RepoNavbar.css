@@ -18,6 +18,7 @@
     margin: 0 10px;
     cursor: pointer;
   }
+ 
 
   .the-star-repo{
     /* position: absolute; */
@@ -168,18 +169,29 @@ border-radius: 5px;
   .the-delete-btn:hover i{
     color: white;
   }
+  .repo-nav-star-width{
+    width: 2rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 0.13rem;
+    padding-top: 0.1rem;
+
+  }
   
 }
+
 @media(max-width: 450px){
   .repo-nav-star-width{
     width: 2rem !important;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-right: 0.1rem;
-    padding-top: 0.2rem;
+    padding-right: 0.13rem;
+    padding-top: 0.1rem;
 
   }
+  
   
   .dNone-repo-nav{
     display: none;
@@ -218,8 +230,8 @@ border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-right: 0.1rem;
-    padding-top: 0.2rem;
+    padding-right: 0.13rem;
+    padding-top: 0.1rem;
 margin-left: -1.2rem;
   }
   .d-none-repo-nav-400{
@@ -330,5 +342,18 @@ margin-left: -1.5rem;
 
 }
 }
+@media(max-width: 350px){
+  .repo-nav-star-width{
+ 
+
+    width: 2rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 0.05rem;
+    padding-top: 0.05rem;
+
+  
+  }}
 
 
