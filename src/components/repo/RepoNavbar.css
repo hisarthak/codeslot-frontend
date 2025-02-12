@@ -305,4 +305,23 @@ margin-left: -1.5rem;
   }
 }
 
+@media (hover: none) {
+  .the-star-repo:hover{
+    background-color: #262c36;
+}
+
+.repo-visibility:hover{
+  background-color: transparent;
+
+}
+
+.the-delete-btn:hover{
+ 
+  background-color: #262c36;
+  color: #ffb1af;
+
+}
+
+}
+
 

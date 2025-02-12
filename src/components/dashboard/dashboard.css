@@ -316,3 +316,23 @@ color: #74b8fe !important;
   margin: 0;
 }
 
+@media (hover: none) {
+  .your-repo-name:hover {
+    color: white !important;
+  }
+
+  .event-list-item:hover {
+    color: white !important;
+    text-decoration: none !important;
+  }
+
+  .suggested-repo-name:hover {
+    color: white !important;
+    text-decoration: none !important;
+  }
+
+  .underline:hover {
+    text-decoration: none !important;
+  }
+}
+

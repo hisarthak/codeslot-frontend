@@ -556,4 +556,35 @@ flex-grow: 1;
 
   
 
+  @media (hover: none) {
+    .repo-item:hover {
+  
+      border-bottom: 1px solid  #b7bdc8;
+ background-color: transparent;
+    
+    }
+    .repo-file-name:hover{
+    color: white;
+    text-decoration: none;
+    }
 
+.center-elements {
+text-decoration: none; 
+  color: #b7bdc8; 
+
+}
+.latest-commit:hover{
+  color:#b7bdc8;
+text-decoration: none;
+}
+.CodeMirror-linenumber:hover{
+
+  color: #b7bdc8 !important;
+}
+.code-link-box-btn:hover{
+  background-color: #151b23 !important;
+border: 1px solid #b7bdc8;
+color: white;
+}
+
+  }

@@ -196,3 +196,25 @@ margin-left: 0.3rem !important;
 .the-auth-link:hover{
   text-decoration: underline;
 }
+
+@media (hover: none) {
+  
+  .input {
+  
+    background-color: #0c1116;
+  
+    border: 0.5px solid #f1f6fd;
+   
+    color: whitesmoke;
+   
+  }
+  .submit-btn {
+    background-color: #238636;
+    border: none;
+    color: #f1f6fd;
+  
+  }
+  .the-auth-link{
+    text-decoration: none;
+  }
+}

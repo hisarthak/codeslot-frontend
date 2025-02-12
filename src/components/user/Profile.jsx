@@ -287,6 +287,11 @@ console.log("Not Owner");
     if(isFollowing){
       setIsFollowing(false);
       setFollowersCount(followersCount-1);
+      setUserDetails(prevDetails => ({
+        ...prevDetails,
+        followers: prevDetails.followers.filter(follower => follower.username !== username)
+      }));
+      setFollowingList(userDetails.followedUsers)
     }else{
       setIsFollowing(true);
       setFollowersCount(followersCount+1);
@@ -294,6 +299,7 @@ console.log("Not Owner");
         ...prevDetails,
         followers: [...prevDetails.followers, { username }]
       }));
+    setFollowingList(userDetails.followedUsers)
     }
       console.log("Follow/Unfollow action successful:", response.data);
     } catch (error) {
