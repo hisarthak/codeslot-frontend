@@ -162,7 +162,7 @@ useEffect(() => {
                         style={{cursor: "pointer"}}
                     />  
                      <Link to="/">
-                    <h4 title="Go to Dashboard" className="dash" style={{color: "white"}}>SlotCode</h4>
+                    <h4 title="Go to Dashboard" className="dash" style={{color: "white"}}>CodeSlot</h4>
                     </Link>
                 </div>
        

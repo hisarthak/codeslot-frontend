@@ -110,16 +110,16 @@ const Dashboard = () => {
     <p className="dash-para">Once you've staged the changes, commit them with a message describing what you've done:</p>
     <pre className="pre-box"><code>slot commit -m "Your commit message"</code></pre>
 
-    <h3>5. Push Changes to Slotcode</h3>
-    <p className="dash-para">To send your local changes to a remote repository on <b>Slotcode</b>:</p>
+    <h3>5. Push Changes to CodeSlot</h3>
+    <p className="dash-para">To send your local changes to a remote repository on <b>CodeSlot</b>:</p>
     <pre className="pre-box"><code>slot push</code></pre>
 
-    <h3>6. Pull Changes from Slotcode</h3>
-    <p className="dash-para">If you're collaborating and want to fetch the latest updates from <b>Slotcode</b> to your local repository:</p>
+    <h3>6. Pull Changes from CodeSlot</h3>
+    <p className="dash-para">If you're collaborating and want to fetch the latest updates from <b>CodeSlot</b> to your local repository:</p>
     <pre className="pre-box"><code>slot pull</code></pre>
 
     <h3>7. Clone a Repository</h3>
-    <p className="dash-para">To download an existing repository from <b>Slotcode</b>:</p>
+    <p className="dash-para">To download an existing repository from <b>CodeSlot</b>:</p>
     <pre className="pre-box"><code>slot clone &lt;repository_url&gt;</code></pre>
     <p className="dash-para">This copies the repository to your local machine.</p>
 
