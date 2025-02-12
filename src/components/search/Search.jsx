@@ -272,30 +272,46 @@ const [pendingFollowRequest, setPendingFollowRequest] = useState(false); // Trac
                                 <div className={`filter-options  d-none ${activeFilter === 'users' ? 'filter-active' : ''}`} style={{ display: "flex", justifyContent: "flex-start", fontSize: "14px"}}>&nbsp;&nbsp;<p className='dNonei-600'><i class="fa-solid fa-user dNone dVis-600"></i><span className='dNone-600'>&nbsp;&nbsp;Users&nbsp;&nbsp;</span></p><p className='filter-options-length'>{users.length}</p>
                                  </div>
                                </div>
-                        
+                           
                             </div>
-                            <p>No repositories found</p>
+                            <div className="the-srch-box no-users-repo" style={{border: "none !important"}}>
+                  <div className="repo-name-link" style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                           <div style={{ display: "flex", fontWeight: "400", justifyContent: "center", alignContent: "center"}}>
+                                          <span >No repositories found</span>
+                </div>
+                
+</div>
+            </div>
                             </>
                         )}
                         {activeFilter === 'users' && users.length === 0 && !isSearchLoading && (
-                            <>
-                              <div
-                              className="media-search-filter d-none"
-                            >
-                             <div className='the-repo-filter d-none' onClick={() => setActiveFilter('repositories')} style={{display: "flex", flexDirection: "row", alignItems: "center", marginBottom: "0.7rem", width: "100%"}}>
-                                
-                                <div className={`filter-options d-none ${activeFilter === 'repositories' ? 'filter-active' : ''}`} style={{ display: "flex", justifyContent: "flex-start", fontSize: "14px"}}>&nbsp;&nbsp;<p className='dNonei-600'><i class="fa-solid fa-book dNone dVis-600" style={{color: "#b7bdc8"}}></i><span className='dNone-600'>&nbsp;&nbsp;Repositories&nbsp;&nbsp;</span></p><p className='filter-options-length'>{repositories.length}</p>
-                                </div>
-                                </div>
-                                <div className="the-repo-filter d-none"    onClick={() => setActiveFilter('users')} style={{display: "flex", flexDirection: "row", alignItems: "flex-end", marginBottom: "0.7rem", width: "100%", justifyContent: "flex-end"}}>
-                    
-                                <div className={`filter-options  d-none ${activeFilter === 'users' ? 'filter-active' : ''}`} style={{ display: "flex", justifyContent: "flex-start", fontSize: "14px"}}>&nbsp;&nbsp;<p className='dNonei-600'><i class="fa-solid fa-user dNone dVis-600"></i><span className='dNone-600'>&nbsp;&nbsp;Users&nbsp;&nbsp;</span></p><p className='filter-options-length'>{users.length}</p>
-                                 </div>
-                                 </div>
-                                
-                            </div>
-                            <p>No users found</p>
-                            </>
+                             <>
+                             <div
+                            className="media-search-filter d-none"
+                          >
+                           <div className='the-repo-filter d-none' onClick={() => setActiveFilter('repositories')} style={{display: "flex", flexDirection: "row", alignItems: "center", marginBottom: "0.7rem", width: "100%"}}>
+                              
+                              <div className={`filter-options d-none ${activeFilter === 'repositories' ? 'filter-active' : ''}`} style={{ display: "flex", justifyContent: "flex-start", fontSize: "14px"}}>&nbsp;&nbsp;<p className='dNonei-600'><i class="fa-solid fa-book dNone dVis-600" style={{color: "#b7bdc8"}}></i><span className='dNone-600'>&nbsp;&nbsp;Repositories&nbsp;&nbsp;</span></p><p className='filter-options-length'>{repositories.length}</p>
+                              </div>
+                              </div>
+                              <div className="the-repo-filter d-none"    onClick={() => setActiveFilter('users')} style={{display: "flex", flexDirection: "row", alignItems: "flex-end", marginBottom: "0.7rem", width: "100%", justifyContent: "flex-end"}}>
+                  
+                              <div className={`filter-options  d-none ${activeFilter === 'users' ? 'filter-active' : ''}`} style={{ display: "flex", justifyContent: "flex-start", fontSize: "14px"}}>&nbsp;&nbsp;<p className='dNonei-600'><i class="fa-solid fa-user dNone dVis-600"></i><span className='dNone-600'>&nbsp;&nbsp;Users&nbsp;&nbsp;</span></p><p className='filter-options-length'>{users.length}</p>
+                               </div>
+                             </div>
+                         
+                          </div>
+                          <div className="the-srch-box no-users-repo" style={{border: "none !important"}}>
+                  <div className="repo-name-link" style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                           <div style={{ display: "flex", fontWeight: "400", justifyContent: "center", alignContent: "center"}}>
+                                          <span >No users found</span>
+                </div>
+                
+</div>
+            </div>
+                          
+                         
+                          </>
                         )}
                         </main>
         

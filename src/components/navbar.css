@@ -414,5 +414,14 @@ display: none;
 } 
   }
 
+  @media(hover: none){
+    
+.theSidebar ul li:hover {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+  }
+
 
   
