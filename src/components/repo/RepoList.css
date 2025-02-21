@@ -376,19 +376,23 @@ cursor: pointer;
 
 .code-link-box::-webkit-scrollbar {
   width: 2px;
-  height: 7px;
+  height: 4px;
+
 }
 
 /* Scrollbar track (background) */
 .code-link-box::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
   border-radius: 5px;
+  margin-left: 0.5rem;
+  margin-right: 0.25rem;
+
 }
 
 /* Scrollbar handle (the draggable part) */
 .code-link-box::-webkit-scrollbar-thumb {
   background: #888;
-  border-radius: 4px;
+  /* border-radius: 4px; */
 }
 
 /* Scrollbar handle on hover */
