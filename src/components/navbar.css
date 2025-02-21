@@ -9,10 +9,10 @@ nav {
 }
 
 nav img {
-  height: 40px;
-  width: 40px;
-margin-left: 3.9rem;
-margin-top: 0.8rem;
+  height: 100px;
+  width: 100px;
+margin-left: 3.1rem;
+margin-top: -1.1rem;
 
 }
 
@@ -65,7 +65,16 @@ margin-top: 0.8rem;
   display: inline-block;
   cursor: pointer; /* Show pointer cursor on hover */
 }
-
+.dash-name{
+  margin-left: -2.3rem;
+  margin-top: 1.2rem;
+  text-decoration: none;
+}
+.dash-name1{
+  margin-right: -5.3rem;
+  margin-left: 4rem;
+  text-decoration: none;
+}
 .tooltip .tooltip-text {
   visibility: hidden;
   min-width: 120x; /* Width of tooltip */
@@ -344,9 +353,10 @@ cursor: pointer;
 
 .logo-sidebar{
   display: flex;
-  height: 2.5rem;
-  width: 2.5rem;
-  margin-left: 12px;
+  height: 100px;
+  width: 100px;
+  margin-left: -1.5rem;
+  margin-top: 0.5rem;
 }
 
 .sidebar-header{
@@ -415,11 +425,25 @@ display: none;
   }
 
   @media(hover: none){
+
+    .btn-tooltip{
+      display: none;
+    }
     
 .theSidebar ul li:hover {
+  margin-bottom: 10px; /* Adjust the value to control the gap */
+  width: 80%;
+  margin-left: 11px;
+  padding-left: 7px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  font-size: 14px;
   background-color: transparent;
   border: none;
   cursor: pointer;
+  border-radius: 5px;
 }
   }
 

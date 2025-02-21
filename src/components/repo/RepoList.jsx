@@ -7,7 +7,7 @@ import "codemirror/lib/codemirror.css";  // For basic styling
 import "codemirror/mode/javascript/javascript"; // Import JS syntax mode
 import "./repofile.css";
 import 'codemirror/theme/moxer.css'; // Ambiance theme
-import emptysloth from "/sloth.png";
+
 
 
 const RepoList = () => {
@@ -34,6 +34,7 @@ const RepoList = () => {
   const [isCommitFolderView, setIsCommitFolderView] = useState(false);
   const [myRepoName, setMyRepoName] = useState("");
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [fullURL, setFullURL] = useState("");
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -86,7 +87,11 @@ const RepoList = () => {
 const repoName = pathParts.slice(-2).join("/"); // Join the last two parts with a "/"
 let realRepoName = repoName.split("/")[1];
 realRepoName = realRepoName.charAt(0).toUpperCase() + realRepoName.slice(1);
-
+const cleanPath = window.location.pathname.endsWith("/") 
+? window.location.pathname.slice(0, -1) 
+: window.location.pathname;
+const fullURL = `https://codeslot.in${cleanPath}`;
+setFullURL(fullURL);
 
 const encodedRepoName = encodeURIComponent(repoName);
 setMyRepoName(encodedRepoName);
@@ -624,14 +629,15 @@ if (isLogsView) {
                 .catch((err) => console.error("Failed to copy text: ", err));
             }}
           >
-            {`https://codeslot.in${window.location.pathname}`}&nbsp;
+       
+            {fullURL}&nbsp;
             {isCopied ? (
               <i
                 className="fa-solid fa-check"
                 style={{ color: "#2fad4e" }}
               ></i>
             ) : (
-              <i className="fa-solid fa-copy"></i>
+              <i className="fa-regular fa-copy"></i>
             )}
           </button>
         </div>

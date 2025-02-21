@@ -525,6 +525,14 @@ width: 100%;
 display: none;
 }
 
+@media(hover:none){
+  .modal-content ul li:hover {
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+}
 
 
 

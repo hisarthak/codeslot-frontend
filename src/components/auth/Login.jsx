@@ -4,7 +4,7 @@ import { useAuth } from "../../authContext";
 import { PageHeader } from "@primer/react/drafts";
 import { Box, Button } from "@primer/react";
 import "./auth.css";
-import logo from "../../assets/sloth.png";
+// import logo from "../../assets/thefinal.png";
 import { Link, useNavigate } from "react-router-dom";
 const apiUrl = import.meta.env.VITE_API_URL;
 // const apiUrl = "127.0.0.1:3002";
@@ -52,7 +52,7 @@ const Login = () => {
         // Store token and userId in localStorage
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("userId", res.data.userId);
-        localStorage.setItem("username", username.trim());
+        localStorage.setItem("username", username.trim().toLowerCase());
 
         // Update current user and navigate
         setCurrentUser(res.data.userId);
@@ -68,7 +68,7 @@ const Login = () => {
   return (
     <div className="login-wrapper">
       <div className="login-logo-container">
-        <img className="logo-login" src={logo} alt="Logo" />
+        <img className="logo-login"  src="/Codeslot-logo.png" alt="Logo" />
       </div>
       <div className="login-box-wrapper">
         <div className="login-heading">

@@ -4,7 +4,8 @@
   -webkit-user-select: none; /* Prevents text selection */
   user-select: none; /* Standard property for other browsers */
 }
-input, textarea {
+input, textarea, .pre-box, code, .pres, .blog-container,.about-para, .blog-heading, .blog-para {
+  cursor: default;
   -webkit-user-select: text;
   user-select: text;
 }

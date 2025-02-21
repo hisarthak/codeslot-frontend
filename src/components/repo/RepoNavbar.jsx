@@ -178,8 +178,8 @@ const RepoNavbar = () => {
       <div className="nav-right">
         <ul>
         <li className="the-user-link link-left " onClick={() =>navigate(`/${repoName.split("/")[0]}`)}>{repoName.split("/")[0]}</li>
-        <li  style={{color: "#b7bdc8"}}>/</li>
-        <li className="the-user-link link-right" onClick={() =>navigate(`/${window.location.reload()}`)}><b>{repoName.split("/")[1]}</b></li>
+        <li  style={{color: "#b7bdc8", cursor: "default"}}>/</li>
+        <li className="the-user-link link-right" style={{cursor: "default"}}><b>{repoName.split("/")[1]}</b></li>
           <li><div
           className="repo-visibility"
           title={isOwner? "Toggle visibility": "Visibility"}

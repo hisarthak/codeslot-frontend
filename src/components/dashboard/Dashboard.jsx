@@ -18,6 +18,7 @@ const Dashboard = () => {
   const [isPublic, setIsPublic] = useState(true);  // Default is public
   const [createError, setCreateError] = useState("");
   const [owner, setOwner] = useState('');
+    const [isCopied, setIsCopied] = useState(0);
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
@@ -77,9 +78,13 @@ const Dashboard = () => {
               className="search"
             />
           </div>
-          {searchResults.map((repo) => (
+          {searchResults?.length > 0 && searchResults.map((repo) => (
             <div key={repo._id} className="your-repo">
-               <Link to={`/${repo.name}`} className="your-repo-name">
+               <Link to={`/${repo.name}`} onClick={()=>{     
+                      window.scrollTo({
+                        top: 0,
+                        behavior: 'instant' // Ensure instant scrolling
+                      });}}className="your-repo-name">
       <span className='underline'>{repo.name}</span>
     </Link>
             </div>
@@ -93,43 +98,223 @@ const Dashboard = () => {
     <h2>How to Use Slot - The Version Control System</h2>
     <h3>1. Install Slot</h3>
     <p className="dash-para">To install Slot, run the following command in your terminal:</p>
-    <pre className="pre-box"><code>npm i slot</code></pre>
+    <pre className="pre-box"><code>npm i slot {isCopied==1 ? (
+      <i
+        className="fa-solid fa-check side-copy"
+        style={{ color: "#2fad4e", cursor: "pointer" }}
+      ></i>
+    ) : (
+      <i className="fa-regular fa-copy side-copy" onClick={() => {
+        const textToCopy = `npm i slot`;
+        navigator.clipboard
+          .writeText(textToCopy)
+          .then(() => {
+            setIsCopied(1);
+            setTimeout(() => setIsCopied(0), 1000);
+          })
+          .catch((err) => console.error("Failed to copy text: ", err));
+      }}
+      tabIndex={0} // Makes it focusable for better event handling
+      style={{ cursor: "pointer"}}></i>
+    )}</code></pre>
 
     <h3>2. Initialize a Repository</h3>
     <p className="dash-para">To start tracking your project with Slot, initialize a new repository in your project directory:</p>
-    <pre className="pre-box"><code>slot init</code></pre>
+    <pre className="pre-box" ><code>slot init {isCopied==2 ? (
+      <i
+        className="fa-solid fa-check side-copy"
+        style={{ color: "#2fad4e", cursor: "pointer" }}
+      ></i>
+    ) : (
+      <i className="fa-regular fa-copy side-copy" onClick={() => {
+        const textToCopy = `slot init`;
+        navigator.clipboard
+          .writeText(textToCopy)
+          .then(() => {
+            setIsCopied(2);
+            setTimeout(() => setIsCopied(0), 1000);
+          })
+          .catch((err) => console.error("Failed to copy text: ", err));
+      }}
+      tabIndex={0} // Makes it focusable for better event handling
+      style={{ cursor: "pointer"}}></i>
+    )}</code></pre>
     <p className="dash-para">This creates a new Slot repository and begins tracking changes.</p>
 
     <h3>3. Add Files to the Repository</h3>
     <p className="dash-para">To track changes in files, you need to add them to the staging area:</p>
-    <pre className="pre-box"><code>slot add &lt;file_name&gt;</code></pre>
+    <pre className="pre-box"><code>slot add &lt;file_name&gt; {isCopied==3 ? (
+      <i
+        className="fa-solid fa-check side-copy"
+        style={{ color: "#2fad4e", cursor: "pointer" }}
+      ></i>
+    ) : (
+      <i className="fa-regular fa-copy side-copy" onClick={() => {
+        const textToCopy = `slot add <file_name>`;
+        navigator.clipboard
+          .writeText(textToCopy)
+          .then(() => {
+            setIsCopied(3);
+            setTimeout(() => setIsCopied(0), 1000);
+          })
+          .catch((err) => console.error("Failed to copy text: ", err));
+      }}
+      tabIndex={0} // Makes it focusable for better event handling
+      style={{ cursor: "pointer"}}></i>
+    )}</code></pre>
     <p className="dash-para">Or to add all files:</p>
-    <pre className="pre-box"><code>slot add .</code></pre>
+    <pre className="pre-box"><code>slot add . {isCopied==4 ? (
+      <i
+        className="fa-solid fa-check side-copy"
+        style={{ color: "#2fad4e", cursor: "pointer" }}
+      ></i>
+    ) : (
+      <i className="fa-regular fa-copy side-copy" onClick={() => {
+        const textToCopy = `slot add .`;
+        navigator.clipboard
+          .writeText(textToCopy)
+          .then(() => {
+            setIsCopied(4);
+            setTimeout(() => setIsCopied(0), 1000);
+          })
+          .catch((err) => console.error("Failed to copy text: ", err));
+      }}
+      tabIndex={0} // Makes it focusable for better event handling
+      style={{ cursor: "pointer"}}></i>
+    )}</code></pre>
 
     <h3>4. Commit Changes</h3>
     <p className="dash-para">Once you've staged the changes, commit them with a message describing what you've done:</p>
-    <pre className="pre-box"><code>slot commit -m "Your commit message"</code></pre>
+    <pre className="pre-box"><code>slot commit -m "message" {isCopied==5 ? (
+      <i
+        className="fa-solid fa-check side-copy"
+        style={{ color: "#2fad4e", cursor: "pointer" }}
+      ></i>
+    ) : (
+      <i className="fa-regular fa-copy side-copy" onClick={() => {
+        const textToCopy = `slot commit -m "message"`;
+        navigator.clipboard
+          .writeText(textToCopy)
+          .then(() => {
+            setIsCopied(5);
+            setTimeout(() => setIsCopied(0), 1000);
+          })
+          .catch((err) => console.error("Failed to copy text: ", err));
+      }}
+      tabIndex={0} // Makes it focusable for better event handling
+      style={{ cursor: "pointer"}}></i>
+    )}</code></pre>
 
     <h3>5. Push Changes to CodeSlot</h3>
     <p className="dash-para">To send your local changes to a remote repository on <b>CodeSlot</b>:</p>
-    <pre className="pre-box"><code>slot push</code></pre>
+    <pre className="pre-box"><code>slot push {isCopied==6 ? (
+      <i
+        className="fa-solid fa-check side-copy"
+        style={{ color: "#2fad4e", cursor: "pointer" }}
+      ></i>
+    ) : (
+      <i className="fa-regular fa-copy side-copy" onClick={() => {
+        const textToCopy = `slot push`;
+        navigator.clipboard
+          .writeText(textToCopy)
+          .then(() => {
+            setIsCopied(6);
+            setTimeout(() => setIsCopied(0), 1000);
+          })
+          .catch((err) => console.error("Failed to copy text: ", err));
+      }}
+      tabIndex={0} // Makes it focusable for better event handling
+      style={{ cursor: "pointer"}}></i>
+    )}</code></pre>
 
     <h3>6. Pull Changes from CodeSlot</h3>
     <p className="dash-para">If you're collaborating and want to fetch the latest updates from <b>CodeSlot</b> to your local repository:</p>
-    <pre className="pre-box"><code>slot pull</code></pre>
+    <pre className="pre-box"><code>slot pull {isCopied==7 ? (
+      <i
+        className="fa-solid fa-check side-copy"
+        style={{ color: "#2fad4e", cursor: "pointer" }}
+      ></i>
+    ) : (
+      <i className="fa-regular fa-copy side-copy" onClick={() => {
+        const textToCopy = `slot pull`;
+        navigator.clipboard
+          .writeText(textToCopy)
+          .then(() => {
+            setIsCopied(7);
+            setTimeout(() => setIsCopied(0), 1000);
+          })
+          .catch((err) => console.error("Failed to copy text: ", err));
+      }}
+      tabIndex={0} // Makes it focusable for better event handling
+      style={{ cursor: "pointer"}}></i>
+    )}</code></pre>
 
     <h3>7. Clone a Repository</h3>
     <p className="dash-para">To download an existing repository from <b>CodeSlot</b>:</p>
-    <pre className="pre-box"><code>slot clone &lt;repository_url&gt;</code></pre>
+    <pre className="pre-box"><code>slot clone &lt;repository_url&gt; {isCopied==8 ? (
+      <i
+        className="fa-solid fa-check side-copy"
+        style={{ color: "#2fad4e", cursor: "pointer" }}
+      ></i>
+    ) : (
+      <i className="fa-regular fa-copy side-copy" onClick={() => {
+        const textToCopy = `slot clone`;
+        navigator.clipboard
+          .writeText(textToCopy)
+          .then(() => {
+            setIsCopied(8);
+            setTimeout(() => setIsCopied(0), 1000);
+          })
+          .catch((err) => console.error("Failed to copy text: ", err));
+      }}
+      tabIndex={0} // Makes it focusable for better event handling
+      style={{ cursor: "pointer"}}></i>
+    )}</code></pre>
     <p className="dash-para">This copies the repository to your local machine.</p>
 
     <h3>8. View Commit Logs</h3>
     <p className="dash-para">To view the history of your commits:</p>
-    <pre className="pre-box"><code>slot log</code></pre>
+    <pre className="pre-box"><code>slot log {isCopied==9 ? (
+      <i
+        className="fa-solid fa-check side-copy"
+        style={{ color: "#2fad4e", cursor: "pointer" }}
+      ></i>
+    ) : (
+      <i className="fa-regular fa-copy side-copy" onClick={() => {
+        const textToCopy = `slot log`;
+        navigator.clipboard
+          .writeText(textToCopy)
+          .then(() => {
+            setIsCopied(9);
+            setTimeout(() => setIsCopied(0), 1000);
+          })
+          .catch((err) => console.error("Failed to copy text: ", err));
+      }}
+      tabIndex={0} // Makes it focusable for better event handling
+      style={{ cursor: "pointer"}}></i>
+    )}</code></pre>
 
     <h3>9. Manage Remote Repositories</h3>
     <p className="dash-para">To view or configure remote repositories linked to your project:</p>
-    <pre className="pre-box"><code>slot remote</code></pre>
+    <pre className="pre-box"><code>slot remote {isCopied==10 ? (
+      <i
+        className="fa-solid fa-check side-copy"
+        style={{ color: "#2fad4e", cursor: "pointer" }}
+      ></i>
+    ) : (
+      <i className="fa-regular fa-copy side-copy" onClick={() => {
+        const textToCopy = `slot remote`;
+        navigator.clipboard
+          .writeText(textToCopy)
+          .then(() => {
+            setIsCopied(10);
+            setTimeout(() => setIsCopied(0), 1000);
+          })
+          .catch((err) => console.error("Failed to copy text: ", err));
+      }}
+      tabIndex={0} // Makes it focusable for better event handling
+      style={{ cursor: "pointer"}}></i>
+    )} </code></pre>
 </div>
 </div>
 

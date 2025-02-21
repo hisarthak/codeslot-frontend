@@ -411,6 +411,12 @@ margin-left: 0.5rem;
 
 @media(max-width: 380px){
     .repo-name-underline{
+    
+        cursor: pointer;
+        font-size: 13px !important;
+        margin-left: -0.25rem;
+    }
+    .repo-name-underline:hover{
         text-decoration: underline;
         cursor: pointer;
         font-size: 13px !important;

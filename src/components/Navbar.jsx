@@ -154,15 +154,16 @@ useEffect(() => {
             </div>
            
                 <div>
-             
+                <h3 title="Go to Dashboard" className="dash-name1" style={{color: "white",fontFamily: "Quicksand, serif", textDecoration:"none"}}>Code</h3>
                     <img
-                        src="/sloth.png"
-                        alt="SlotCode Logo"
+                        src="/Codeslot-logo.png"
+                        alt="CodeSlot Logo"
                         onClick={() => {navigate(`/`)}}
                         style={{cursor: "pointer"}}
+                        title="Go to Dashboard"
                     />  
-                     <Link to="/">
-                    <h4 title="Go to Dashboard" className="dash" style={{color: "white"}}>CodeSlot</h4>
+                     <Link to="/" style={{textDecoration: "none"}}>
+                    <h3 title="Go to Dashboard" className="dash-name" style={{color: "white",fontFamily: "Quicksand, serif", textDecoration: "none"}}>lot</h3>
                     </Link>
                 </div>
        
@@ -206,8 +207,8 @@ navigate(0);
                     <div className="sidebar-header">
                      <div>
                     <img className='logo-sidebar'
-                        src="/sloth.png"
-                        alt="SlotCode Logo"
+                        src="/Codeslot-logo.png"
+                        alt="/CodeSlot Logo"
                     />
                 </div>
                     <div className="close-sidebar" onClick={() => setIsSidebarVisible(false)}><i class="fa-solid fa-x"></i></div>

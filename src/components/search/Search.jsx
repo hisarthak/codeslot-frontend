@@ -196,7 +196,10 @@ const [pendingFollowRequest, setPendingFollowRequest] = useState(false); // Trac
                                                 {repo.owner.username.charAt(0).toUpperCase()}
                                             </span>
                                             <span className='repo-main-info'>
-                                                <span className='repo-name-underline'  onClick={() => navigate(`/${repo.name}`)}>
+                                                <span className='repo-name-underline'  onClick={() =>{   window.scrollTo({
+                        top: 0,
+                        behavior: 'instant' // Ensure instant scrolling
+                      }); navigate(`/${repo.name}`);}}>
                                                     {repo.name}
                                                 </span>
                                             <p className="repo-desc" >{repo.description && repo.description.length > 50
@@ -241,7 +244,10 @@ const [pendingFollowRequest, setPendingFollowRequest] = useState(false); // Trac
             <div key={user._id} className="the-srch-box">
                   <div className="repo-name-link">
                                            <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
-                                            <span className="the-user dNone-600-user">{user.username.charAt(0).toUpperCase()}</span><span  className='repo-main-info'><span className='repo-name-underline'  onClick={() => navigate(`/${user.username}`)}>{user.username}</span>
+                                            <span className="the-user dNone-600-user">{user.username.charAt(0).toUpperCase()}</span><span  className='repo-main-info'><span className='repo-name-underline'  onClick={() => {   window.scrollTo({
+                        top: 0,
+                        behavior: 'instant' // Ensure instant scrolling
+                      });navigate(`/${user.username}`);}}>{user.username}</span>
              
                 </span>
                 </p>
@@ -304,7 +310,7 @@ const [pendingFollowRequest, setPendingFollowRequest] = useState(false); // Trac
                           <div className="the-srch-box no-users-repo" style={{border: "none !important"}}>
                   <div className="repo-name-link" style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
                                            <div style={{ display: "flex", fontWeight: "400", justifyContent: "center", alignContent: "center"}}>
-                                          <span >No users found</span>
+                                          <span>No users found</span>
                 </div>
                 
 </div>

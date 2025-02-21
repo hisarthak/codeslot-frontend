@@ -24,7 +24,7 @@
   }
   
   .pre-box{
-  
+  position: relative;
     width: 270px;
     height: 40px;
     display: flex;
@@ -38,19 +38,24 @@
 
   /* Width of the scrollbar */
 .slot-instructions::-webkit-scrollbar {
-  width: 10px; /* Width of the vertical scrollbar */
+ 
+  width: 5px; /* Width of the vertical scrollbar */
 }
 
 /* Track (background) of the scrollbar */
 .slot-instructions::-webkit-scrollbar-track {
-  background:  #b7bdc8; /* Light gray background for the scrollbar track */
-  border-radius: 10px; /* Rounded corners for the track */
+  margin-top: 1.8rem;
+  margin-bottom: 0.4rem;
+  background:  transparent; /* Light gray background for the scrollbar track */
+  border-radius: 10px; 
+
 }
 
 /* Handle (the draggable part of the scrollbar) */
 .slot-instructions::-webkit-scrollbar-thumb {
   background: grey; /* Color of the scrollbar handle */
-  border-radius: 10px; /* Rounded corners for the handle */
+  /* border-radius: 10px; Rounded corners for the handle */
+  /* overflow: hidden; */
 }
 
 /* Handle on hover */
@@ -211,6 +216,9 @@ width: auto !important;
 }
 
 @media(max-width: 468px) {
+  .side-copy{
+    display: none;
+  }
   .slot-instructions{
     font-size: smaller;
     width: 80vw;
@@ -253,19 +261,24 @@ color: #74b8fe !important;
 
 
 .search-repo::-webkit-scrollbar {
-  width: 10px; /* Width of the vertical scrollbar */
+
+  width: 4px; /* Width of the vertical scrollbar */
 }
 
 /* Track (background) of the scrollbar */
 .search-repo::-webkit-scrollbar-track {
-  background:  #b7bdc8; /* Light gray background for the scrollbar track */
-  border-radius: 10px; /* Rounded corners for the track */
+  background:  transparent; /* Light gray background for the scrollbar track */
+
+  margin-top: 1.8rem;
+  margin-bottom: 0.4rem;
+  background:  transparent; /* Light gray background for the scrollbar track */
+  border-radius: 10px; 
 }
 
 /* Handle (the draggable part of the scrollbar) */
 .search-repo::-webkit-scrollbar-thumb {
   background: grey; /* Color of the scrollbar handle */
-  border-radius: 10px; /* Rounded corners for the handle */
+  /* border-radius: 10px; Rounded corners for the handle */
 }
 
 /* Handle on hover */
@@ -335,4 +348,11 @@ color: #74b8fe !important;
     text-decoration: none !important;
   }
 }
+
+.side-copy{
+  position: absolute;
+  right: 1rem;
+}
+
+
 

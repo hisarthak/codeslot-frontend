@@ -57,7 +57,7 @@ const Signup = () => {
 
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("userId", res.data.userId);
-      localStorage.setItem("username", username.trim());
+      localStorage.setItem("username", username.trim().toLowerCase);
 
       setCurrentUser(res.data.userId);
       setLoading(false);
@@ -73,7 +73,7 @@ const Signup = () => {
   return (
     <div className="login-wrapper">
       <div className="login-logo-container">
-        <img className="logo-login" src={logo} alt="Logo" />
+        <img className="logo-login"  src="/Codeslot-logo.png" alt="Logo" />
       </div>
 
       <div className="login-box-wrapper">

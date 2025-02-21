@@ -11,7 +11,7 @@ const Blog = () => {
     return (
         <>
         <Navbar></Navbar>
-        <div className="blog-container">
+        <div className="blog-container" >
             <h1 className='blog-heading'>Upcoming Tech Conference: A Sneak Peek into the Future of Innovation</h1>
 
             <p>As another exciting season for technology approaches, innovators, industry leaders, and tech enthusiasts worldwide are gearing up for one of the most anticipated conferences. This event promises to be an extraordinary gathering for anyone interested in cutting-edge advancements, featuring insightful presentations, hands-on workshops, and unparalleled networking opportunities. Here’s what attendees can look forward to.</p>
