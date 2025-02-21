@@ -379,20 +379,24 @@
    /* Width of the scrollbar */
 .the-heat-map-box::-webkit-scrollbar {
   width: 1px; 
-  height: 7px;
+  height: 4px;
+  
   /* Width of the vertical scrollbar */
 }
 
 /* Track (background) of the scrollbar */
 .the-heat-map-box::-webkit-scrollbar-track {
-  background:  #b7bdc8; /* Light gray background for the scrollbar track */
+  background:  transparent; /* Light gray background for the scrollbar track */
   border-radius: 10px; /* Rounded corners for the track */
+  margin-left: 0.5rem;
+  margin-right: 0.8rem;
+
 }
 
 /* Handle (the draggable part of the scrollbar) */
 .the-heat-map-box::-webkit-scrollbar-thumb {
   background: grey; /* Color of the scrollbar handle */
-  border-radius: 10px; /* Rounded corners for the handle */
+  /* border-radius: 10px; Rounded corners for the handle */
 }
 
 /* Handle on hover */

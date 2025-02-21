@@ -35,6 +35,21 @@ const [followingList, setFollowingList] = useState([]);
  const [error, setError] = useState(false);
 
 
+  const [isOffline, setIsOffline] = useState(!navigator.onLine);
+
+  useEffect(() => {
+    const handleOnline = () => setIsOffline(false);
+    const handleOffline = () => setIsOffline(true);
+
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
+
+    return () => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
+  }, []);
+
  const handleGoHome = () => {
   navigate("/"); // Navigate back to the home page
 };
@@ -354,9 +369,17 @@ console.log("Not Owner");
      <Navbar />
       <section id="not-found-section">
         <div className="not-found-content">
+          {isOffline ? (
+        <>
+          <h1 className="not-found-title">You're Offline</h1>
+          <p className="not-found-message">Check your internet connection and try again.</p>
+        </>
+      ) : (
+        <>
           <h1 className="not-found-title">404</h1>
           <p className="not-found-message">Oops! The page you're looking for doesn't exist.</p>
-          
+        </>
+      )}
           <div className="go-home-button" onClick={handleGoHome}>
             <button className="go-home-btn">Go Back Home</button>
           </div>
