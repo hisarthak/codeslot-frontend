@@ -318,6 +318,11 @@ margin-left: -1.5rem;
 }
 
 @media (hover: none) {
+  .the-user-link:hover{
+
+    background-color: transparent;
+  
+}
   .the-star-repo:hover{
     background-color: #262c36;
 }

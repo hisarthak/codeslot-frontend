@@ -417,7 +417,7 @@ margin-left: 0.5rem;
         margin-left: -0.25rem;
     }
     .repo-name-underline:hover{
-        text-decoration: underline;
+        text-decoration: none;
         cursor: pointer;
         font-size: 13px !important;
         margin-left: -0.25rem;
