@@ -1,0 +1,271 @@
+.repo-container {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    max-width: 900px; /* Limit the width of the container */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add some padding */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    color: white; /* Text color */
+    text-wrap: wrap;
+    /* align-items: center; */
+}
+
+h2 {
+    margin-bottom: 20px; /* Space below the title */
+    color: #ffffff; /* Title color */
+}
+
+
+
+.create-repo-btn {
+    background-color: #006222; /* GitHub green color */
+    color: white; /* Text color */
+    padding: 10px 15px; /* Padding for the button */
+    border: 2px solid #2fad4e ; 
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.1s; /* Smooth transition for hover effect */
+    transition: border-color 0.3s ease;
+    outline: none;
+margin-left: 10rem;
+}
+
+.create-repo-btn:active {
+    background-color: #048f2f;
+    border: 2px solid   #048f2f;
+    color: #68bc82;
+    cursor: not-allowed;
+}
+
+.create-repo-btn:disabled {
+cursor: not-allowed;
+/* background-color: #218838;  */
+}
+
+
+.create-repo-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Container styling to align label above the input */
+.inp {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+/* Style the input */
+.repo-input {
+    width: 90%;          /* Adjust width */
+    padding: 8px;         /* Add padding for better spacing */
+    background-color: #010409; 
+    color: white;/* Change background color */
+    border: 1px solid #b7bdc8;    /* Default border */
+    border-radius: 4px;        /* Rounded corners */
+    transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+.repo-textarea{
+    width: 90%;
+    height: 32px;          /* Adjust width */
+    padding: 0px 8px;         /* Add padding for better spacing */
+    background-color: #010409!important; 
+    color: white;/* Change background color */
+    border: 1px solid #b7bdc8;    /* Default border */
+    border-radius: 4px;        /* Rounded corners */
+    transition: border-color 0.3s; /* Smooth transition for border color */
+    resize: none;
+    white-space: nowrap;
+    line-height: 32px;
+    font-family: Arial, sans-serif;
+}
+
+.repo-textarea::-webkit-scrollbar{
+    display: none ;
+}
+
+/* .repo-textarea::-webkit-scrollbar{
+    -ms-overflow-style: none; 
+    scrollbar-width: none;   
+} */
+
+input[type="text"]:-webkit-autofill{
+    background-color: white !important;    /* Force background color */
+    -webkit-box-shadow: 0 0 0px 1000px #1d2637 inset !important; /* Workaround for autofill background */
+    -webkit-text-fill-color: #fff !important; /* Ensure text color remains white */
+}
+
+
+
+
+/* Change border color on focus */
+.repo-input:focus, .repo-textarea:focus {
+    border: 1px solid #6cadef;
+    outline: none;         /* Remove default outline */
+    background-color: #010409 ;
+}
+
+/* Hide the default radio button */
+.repo-radio{
+    display: none; 
+}
+
+/* Style the custom radio button */
+ .radio-btn {
+    display: flex;
+    width: 12px; /* Size of the custom radio button */
+    height: 12px; /* Size of the custom radio button */ /* Border color */
+    border-radius: 50%; /* Make it round */
+    background-color: #010409; /* Background color */
+    border: 3px solid  #b7bdc8;
+    margin-right: -16px; /* Space between the radio button and text */
+    flex-direction: column;
+    align-self: center;
+    cursor: pointer !important;
+
+}
+
+/* Style when the radio button is checked */
+.repo-radio:checked + .radio-btn {
+    background-color: #006222; /* Green when checked */
+    border: 3px solid #2fad4e;
+}
+
+ .repo-radio:checked + .radio-btn::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 10px; 
+    height: 10px;
+    border-radius: 50%;
+
+   
+}
+
+/* Hover effect */
+.custom-radio:hover .radio-btn {
+    border-color: #888; /* Change border color on hover */
+}
+
+.custom-radio{
+    cursor: pointer !important;
+}
+
+/* Custom error message styling */
+.error-message {
+    color: #ffb1af !important;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.invisible-bottom-line{
+    display: none;
+}
+@media(max-width: 540px){
+  
+   .bottom-line{
+    display: none;
+   }
+   .the-repository-owner{
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+   left: 0%;
+   }
+
+   .create-repo-btn-container{
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+   left: 0;
+
+   }
+   .create-repo-btn {
+  
+    background-color: #006222; /* GitHub green color */
+    color: white; /* Text color */
+    padding: 10px 15px; /* Padding for the button */
+    border: 2px solid #2fad4e ; 
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.1s; /* Smooth transition for hover effect */
+    transition: border-color 0.3s ease;
+    outline: none;
+    margin: 0;
+}
+
+   .the-repository-name-inp{
+    margin-top: 3rem;
+   }
+ 
+
+    }
+
+    .create-repo-heading{
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+        margin-bottom: -0.8rem;
+        text-wrap: nowrap;
+        
+    }
+
+@media(max-width: 340px){
+    .what-is-a-repo{
+        display: none;
+    }
+   .the-repository-owner{
+    margin-top: 1rem;
+   }
+   .invisible-media{
+    display: none;
+   }
+   .create-repo-heading{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    margin-bottom: -0.8rem;
+    text-wrap: nowrap;
+    /* font-weight: 400; */
+    font-size: 19px;
+} 
+}
+
+@media(max-width: 280px){
+    .create-repo-heading{
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+        margin-bottom: -0.8rem;
+        text-wrap: nowrap;
+        /* font-weight: 400; */
+        font-size: 15px;
+    } 
+}
+
+@media (hover: none) {
+    .create-repo-btn:hover {
+        background-color: #006222; /* GitHub green color */
+        color: white; /* Text color */
+        border: 2px solid #2fad4e ; 
+        outline: none;
+    }
+  
+    /* Hover effect */
+.custom-radio:hover .radio-btn {
+    border-color:  #2fad4e; /* Change border color on hover */
+}
+
+} 
+
+

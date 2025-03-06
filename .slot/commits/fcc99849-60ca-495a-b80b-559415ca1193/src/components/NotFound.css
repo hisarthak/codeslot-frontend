@@ -1,0 +1,71 @@
+/* NotFound.css */
+
+#not-found-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: transparent;
+    color: #333;
+  }
+  
+  .not-found-content {
+    text-align: center;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: transparent;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .not-found-title {
+    font-size: 72px;
+    font-weight: 600;
+    color: #e74c3c; /* Red color for 404 */
+  }
+  
+  .not-found-message {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .go-home-button {
+    margin-top: 20px;
+  }
+  
+  .go-home-btn {
+    background-color: #006222; /* GitHub green color */
+    color: white; /* Text color */
+    padding: 10px 15px; /* Padding for the button */
+    border: 2px solid #2fad4e ; 
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.1s; /* Smooth transition for hover effect */
+    transition: border-color 0.3s ease;
+    outline: none;
+}
+
+.go-home-btn:active {
+    background-color: #048f2f;
+    border: 2px solid   #048f2f;
+    color: #68bc82;
+    cursor: not-allowed;
+    outline: none;
+}
+
+.go-home-btn:disabled {
+cursor: not-allowed;
+/* background-color: #218838;  */
+}
+
+
+.go-home-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+    border: 2px solid  #218838 ; 
+}
+
+  
+  

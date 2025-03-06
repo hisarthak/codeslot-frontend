@@ -177,7 +177,7 @@ useEffect(() => {
                     <div className="nav-search-box-form">
                       <form>
                         <div  className='nav-search-box-inp-div'>&nbsp;&nbsp;<i className="fa fa-search search-glass"></i> &nbsp;
-                        <input  className='nav-search-box-inp'ref={inputRef}   defaultValue={searchQuery || inputValue}
+                        <input  className='nav-search-box-inp'ref={inputRef} placeholder='Search e.g. Netflix'   defaultValue={searchQuery || inputValue}
 
                             onChange={handleInputChange} onKeyDown={handleKeyDown}  ></input>   {inputValue && ( // Only show the cross button if there is input
                             <div className="cross-btn" onClick={clearInput}>

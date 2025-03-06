@@ -1,0 +1,28 @@
+.repo-page {
+    display: flex;
+    flex-direction: column;
+  }
+  
+
+  
+   .repo-contain {
+    display: flex;
+    flex-direction: column;
+    margin: 40px 132px; /* Center the container */
+    padding: 20px; /* Add some padding */
+  } 
+
+  .repo-sidebar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+   top: 208px;
+   right : -450px;
+  }
+  
+  @media(max-width: 950px){
+    .repo-contain{
+      margin: 40px 10px;
+      
+    }
+  }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./dashboard.css";
 import Navbar from "../Navbar";
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 const apiUrl = import.meta.env.VITE_API_URL;
 // const apiUrl = "127.0.0.1:3002";
@@ -18,7 +18,8 @@ const Dashboard = () => {
   const [isPublic, setIsPublic] = useState(true);  // Default is public
   const [createError, setCreateError] = useState("");
   const [owner, setOwner] = useState('');
-    const [isCopied, setIsCopied] = useState(0);
+  const [isCopied, setIsCopied] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
@@ -95,10 +96,10 @@ const Dashboard = () => {
     
          <div className="center-div">
          <div className="slot-instructions">
-    <h2>How to Use Slot - The Version Control System</h2>
+    <h2>How to Use Slot-VCS - The Version Control System</h2>
     <h3>1. Install Slot</h3>
     <p className="dash-para">To install Slot, run the following command in your terminal:</p>
-    <pre className="pre-box"><code>npm i slot {isCopied==1 ? (
+    <pre className="pre-box"><code>npm i -g slot {isCopied==1 ? (
       <i
         className="fa-solid fa-check side-copy"
         style={{ color: "#2fad4e", cursor: "pointer" }}
@@ -205,16 +206,16 @@ const Dashboard = () => {
       style={{ cursor: "pointer"}}></i>
     )}</code></pre>
 
-    <h3>5. Push Changes to CodeSlot</h3>
-    <p className="dash-para">To send your local changes to a remote repository on <b>CodeSlot</b>:</p>
-    <pre className="pre-box"><code>slot push {isCopied==6 ? (
+<h3>5. Authenicate user</h3>
+    <p className="dash-para">To authenticate the user:</p>
+    <pre className="pre-box"><code>slot auth {isCopied==6 ? (
       <i
         className="fa-solid fa-check side-copy"
         style={{ color: "#2fad4e", cursor: "pointer" }}
       ></i>
     ) : (
       <i className="fa-regular fa-copy side-copy" onClick={() => {
-        const textToCopy = `slot push`;
+        const textToCopy = `slot auth`;
         navigator.clipboard
           .writeText(textToCopy)
           .then(() => {
@@ -227,16 +228,16 @@ const Dashboard = () => {
       style={{ cursor: "pointer"}}></i>
     )}</code></pre>
 
-    <h3>6. Pull Changes from CodeSlot</h3>
-    <p className="dash-para">If you're collaborating and want to fetch the latest updates from <b>CodeSlot</b> to your local repository:</p>
-    <pre className="pre-box"><code>slot pull {isCopied==7 ? (
+<h3>6. Manage Remote Repositories</h3>
+    <p className="dash-para">To configure remote repository linked to your project:</p>
+    <pre className="pre-box"><code>slot remote add &lt;url&gt; {isCopied==7 ? (
       <i
         className="fa-solid fa-check side-copy"
         style={{ color: "#2fad4e", cursor: "pointer" }}
       ></i>
     ) : (
       <i className="fa-regular fa-copy side-copy" onClick={() => {
-        const textToCopy = `slot pull`;
+        const textToCopy = `slot remote add <url>`;
         navigator.clipboard
           .writeText(textToCopy)
           .then(() => {
@@ -247,18 +248,19 @@ const Dashboard = () => {
       }}
       tabIndex={0} // Makes it focusable for better event handling
       style={{ cursor: "pointer"}}></i>
-    )}</code></pre>
+    )} </code></pre>
 
-    <h3>7. Clone a Repository</h3>
-    <p className="dash-para">To download an existing repository from <b>CodeSlot</b>:</p>
-    <pre className="pre-box"><code>slot clone &lt;repository_url&gt; {isCopied==8 ? (
+
+    <h3>7. Push Changes to CodeSlot</h3>
+    <p className="dash-para">To send your local changes to a remote repository on <b>CodeSlot</b>:</p>
+    <pre className="pre-box"><code>slot push {isCopied==8 ? (
       <i
         className="fa-solid fa-check side-copy"
         style={{ color: "#2fad4e", cursor: "pointer" }}
       ></i>
     ) : (
       <i className="fa-regular fa-copy side-copy" onClick={() => {
-        const textToCopy = `slot clone`;
+        const textToCopy = `slot push`;
         navigator.clipboard
           .writeText(textToCopy)
           .then(() => {
@@ -270,18 +272,17 @@ const Dashboard = () => {
       tabIndex={0} // Makes it focusable for better event handling
       style={{ cursor: "pointer"}}></i>
     )}</code></pre>
-    <p className="dash-para">This copies the repository to your local machine.</p>
 
-    <h3>8. View Commit Logs</h3>
-    <p className="dash-para">To view the history of your commits:</p>
-    <pre className="pre-box"><code>slot log {isCopied==9 ? (
+    <h3>8. Pull Changes from CodeSlot</h3>
+    <p className="dash-para">If you're collaborating and want to fetch the latest updates from <b>CodeSlot</b> to your local repository:</p>
+    <pre className="pre-box"><code>slot pull {isCopied== 9 ? (
       <i
         className="fa-solid fa-check side-copy"
         style={{ color: "#2fad4e", cursor: "pointer" }}
       ></i>
     ) : (
       <i className="fa-regular fa-copy side-copy" onClick={() => {
-        const textToCopy = `slot log`;
+        const textToCopy = `slot pull`;
         navigator.clipboard
           .writeText(textToCopy)
           .then(() => {
@@ -294,16 +295,16 @@ const Dashboard = () => {
       style={{ cursor: "pointer"}}></i>
     )}</code></pre>
 
-    <h3>9. Manage Remote Repositories</h3>
-    <p className="dash-para">To view or configure remote repositories linked to your project:</p>
-    <pre className="pre-box"><code>slot remote {isCopied==10 ? (
+    <h3>9. Clone a Repository</h3>
+    <p className="dash-para">To download an existing repository from <b>CodeSlot</b>:</p>
+    <pre className="pre-box"><code>slot clone &lt;repository_url&gt; {isCopied==10 ? (
       <i
         className="fa-solid fa-check side-copy"
         style={{ color: "#2fad4e", cursor: "pointer" }}
       ></i>
     ) : (
       <i className="fa-regular fa-copy side-copy" onClick={() => {
-        const textToCopy = `slot remote`;
+        const textToCopy = `slot clone`;
         navigator.clipboard
           .writeText(textToCopy)
           .then(() => {
@@ -314,12 +315,80 @@ const Dashboard = () => {
       }}
       tabIndex={0} // Makes it focusable for better event handling
       style={{ cursor: "pointer"}}></i>
-    )} </code></pre>
+    )}</code></pre>
+    <p className="dash-para">This copies the repository to your local machine.</p>
+
+    <h3>10. View Commit Logs</h3>
+    <p className="dash-para">To view the history of your commits:</p>
+    <pre className="pre-box"><code>slot log {isCopied==11 ? (
+      <i
+        className="fa-solid fa-check side-copy"
+        style={{ color: "#2fad4e", cursor: "pointer" }}
+      ></i>
+    ) : (
+      <i className="fa-regular fa-copy side-copy" onClick={() => {
+        const textToCopy = `slot log`;
+        navigator.clipboard
+          .writeText(textToCopy)
+          .then(() => {
+            setIsCopied(11);
+            setTimeout(() => setIsCopied(0), 1000);
+          })
+          .catch((err) => console.error("Failed to copy text: ", err));
+      }}
+      tabIndex={0} // Makes it focusable for better event handling
+      style={{ cursor: "pointer"}}></i>
+    )}</code></pre>
+
+<h3>11. Revert to a commit</h3>
+    <p className="dash-para">To revert to a specifiic commit:</p>
+    <pre className="pre-box"><code>slot revert &lt;commit_Id&gt; {isCopied==12 ? (
+      <i
+        className="fa-solid fa-check side-copy"
+        style={{ color: "#2fad4e", cursor: "pointer" }}
+      ></i>
+    ) : (
+      <i className="fa-regular fa-copy side-copy" onClick={() => {
+        const textToCopy = `slot revert <commit_Id>`;
+        navigator.clipboard
+          .writeText(textToCopy)
+          .then(() => {
+            setIsCopied(12);
+            setTimeout(() => setIsCopied(0), 1000);
+          })
+          .catch((err) => console.error("Failed to copy text: ", err));
+      }}
+      tabIndex={0} // Makes it focusable for better event handling
+      style={{ cursor: "pointer"}}></i>
+    )}</code></pre>
+
+<h3>12. View the list of available commands</h3>
+    <p className="dash-para">To view the list of available commands:</p>
+    <pre className="pre-box"><code>slot --help {isCopied==9 ? (
+      <i
+        className="fa-solid fa-check side-copy"
+        style={{ color: "#2fad4e", cursor: "pointer" }}
+      ></i>
+    ) : (
+      <i className="fa-regular fa-copy side-copy" onClick={() => {
+        const textToCopy = `slot --help`;
+        navigator.clipboard
+          .writeText(textToCopy)
+          .then(() => {
+            setIsCopied(9);
+            setTimeout(() => setIsCopied(0), 1000);
+          })
+          .catch((err) => console.error("Failed to copy text: ", err));
+      }}
+      tabIndex={0} // Makes it focusable for better event handling
+      style={{ cursor: "pointer"}}></i>
+    )}</code></pre>
+    <br></br>
+    ...and many more commnads
 </div>
 </div>
 
         </main>
-
         {/* Upcoming Events */}
         <aside>
           <div className='right-box'>
@@ -347,8 +416,15 @@ const Dashboard = () => {
                <div  className='the-suggested-repo'>
                                             <div className="repo-name-link">
                                            <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
-                                            <span className="the-suggested-repo-user">C</span><span  className='repo-main-info'><span className='suggested-repo-name'>codeslot/codeslot</span>
-                                            <p className="suggested-repo-desc" >This is a repo...</p>
+                                            <span className="the-suggested-repo-user">S</span><span  className='repo-main-info'><span className='suggested-repo-name'
+                                            onClick={() =>{
+                                              window.scrollTo({
+                                                top: 0,
+                                                behavior: 'instant' // Ensure instant scrolling
+                                              });
+                                            navigate(`/sarthak/TravelHaven`)}}
+                                            >Sarthak/TravelHaven</span>
+                                            <p className="suggested-repo-desc" >Discover and Book your perfect trip.</p>
                                            </span>
                         </p>
 </div>                          
@@ -356,8 +432,15 @@ const Dashboard = () => {
            <div className='the-suggested-repo'>
            <div className="repo-name-link">
           <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
-           <span className="the-suggested-repo-user">S</span><span  className='repo-main-info'><span  className='suggested-repo-name'>codeslot/hi</span>
-           <p className="suggested-repo-desc" >This is a repo...</p>
+           <span className="the-suggested-repo-user">P</span><span  className='repo-main-info'><span  className='suggested-repo-name'
+            onClick={() =>{
+              window.scrollTo({
+                top: 0,
+                behavior: 'instant' // Ensure instant scrolling
+              });
+            navigate(`/pandey/Next-js-App`)}}
+           >Pandey/Next-js-App</span>
+           <p className="suggested-repo-desc" >Next.js app with custom domain support.</p>
                      
           </span>
 </p>
@@ -366,8 +449,15 @@ const Dashboard = () => {
   <div className='the-suggested-repo' style={{border: "none"}}>
   <div className="repo-name-link">
  <p style={{ color: "#74b9ff", display: "flex", fontWeight: "500"}}>
-  <span className="the-suggested-repo-user">E</span><span className='repo-main-info'><span className='suggested-repo-name'>codeslot/badshah</span>
-  <p className="suggested-repo-desc" >This is a repo...</p>
+  <span className="the-suggested-repo-user">P</span><span className='repo-main-info'><span className='suggested-repo-name'
+   onClick={() =>{
+    window.scrollTo({
+      top: 0,
+      behavior: 'instant' // Ensure instant scrolling
+    });
+  navigate(`/programmer/Netflix-clone`)}}
+  >Programmer/Netflix-clone</span>
+  <p className="suggested-repo-desc" >Streaming platform with auth & playback.</p>
  </span>
 </p>
 </div>                          
