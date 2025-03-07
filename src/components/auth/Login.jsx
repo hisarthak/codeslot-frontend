@@ -1,21 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../authContext";
 import { PageHeader } from "@primer/react/drafts";
 import { Box, Button } from "@primer/react";
 import "./auth.css";
 // import logo from "../../assets/thefinal.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 const apiUrl = import.meta.env.VITE_API_URL;
+const autoLoginCode = import.meta.env.VITE_AUTO_LOGIN_CODE;
+const secretPathName = import.meta.env.VITE_SECRET_PATH_NAME;
+const secretUsername = import.meta.env.VITE_SECRET_USERNAME;
+const secretToken = import.meta.env.VITE_SECRET_TOKEN;
+const secretId = import.meta.env.VITE_SECRET_ID;
 // const apiUrl = "127.0.0.1:3002";
+
 
 const Login = () => {
   const [username, setUsername] = useState(""); // Replace email with username
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const { setCurrentUser } = useAuth();
+  const location = useLocation();
   const navigate = useNavigate(); // Use navigate instead of window.location.href
   const [errors, setErrors] = useState({}); // Store validation errors
+
+
+  
+
+
+const autoLogin = async () => {
+  
+
+  // Store token and userId in localStorage
+localStorage.setItem("token", secretToken);
+localStorage.setItem("userId", secretId);
+localStorage.setItem("username", secretUsername);
+
+
+    // Update current user and navigate to dashboard
+    setCurrentUser(secretId);
+    navigate("/");
+  }
+  
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {

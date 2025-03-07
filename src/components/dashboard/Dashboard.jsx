@@ -20,18 +20,23 @@ const Dashboard = () => {
   const [owner, setOwner] = useState('');
   const [isCopied, setIsCopied] = useState(0);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
-    const username = localStorage.getItem("username")
+    
 
     const fetchRepositories = async () => {
       try {
-        const response = await fetch(`https://${apiUrl}/repo/user/${username}?userId=${userId}`);
+        setLoading(true);
+        const response = await fetch(`https://${apiUrl}/repo/dashboard/${userId}`);
         const data = await response.json();
+        console.log("the",data);
         setRepositories(data.repositories);
+        setLoading(false);
         setSearchResults(data.repositories);  // Display repositories initially
       } catch (err) {
+        setLoading(false);
         console.error("Error while fetching repositories: ", err);
       }
     };
@@ -79,18 +84,28 @@ const Dashboard = () => {
               className="search"
             />
           </div>
-          {searchResults?.length > 0 && searchResults.map((repo) => (
-            <div key={repo._id} className="your-repo">
-               <Link to={`/${repo.name}`} onClick={()=>{     
-                      window.scrollTo({
-                        top: 0,
-                        behavior: 'instant' // Ensure instant scrolling
-                      });}}className="your-repo-name">
-      <span className='underline'>{repo.name}</span>
-    </Link>
-            </div>
-          ))}
+          {loading ? (
+        <p>Loading...</p>
+      ) : (
+        searchResults?.length > 0 &&
+        searchResults.map((repo) => (
+          <div key={repo._id} className="your-repo">
+            <Link
+              to={`/${repo.name}`}
+              onClick={() => {
+                window.scrollTo({
+                  top: 0,
+                  behavior: "instant", // Ensure instant scrolling
+                });
+              }}
+              className="your-repo-name"
+            >
+              <span className="underline">{repo.name}</span>
+            </Link>
           </div>
+        ))
+      )}
+    </div>
         </aside>
 <main>
     

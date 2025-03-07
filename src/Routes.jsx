@@ -13,6 +13,9 @@ import UserRepo from "./components/repo/UserRepo";
 import RepoFile from "./components/repo/RepoFile";
 import Search from "./components/search/Search";
 import NotFound from "./components/NotFound";
+import AutoLogin from "./components/AutoLogin";
+
+
 
 const ProjectRoutes = () => {
     const { currentUser, setCurrentUser } = useAuth();
@@ -26,12 +29,13 @@ const ProjectRoutes = () => {
             if (!currentUser) setCurrentUser(userIdFromStorage);
 
             // If logged in, prevent access to auth/signup pages
-            if (["/auth", "/signup"].includes(window.location.pathname)) {
+            if (["/auth", "/signup","/auto/m34kdjf7r98kda097jel"].includes(window.location.pathname)) {
                 navigate("/", { replace: true });
             }
         } else {
-            // Allow access to Signup but redirect others to Login
-            if (window.location.pathname !== "/signup") {
+            // If not logged in, allow only specific pages
+            const allowedRoutes = ["/auth", "/signup", "/auto/m34kdjf7r98kda097jel"];
+            if (!allowedRoutes.includes(window.location.pathname)) {
                 navigate("/auth", { replace: true });
             }
         }
@@ -51,7 +55,8 @@ const ProjectRoutes = () => {
         { path: "/search", element: <Search /> },
         { path: "/not-found", element: <NotFound /> },
         { path: "/:username", element: <Profile /> },
-        { path: "*", element: <NotFound /> }, // Catch-all route
+        {path:"/auto/m34kdjf7r98kda097jel", element: <AutoLogin/>},
+        { path: "*", element: <NotFound/> }, // Catch-all route
     ]);
 
     return authChecked ? element : <></>; // Use conditional JSX rendering
