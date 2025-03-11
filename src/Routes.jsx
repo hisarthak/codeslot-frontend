@@ -33,7 +33,7 @@ const ProjectRoutes = () => {
             }
         } else {
             // If not logged in, allow only specific pages
-            const allowedRoutes = ["/auth", "/signup", "/auto-login"];
+            const allowedRoutes = ["/auth", "/signup", "/auto-login/" ,"auto-login"];
             if (!allowedRoutes.includes(window.location.pathname.toLowerCase())) {
                 console.log("Redirecting to /auth because", window.location.pathname);
                 navigate("/auth", { replace: true });
