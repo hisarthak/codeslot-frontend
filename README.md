@@ -15,7 +15,6 @@ You can visit the website at [codeslot.in](https://codeslot.in).
 - **Follow Other Users** – Stay updated with other developers.  
 - **Star Repositories** – Save repositories you like.  
 - **Commit History** – View all past commits & changes per commit.  
-  ...and many more
 
 ## **Tech Stack**  
 ### **Frontend:**  
@@ -49,7 +48,7 @@ Here are some previews of **CodeSlot** in action:
 ### **Repository View**  
 ![Repository View](public/repository.png)  
 
-### **Older Commits Page** (See commit history & file changes)  
+### **Commit History View** (See commit history & file changes)  
 ![Older Commits](public/commits.png)  
 
 ## **Installation & Setup**  
