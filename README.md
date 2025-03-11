@@ -36,19 +36,19 @@
 Here are some previews of **CodeSlot** in action:  
 
 1️⃣ **Dashboard**  
-![Dashboard](./dashboard.png)  
+![Dashboard](public/dashboard.png)  
 
 2️⃣ **Profile Page**  
-![Profile Page](./profile.png)  
+![Profile Page](public/profile.png)  
 
 3️⃣ **Search Page** (Find repositories & users)  
-![Search Page](./search.png)  
+![Search Page](public/search.png)  
 
 4️⃣ **Repository View**  
-![Repository View](./repository.png)  
+![Repository View](public/repository.png)  
 
 5️⃣ **Older Commits Page** (See commit history & file changes)  
-![Older Commits](./commits.png)  
+![Older Commits](public/commits.png)  
 
 ## **📦 Installation & Setup**  
 1️⃣ Clone the repository:  
