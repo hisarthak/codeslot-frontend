@@ -31,7 +31,11 @@ You can visit the website at [codeslot.in](https://codeslot.in).
 
 ### **Deployment:**  
 - **Frontend:** AWS Amplify  
-- **Backend:** AWS EC2  
+- **Backend:** AWS EC2
+
+## **Backend Repository**  
+The backend code for [CodeSlot](https://codeslot.in) is available at:  
+🔗 [CodeSlot Backend](https://github.com/hisarthak/codeslot-backend)
 
 ## **Website Showcase**  
 Here are some previews of **CodeSlot** in action:  
