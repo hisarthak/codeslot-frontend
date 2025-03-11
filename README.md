@@ -1,11 +1,11 @@
 # **CodeSlot Frontend**  
 
- [CodeSlot](https://codeslot.in) is a **React-based** web application that serves as the hosting platform for repositories managed using **Slot**, a version control system. The backend is built using **Node.js & Express.js**, hosted on **AWS EC2**, while the frontend is deployed on **AWS Amplify**. 
+ [CodeSlot](https://codeslot.in) is a **React-based** web application that serves as the hosting platform for repositories managed using [Slot](https://github.com/hisarthak/slot), a version control system. The backend is built using **Node.js & Express.js**, hosted on **AWS EC2**, while the frontend is deployed on **AWS Amplify**. 
 
 You can visit the website at [codeslot.in](https://codeslot.in). 
 
 ## **Key Features**  
-- **Host Slot Repositories** – Manage repositories with Slot's version control.  
+- **Host Slot Repositories** – Manage repositories with [Slot's version control](https://github.com/hisarthak/slot).  
 - **User Dashboard** – Overview of repositories and activity.  
 - **Profile Page** – Manage user details and settings.  
 - **Create Repository** – Easily create new repositories.  
@@ -15,7 +15,7 @@ You can visit the website at [codeslot.in](https://codeslot.in).
 - **Follow Other Users** – Stay updated with other developers.  
 - **Star Repositories** – Save repositories you like.  
 - **Commit History** – View all past commits & changes per commit.  
- **And many more!**  
+  ...and many more
 
 ## **Tech Stack**  
 ### **Frontend:**  
