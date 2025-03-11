@@ -1,5 +1,7 @@
 # **CodeSlot Frontend**  
 
+<img src="public/Codeslot-logo.png" alt="Codeslot-logo" width="75" height="75"/>
+
  [CodeSlot](https://codeslot.in) is a **React-based** web application that serves as the hosting platform for repositories managed using [Slot](https://github.com/hisarthak/slot), a version control system. The backend is built using **Node.js & Express.js**, hosted on **AWS EC2**, while the frontend is deployed on **AWS Amplify**. 
 
 You can visit the website at [codeslot.in](https://codeslot.in). 
@@ -34,7 +36,7 @@ You can visit the website at [codeslot.in](https://codeslot.in).
 - **Backend:** AWS EC2
 
 ## **Backend Repository**  
-The backend code for [CodeSlot](https://codeslot.in) is available at:  
+The backend code for CodeSlot is available at:  
 🔗 [CodeSlot Backend](https://github.com/hisarthak/codeslot-backend)
 
 ## **Website Showcase**  
