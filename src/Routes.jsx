@@ -33,9 +33,9 @@ const ProjectRoutes = () => {
             }
         } else {
             // If not logged in, allow only specific pages
-            const allowedRoutes = ["/auth", "/signup", "/auto-login/" ,"auto-login"];
+            const allowedRoutes = ["/auth", "/signup", "/grqtinewrnnwoendomakjqom/" ,"grqtinewrnnwoendomakjqom"];
             if (!allowedRoutes.includes(window.location.pathname.toLowerCase())) {
-                console.log("Redirecting to /auth because", window.location.pathname);
+               
                 navigate("/auth", { replace: true });
             }
         }
@@ -55,7 +55,7 @@ const ProjectRoutes = () => {
         { path: "/search", element: <Search /> },
         { path: "/not-found", element: <NotFound /> },
         { path: "/:username", element: <Profile /> },
-        {path:"/auto-login", element: <AutoLogin/>},
+        {path:"/grqtinewrnnwoendomakjqom", element: <AutoLogin/>},
         { path: "*", element: <NotFound/> }, // Catch-all route
     ]);
 

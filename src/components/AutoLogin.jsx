@@ -26,13 +26,12 @@ const AutoLogin = () => {
       setCurrentUser(secretId);
        // **Wait for React to re-render before navigating**
        setTimeout(() => {
-        console.log("Navigating to /");
         navigate("/");
     }, 50); // Short delay to let state update
 
       navigate("/");
     };
-console.log("Bhaiyya ju timer ")
+
     // Run autoLogin after 5 seconds
     const timer = setTimeout(autoLogin, 3000);
 
