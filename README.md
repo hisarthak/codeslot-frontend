@@ -37,7 +37,7 @@ You can visit the website at [codeslot.in](https://codeslot.in).
 
 ## **Backend Repository**  
 The backend code for CodeSlot is available at:  
-🔗 [CodeSlot Backend](https://github.com/hisarthak/codeslot-backend)
+🔗 [CodeSlot-Backend](https://github.com/hisarthak/codeslot-backend)
 
 ## **Website Showcase**  
 Here are some previews of **CodeSlot** in action:  
