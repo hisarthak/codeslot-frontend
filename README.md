@@ -5,16 +5,16 @@
 You can visit the website at [codeslot.in](https://codeslot.in). 
 
 ## **Key Features**  
- **Host Slot Repositories** – Manage repositories with Slot's version control.  
- **User Dashboard** – Overview of repositories and activity.  
- **Profile Page** – Manage user details and settings.  
- **Create Repository** – Easily create new repositories.  
- **Search Functionality** – Find repositories & users.  
- **Repository View** – Browse files, folders, and commit history.  
- **Older Commits View** – See past commits & file changes in a commit.  
- **Follow Other Users** – Stay updated with other developers.  
- **Star Repositories** – Save repositories you like.  
- **Commit History** – View all past commits & changes per commit.  
+- **Host Slot Repositories** – Manage repositories with Slot's version control.  
+- **User Dashboard** – Overview of repositories and activity.  
+- **Profile Page** – Manage user details and settings.  
+- **Create Repository** – Easily create new repositories.  
+- **Search Functionality** – Find repositories & users.  
+- **Repository View** – Browse files, folders, and commit history.  
+- **Older Commits View** – See past commits & file changes in a commit.  
+- **Follow Other Users** – Stay updated with other developers.  
+- **Star Repositories** – Save repositories you like.  
+- **Commit History** – View all past commits & changes per commit.  
  **And many more!**  
 
 ## **Tech Stack**  
@@ -34,7 +34,7 @@ You can visit the website at [codeslot.in](https://codeslot.in).
 - **Frontend:** AWS Amplify  
 - **Backend:** AWS EC2  
 
-## ** Website Showcase**  
+## **Website Showcase**  
 Here are some previews of **CodeSlot** in action:  
 
 ### **Dashboard**  
