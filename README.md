@@ -32,23 +32,23 @@
 - **Frontend:** AWS Amplify  
 - **Backend:** AWS EC2  
 
-## **📸 Screenshots**  
+## **📸 Website Showcase**  
 Here are some previews of **CodeSlot** in action:  
 
 1️⃣ **Dashboard**  
-![Dashboard](./screenshots/dashboard.png)  
+![Dashboard](./dashboard.png)  
 
 2️⃣ **Profile Page**  
-![Profile Page](./screenshots/profile.png)  
+![Profile Page](./profile.png)  
 
 3️⃣ **Search Page** (Find repositories & users)  
-![Search Page](./screenshots/search.png)  
+![Search Page](./search.png)  
 
 4️⃣ **Repository View**  
-![Repository View](./screenshots/repository.png)  
+![Repository View](./repository.png)  
 
 5️⃣ **Older Commits Page** (See commit history & file changes)  
-![Older Commits](./screenshots/commits.png)  
+![Older Commits](./commits.png)  
 
 ## **📦 Installation & Setup**  
 1️⃣ Clone the repository:  
