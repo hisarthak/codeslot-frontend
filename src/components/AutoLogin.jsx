@@ -24,15 +24,21 @@ const AutoLogin = () => {
 
       // Update current user and navigate to dashboard
       setCurrentUser(secretId);
+       // **Wait for React to re-render before navigating**
+       setTimeout(() => {
+        console.log("Navigating to /");
+        navigate("/");
+    }, 50); // Short delay to let state update
+
       navigate("/");
     };
-
+console.log("Bhaiyya ju timer ")
     // Run autoLogin after 5 seconds
     const timer = setTimeout(autoLogin, 3000);
 
     // Cleanup function to clear timeout if the component unmounts early
     return () => clearTimeout(timer);
-  }, [setCurrentUser, navigate]);
+  }, []);
 
 
   return (
