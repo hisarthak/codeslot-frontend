@@ -329,6 +329,7 @@ const fetchFilesByCommit = async (commitId) => {
         console.log("Encoded path for old commits:", encodedPath);
       }
 
+      
       try {
         const response = await axios.get(
           `https://gitspace.duckdns.org:3002/repo/user/details/${myRepoName}/file/${encodedPath}`

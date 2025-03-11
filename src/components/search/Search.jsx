@@ -7,7 +7,6 @@ import "./Search.css";
 
 
 const apiUrl = import.meta.env.VITE_API_URL;
-
 const Search = () => {
     const location = useLocation();
     const navigate = useNavigate(); // Used for programmatic navigation

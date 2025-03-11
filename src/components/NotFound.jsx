@@ -10,6 +10,7 @@ const NotFound = () => {
     navigate("/"); // Navigate back to the home page
   };
 
+  
   return (
     <>
       <Navbar />

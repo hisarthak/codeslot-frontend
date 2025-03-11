@@ -12,7 +12,6 @@ const AutoLogin = () => {
   const navigate = useNavigate(); // For programmatic navigation
 
  
-
   useEffect(() => {
     const autoLogin = async () => {
     

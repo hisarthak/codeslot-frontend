@@ -6,8 +6,6 @@ import './repo.css';
 const apiUrl = import.meta.env.VITE_API_URL;
 // const apiUrl = "127.0.0.1:3002";
 
-
-
 const Repo = () => {
   
     const [repoName, setRepoName] = useState('');

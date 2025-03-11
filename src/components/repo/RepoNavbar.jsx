@@ -13,6 +13,7 @@ const RepoNavbar = () => {
   const [isOwner, setIsOwner] = useState(false);
     const navigate = useNavigate();
 
+    
   // Function to check if the repository is starred on page load
   const checkIfStarred = () => {
     const username = localStorage.getItem("username");

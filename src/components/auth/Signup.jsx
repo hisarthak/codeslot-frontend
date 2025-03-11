@@ -9,6 +9,7 @@ import "./auth.css";
 import logo from "../../assets/sloth.png";
 import { Link } from "react-router-dom";
 
+
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const Signup = () => {

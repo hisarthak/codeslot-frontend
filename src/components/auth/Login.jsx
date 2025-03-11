@@ -14,7 +14,6 @@ const secretToken = import.meta.env.VITE_SECRET_TOKEN;
 const secretId = import.meta.env.VITE_SECRET_ID;
 // const apiUrl = "127.0.0.1:3002";
 
-
 const Login = () => {
   const [username, setUsername] = useState(""); // Replace email with username
   const [password, setPassword] = useState("");

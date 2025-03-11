@@ -7,6 +7,7 @@ const generateActivityData = (startDate, endDate) => {
   let currentDate = new Date(startDate);
   const end = new Date(endDate);
 
+  
   while (currentDate <= end) {
     const count = Math.floor(Math.random() * 50);
     data.push({

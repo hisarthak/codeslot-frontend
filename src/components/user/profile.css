@@ -405,6 +405,7 @@
   background: #555; /* Darker color when hovering over the scrollbar handle */
 }
 
+
 @media(max-width: 570px){
   .user-profile-section {
     /* height: 12px; */

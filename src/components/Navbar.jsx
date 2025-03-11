@@ -166,7 +166,7 @@ useEffect(() => {
                     <h3 title="Go to Dashboard" className="dash-name" style={{color: "white",fontFamily: "Quicksand, serif", textDecoration: "none"}}>lot</h3>
                     </Link>
                 </div>
-       
+    
             <div>
             {(isBoxVisible || isSidebarVisible) && <div className="fullpage-box"></div>}
            

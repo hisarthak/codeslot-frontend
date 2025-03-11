@@ -6,10 +6,6 @@ import axios from 'axios';
 const apiUrl = import.meta.env.VITE_API_URL;
 // const apiUrl = "127.0.0.1:3002";
 
-
-
-
-
 const Dashboard = () => {
   const [repositories, setRepositories] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");

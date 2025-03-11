@@ -7,7 +7,6 @@ const Blog = () => {
     const query = new URLSearchParams(useLocation().search);
     const id = query.get("id");
 
-
     if (id === "XTR-92A4-MK7" || !id) {
     return (
         <>

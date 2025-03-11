@@ -29,7 +29,6 @@ export const SearchProvider = ({ children }) => {
         setSearchKey((prevKey) => prevKey + 1); // Increment the key to force re-fetch
     };
  
-
     // Fetch search results based on the query parameter
     useEffect(() => {
         if (searchQuery) {

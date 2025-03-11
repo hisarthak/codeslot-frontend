@@ -218,6 +218,7 @@ const pageUsername = cleanPathname.split('/').pop();
     setLoadingRepositories(true);
     setActiveSection("repositories");
 
+    
     if (userId) {
         try {
             const response = await fetch(`https://${apiUrl}/repo/user/${pageUsername}?userId=${userId}`);

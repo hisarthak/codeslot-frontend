@@ -116,6 +116,7 @@ border-radius: 5px;
   border: 1px solid #ffb1af;
 }
 
+
 @media(max-width: 510px){
   .link-left{
     padding-left: 1px;

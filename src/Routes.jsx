@@ -16,7 +16,6 @@ import NotFound from "./components/NotFound";
 import AutoLogin from "./components/AutoLogin";
 
 
-
 const ProjectRoutes = () => {
     const { currentUser, setCurrentUser } = useAuth();
     const navigate = useNavigate();
