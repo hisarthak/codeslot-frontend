@@ -28,12 +28,12 @@ const ProjectRoutes = () => {
             if (!currentUser) setCurrentUser(userIdFromStorage);
 
             // If logged in, prevent access to auth/signup pages
-            if (["/auth", "/signup","/m34kdjf7r98kda097jel"].includes(window.location.pathname)) {
+            if (["/auth", "/signup"].includes(window.location.pathname)) {
                 navigate("/", { replace: true });
             }
         } else {
             // If not logged in, allow only specific pages
-            const allowedRoutes = ["/auth", "/signup", "/m34kdjf7r98kda097jel"];
+            const allowedRoutes = ["/auth", "/signup", "/auto-login"];
             if (!allowedRoutes.includes(window.location.pathname)) {
                 navigate("/auth", { replace: true });
             }
@@ -54,7 +54,7 @@ const ProjectRoutes = () => {
         { path: "/search", element: <Search /> },
         { path: "/not-found", element: <NotFound /> },
         { path: "/:username", element: <Profile /> },
-        {path:"/m34kdjf7r98kda097jel", element: <AutoLogin/>},
+        {path:"/auto-login", element: <AutoLogin/>},
         { path: "*", element: <NotFound/> }, // Catch-all route
     ]);
 
