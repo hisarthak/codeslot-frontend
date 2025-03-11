@@ -191,7 +191,7 @@ outline: none;
 .the-repo-header-slash{
   display: inline;
 }
-@media(max-width: 700px){
+@media(max-width: 821px){
 .latest-commit{
   display: none;
 }
@@ -310,6 +310,7 @@ cursor: pointer;
 }
 
 .code-btn{
+  text-wrap: nowrap;
   height: 30px;
   display: flex;
   flex-direction: row;
@@ -495,6 +496,37 @@ flex-grow: 1;
 
 @media(max-width: 1100px){
   .repo-list {
+    width: 113%;
+    background-color: #010409;
+    color: white;
+    padding: 1px;
+    border-radius: 5px;
+    border: 1px solid  #b7bdc8;
+    border-top: 1px solid #b7bdc8;
+    display: flex;
+    flex-direction: column;
+    position: relative !important;
+  
+  }
+}
+@media(max-width: 990px){
+  .repo-list {
+    width: 120%;
+    background-color: #010409;
+    color: white;
+    padding: 1px;
+    border-radius: 5px;
+    border: 1px solid  #b7bdc8;
+    border-top: 1px solid #b7bdc8;
+    display: flex;
+    flex-direction: column;
+    position: relative !important;
+  
+  }
+}
+
+@media(max-width: 950px){
+  .repo-list {
     width: 100%;
     background-color: #010409;
     color: white;
@@ -508,6 +540,22 @@ flex-grow: 1;
   
   }
 }
+@media(max-width: 821px){
+  .repo-list {
+    width: 101%;
+    background-color: #010409;
+    color: white;
+    padding: 1px;
+    border-radius: 5px;
+    border: 1px solid  #b7bdc8;
+    border-top: 1px solid #b7bdc8;
+    display: flex;
+    flex-direction: column;
+    position: relative !important;
+  
+  }
+}
+
 
 @media(max-width: 768px){
 .center-elements2{
@@ -522,7 +570,7 @@ flex-grow: 1;
 }
 }
 
-@media(max-width: 540px){
+@media(max-width: 560px){
   .center-elements{
     display: none;
   }
