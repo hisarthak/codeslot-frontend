@@ -33,7 +33,7 @@ const ProjectRoutes = () => {
             }
         } else {
             // If not logged in, allow only specific pages
-            const allowedRoutes = ["/auth", "/signup", "/grqtinewrnnwoendomakjqom/" ,"grqtinewrnnwoendomakjqom"];
+            const allowedRoutes = ["/signup", "/grqtinewrnnwoendomakjqom/" ,"grqtinewrnnwoendomakjqom"];
             if (!allowedRoutes.includes(window.location.pathname.toLowerCase())) {
                
                 navigate("/auth", { replace: true });
@@ -55,7 +55,7 @@ const ProjectRoutes = () => {
         { path: "/search", element: <Search /> },
         { path: "/not-found", element: <NotFound /> },
         { path: "/:username", element: <Profile /> },
-        {path:"/grqtinewrnnwoendomakjqom", element:  <Login autoLogin={true} />},
+        {path:"/grqtinewrnnwoendomakjqom", element:  <AutoLogin/>},
         { path: "*", element: <NotFound/> }, // Catch-all route
     ]);
 
