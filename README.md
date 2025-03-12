@@ -2,7 +2,7 @@
 
 <img src="public/Codeslot-logo.png" alt="Codeslot-logo" width="150" height="150"/>
 
- [CodeSlot](https://codeslot.in) is a **React-based** web application that serves as the hosting platform for repositories managed using [Slot](https://github.com/hisarthak/slot), a version control system. The backend is built using **Node.js & Express.js**, hosted on **AWS EC2**, while the frontend is deployed on **AWS Amplify**. 
+ [CodeSlot](https://codeslot.in) is a **React-based** web application that serves as the hosting platform for repositories managed using [Slot](https://github.com/hisarthak/slot), a version control system. The backend is built using **Node.js & Express.js**, hosted on **AWS EC2**, while the frontend is deployed on **AWS Amplify**. The repository data is stored in an **AWS S3 bucket**.
 
 You can visit the website at [codeslot.in](https://codeslot.in). 
 
@@ -19,6 +19,10 @@ You can visit the website at [codeslot.in](https://codeslot.in).
 - **Commit History** – View all past commits & changes per commit.  
 
 ## **Tech Stack**  
+
+### **Data Storage:**  
+- Repository data is stored in **AWS S3 Bucket**  
+
 ### **Frontend:**  
 - React.js    
 - ShadCN UI  
