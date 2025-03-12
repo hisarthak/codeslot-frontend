@@ -28,12 +28,12 @@ const ProjectRoutes = () => {
             if (!currentUser) setCurrentUser(userIdFromStorage);
 
             // If logged in, prevent access to auth/signup pages
-            if (["/signup"].includes(window.location.pathname)) {
+            if (["/signup", "/auth", "/auth/", "/signup/"].includes(window.location.pathname)) {
                 navigate("/", { replace: true });
             }
         } else {
             // If not logged in, allow only specific pages
-            const allowedRoutes = ["/auth", "/signup", "/grqtinewrnnwoendomakjqom/" ,"grqtinewrnnwoendomakjqom"];
+            const allowedRoutes = ["/auth", "/auth/", "/signup/", "/signup", "/grqtinewrnnwoendomakjqom/" ,"grqtinewrnnwoendomakjqom"];
             if (!allowedRoutes.includes(window.location.pathname.toLowerCase())) {
                
                 navigate("/auth", { replace: true });
