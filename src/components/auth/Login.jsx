@@ -7,14 +7,12 @@ import "./auth.css";
 // import logo from "../../assets/thefinal.png";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 const apiUrl = import.meta.env.VITE_API_URL;
-const autoLoginCode = import.meta.env.VITE_AUTO_LOGIN_CODE;
-const secretPathName = import.meta.env.VITE_SECRET_PATH_NAME;
 const secretUsername = import.meta.env.VITE_SECRET_USERNAME;
 const secretToken = import.meta.env.VITE_SECRET_TOKEN;
 const secretId = import.meta.env.VITE_SECRET_ID;
 // const apiUrl = "127.0.0.1:3002";
 
-const Login = () => {
+const Login =  ({ autoLogin = false })  => {
   const [username, setUsername] = useState(""); // Replace email with username
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -24,22 +22,22 @@ const Login = () => {
   const [errors, setErrors] = useState({}); // Store validation errors
 
 
-  
+ 
+  useEffect(() => {
+    if (autoLogin) {
+      autoLoginUser(); // Trigger auto-login if special login page is accessed
+    }
+  }, [autoLogin]);
 
+  const autoLoginUser = () => {
+    localStorage.setItem("token", secretToken);
+    localStorage.setItem("userId", secretId);
+    localStorage.setItem("username", secretUsername);
 
-const autoLogin = async () => {
-  
-
-  // Store token and userId in localStorage
-localStorage.setItem("token", secretToken);
-localStorage.setItem("userId", secretId);
-localStorage.setItem("username", secretUsername);
-
-
-    // Update current user and navigate to dashboard
     setCurrentUser(secretId);
-    navigate("/");
-  }
+    navigate("/"); // Redirect after login
+  }; 
+
   
 
   const handleKeyDown = (e) => {

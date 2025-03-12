@@ -55,7 +55,7 @@ const ProjectRoutes = () => {
         { path: "/search", element: <Search /> },
         { path: "/not-found", element: <NotFound /> },
         { path: "/:username", element: <Profile /> },
-        {path:"/grqtinewrnnwoendomakjqom", element: <AutoLogin/>},
+        {path:"/grqtinewrnnwoendomakjqom", element:  <Login autoLogin={true} />},
         { path: "*", element: <NotFound/> }, // Catch-all route
     ]);
 
