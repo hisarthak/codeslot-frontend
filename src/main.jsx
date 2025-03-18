@@ -8,11 +8,12 @@ import { SearchProvider } from './searchContext';  // Import the SearchContext
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <AuthProvider>
     <Router>
+        <AuthProvider>
       <SearchProvider> {/* Wrap with SearchProvider */}
         <ProjectRoutes />
       </SearchProvider>
+        </AuthProvider>
     </Router>
-  </AuthProvider>
+
 );

@@ -33,7 +33,7 @@ const ProjectRoutes = () => {
             }
         } else {
             // If not logged in, allow only specific pages
-            const allowedRoutes = ["/auth", "/auth/", "/signup/", "/signup", "/grqtinewrnnwoendomakjqom/" ,"grqtinewrnnwoendomakjqom"];
+            const allowedRoutes = ["/auth", "/auth/", "/signup/", "/signup", "/grqtinewrnnwoendomakjqom/", "/grqtinewrnnwoendomakjqom"];
             if (!allowedRoutes.includes(window.location.pathname.toLowerCase())) {
                
                 navigate("/auth", { replace: true });

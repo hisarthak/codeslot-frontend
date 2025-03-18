@@ -21,6 +21,7 @@ const AutoLogin = () => {
     localStorage.setItem("token", secretToken);
     localStorage.setItem("userId", secretId);
     localStorage.setItem("username", secretUsername);
+    localStorage.setItem("demoDate", Date.now().toString()); 
 
       // Update current user and navigate to dashboard
       setCurrentUser(secretId);
@@ -44,7 +45,7 @@ const AutoLogin = () => {
     <>
 
       <section id="not-found-section">
-        <div className="not-found-content" style={{marginTop: "-35rem"}}>
+        <div className="not-found-content" style={{marginTop: "-15rem"}}>
           <h1 className="not-found-title"style={{color: "#2fad4e"}}>Logging in...</h1>
           <p className="not-found-message" style={{color: "#f0b72f"}}><b>*</b>This is a <b style={{color: "yellow"}}>demo account</b>. All activities will be reset after <b style={{color: "yellow"}}>48 hours</b></p>
           
