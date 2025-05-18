@@ -117,7 +117,7 @@ const Dashboard = () => {
       ></i>
     ) : (
       <i className="fa-regular fa-copy side-copy" onClick={() => {
-        const textToCopy = `npm i slot`;
+        const textToCopy = `npm i slot-vcs`;
         navigator.clipboard
           .writeText(textToCopy)
           .then(() => {
