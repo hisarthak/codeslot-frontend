@@ -110,7 +110,7 @@ const Dashboard = () => {
     <h2>How to Use Slot-VCS - The Version Control System</h2>
     <h3>1. Install Slot</h3>
     <p className="dash-para">To install Slot, run the following command in your terminal:</p>
-    <pre className="pre-box"><code>npm i -g slot {isCopied==1 ? (
+    <pre className="pre-box"><code>npm i -g slot-vcs {isCopied==1 ? (
       <i
         className="fa-solid fa-check side-copy"
         style={{ color: "#2fad4e", cursor: "pointer" }}
